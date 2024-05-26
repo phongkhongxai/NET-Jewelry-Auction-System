@@ -1,0 +1,198 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\groupprojectprn221.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\groupprojectprn221.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\userauction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\userauction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\jewelrymaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\jewelrymaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\jewelry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\jewelry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\panacea_net1705_groupproject\\businessobjects\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Role.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Role.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Role.cs",
+              "RelativeToolTip": "BusinessObjects\\Role.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T04:46:21.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Material.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Material.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Material.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Material.cs",
+              "RelativeToolTip": "BusinessObjects\\Material.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T02:13:00.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserAuction.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\UserAuction.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\UserAuction.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\UserAuction.cs",
+              "RelativeToolTip": "BusinessObjects\\UserAuction.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T04:35:50.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Users.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Users.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Users.cs",
+              "RelativeToolTip": "BusinessObjects\\Users.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAuwCMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T01:52:58.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GroupProjectPRN221.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\GroupProjectPRN221.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\GroupProjectPRN221.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\GroupProjectPRN221.cs",
+              "RelativeToolTip": "BusinessObjects\\GroupProjectPRN221.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T04:16:30.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "JewelryMaterial.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\JewelryMaterial.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\JewelryMaterial.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\JewelryMaterial.cs",
+              "RelativeToolTip": "BusinessObjects\\JewelryMaterial.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T04:41:53.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Jewelry.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Jewelry.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Jewelry.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Jewelry.cs",
+              "RelativeToolTip": "BusinessObjects\\Jewelry.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T02:03:48.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Invoice.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Invoice.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Invoice.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Invoice.cs",
+              "RelativeToolTip": "BusinessObjects\\Invoice.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T04:05:00.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Bid.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Bid.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Bid.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Bid.cs",
+              "RelativeToolTip": "BusinessObjects\\Bid.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T02:16:46.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Auction.cs",
+              "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Auction.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Auction.cs",
+              "ToolTip": "D:\\Semester 7\\FPT - PRN221\\Panacea_NET1705_GroupProject\\BusinessObjects\\Auction.cs",
+              "RelativeToolTip": "BusinessObjects\\Auction.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T02:01:17.784Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
