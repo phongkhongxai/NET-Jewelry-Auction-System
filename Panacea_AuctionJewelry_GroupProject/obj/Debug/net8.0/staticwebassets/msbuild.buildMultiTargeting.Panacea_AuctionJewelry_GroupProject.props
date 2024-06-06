@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Panacea_AuctionJewelry_GroupProject.props" />
+</Project>
