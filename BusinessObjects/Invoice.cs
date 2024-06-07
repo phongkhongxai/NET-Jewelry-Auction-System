@@ -19,7 +19,7 @@ namespace BusinessObjects
 
         [ForeignKey("Users")]
         public int UserId { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual User User { get; set; }
 
         [Required]
         public decimal TotalPrice { get; set; }

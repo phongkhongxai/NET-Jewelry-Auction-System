@@ -15,6 +15,6 @@ namespace BusinessObjects
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
-        public virtual ICollection<Users> Users { get; set; } = new List<Users>();
+        public virtual ICollection<User> User { get; set; } = new List<User>();
     }
 }
