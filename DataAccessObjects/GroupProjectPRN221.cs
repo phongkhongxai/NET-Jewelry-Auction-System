@@ -59,7 +59,7 @@ namespace DataAccessObjects
                 entity.Property(e => e.Gender).HasMaxLength(10);
                 entity.Property(e => e.Address).HasMaxLength(200);
                 entity.Property(e => e.Password).IsRequired();
-                entity.HasOne(e => e.Role).WithMany(r => r.Users).HasForeignKey(e => e.RoleId);
+                entity.HasOne(e => e.Role).WithMany(r => r.User).HasForeignKey(e => e.RoleId);
             });
 
             // Role
@@ -105,7 +105,7 @@ namespace DataAccessObjects
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Amount).IsRequired();
                 entity.Property(e => e.BidTime).IsRequired().HasColumnType("datetime");
-                entity.HasOne(e => e.Users).WithMany(u => u.Bids).HasForeignKey(e => e.UserId);
+                entity.HasOne(e => e.User).WithMany(u => u.Bids).HasForeignKey(e => e.UserId);
             });
 
             // Invoice
@@ -114,7 +114,7 @@ namespace DataAccessObjects
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.TotalPrice).IsRequired();
                 entity.Property(e => e.InvoiceDate).IsRequired().HasColumnType("datetime");
-                entity.HasOne(e => e.Users).WithMany(u => u.Invoices).HasForeignKey(e => e.UserId);
+                entity.HasOne(e => e.User).WithMany(u => u.Invoices).HasForeignKey(e => e.UserId);
             });
 
             // JewelryMaterial
