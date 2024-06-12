@@ -7,21 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BusinessObjects;
 using DataAccessObjects;
+using Service;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
     public class CreateModel : PageModel
     {
-        private readonly DataAccessObjects.GroupProjectPRN221 _context;
+        //private readonly DataAccessObjects.GroupProjectPRN221 _context;
 
-        public CreateModel(DataAccessObjects.GroupProjectPRN221 context)
-        {
-            _context = context;
-        }
+        //public CreateModel(DataAccessObjects.GroupProjectPRN221 context)
+        //{
+        //    _context = context;
+        //}
 
-        public IActionResult OnGet()
+        private IUserService userService = new UserService();
+
+		public IActionResult OnGet()
         {
-        ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Name");
+        //ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Name");
             return Page();
         }
 
@@ -36,10 +39,14 @@ namespace Panacea_GroupProject.Pages.UsersPage
                 return Page();
             }
 
-            _context.Users.Add(User);
-            await _context.SaveChangesAsync();
+            User.RoleId = 3; //member
 
-            return RedirectToPage("./Index");
+            //_context.Users.Add(User);
+            //await _context.SaveChangesAsync();
+
+            userService.CreateUser(User);
+
+			return RedirectToPage("./Index");
         }
     }
 }

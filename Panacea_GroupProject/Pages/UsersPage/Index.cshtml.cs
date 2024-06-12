@@ -20,15 +20,19 @@ namespace Panacea_GroupProject.Pages.UsersPage
         //    _context = context;
         //}
 
-        private IUserService userService = new UserService();
+        private readonly IUserService _userService;
+        public IndexModel(IUserService userService)
+        {
+            _userService = userService;
+        }
 
         public IList<User> User { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
             //User = await _context.Users
             //    .Include(u => u.Role).ToListAsync();
-            User = userService.GetUsers();
+            User = _userService.GetUsers();
         }
     }
 }
