@@ -29,3 +29,23 @@ D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\S
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\refint\Service.dll
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.pdb
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\ref\Service.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Service.deps.json
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Service.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Service.pdb
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\BusinessObjects.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\DataAccessObjects.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Repository.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\BusinessObjects.pdb
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Repository.pdb
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\DataAccessObjects.pdb
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.csproj.AssemblyReference.cache
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.AssemblyInfoInputs.cache
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.AssemblyInfo.cs
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.csproj.CoreCompileInputs.cache
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.sourcelink.json
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.csproj.CopyComplete
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\refint\Service.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.pdb
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\ref\Service.dll

@@ -44,7 +44,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
             //_context.Users.Add(User);
             //await _context.SaveChangesAsync();
 
-            userService.CreateUser(User);
+            //userService.CreateUser(User);
 
 			return RedirectToPage("./Index");
         }

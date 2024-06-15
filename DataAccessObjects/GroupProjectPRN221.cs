@@ -53,13 +53,16 @@ namespace DataAccessObjects
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-                entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
+                entity.Property(e => e.Email).IsRequired().HasMaxLength(100); 
                 entity.Property(e => e.Phone).HasMaxLength(15);
                 entity.Property(e => e.Dob).HasColumnType("date");
                 entity.Property(e => e.Gender).HasMaxLength(10);
                 entity.Property(e => e.Address).HasMaxLength(200);
                 entity.Property(e => e.Password).IsRequired();
-                entity.HasOne(e => e.Role).WithMany(r => r.User).HasForeignKey(e => e.RoleId);
+                entity.HasOne(e => e.Role).WithMany(r => r.User).HasForeignKey(e => e.RoleId); 
+                entity.HasIndex(e => e.Email).IsUnique();
+                entity.HasIndex(e => e.Phone).IsUnique();
+
             });
 
             // Role

@@ -33,6 +33,7 @@ namespace DataAccessObjects
             using var db = new GroupProjectPRN221();
             return db.Users.FirstOrDefault(u => u.Id == id && !u.IsDelete);
         }
+ 
 
         public static void CreateUser(User user)
         {

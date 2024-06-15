@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusinessObjects
 {
@@ -18,7 +19,7 @@ namespace BusinessObjects
         public string Name { get; set; }
 
         [Required]
-        [EmailAddress]
+        [EmailAddress] 
         public string Email { get; set; }
 
         [MaxLength(15)]
@@ -29,7 +30,7 @@ namespace BusinessObjects
         [ForeignKey("Role")]
         public int RoleId { get; set; }
         public virtual Role Role { get; set; }
-
+         
         [MaxLength(10)]
         public string Gender { get; set; }
 
