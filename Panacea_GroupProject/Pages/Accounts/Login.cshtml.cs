@@ -31,7 +31,7 @@ namespace Panacea_GroupProject.Pages.Accounts
                 return Page();
             }
             HttpContext.Session.SetObjectAsJson("LoggedInUser", user);   
-            return RedirectToPage("/Index"); 
+            return RedirectToPage("/Template/Index"); 
         }
     }
 }
