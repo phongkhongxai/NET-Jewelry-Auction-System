@@ -13,7 +13,8 @@ namespace Service
         public List<User> GetUsers();
 		public User GetUserByID(int id);
 		public void CreateUser(User user);
-		public void UpdateUser(User user);
+        
+        public void UpdateUser(User user);
 		public void DeleteUser(User user);
 		public List<User> SearchUser(string name, string email);
 	}
