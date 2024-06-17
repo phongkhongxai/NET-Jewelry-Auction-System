@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{EF1B99B4-2E23-4E2B-B3E7-731DE7E2F436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panacea_GroupProject", "Panacea_GroupProject\Panacea_GroupProject.csproj", "{5E3E6F10-FA00-46D6-98C6-37A65547B808}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Panacea_GroupProject", "Panacea_GroupProject\Panacea_GroupProject.csproj", "{5E3E6F10-FA00-46D6-98C6-37A65547B808}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

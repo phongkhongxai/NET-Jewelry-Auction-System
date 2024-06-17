@@ -12,16 +12,31 @@ D:\Semester 7\FPT - PRN221\Panacea_NET1705_GroupProject\BusinessObjects\obj\Debu
 D:\Semester 7\FPT - PRN221\Panacea_NET1705_GroupProject\BusinessObjects\obj\Debug\net8.0\BusinessObjects.pdb
 D:\Semester 7\FPT - PRN221\Panacea_NET1705_GroupProject\BusinessObjects\obj\Debug\net8.0\BusinessObjects.genruntimeconfig.cache
 D:\Semester 7\FPT - PRN221\Panacea_NET1705_GroupProject\BusinessObjects\obj\Debug\net8.0\ref\BusinessObjects.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.deps.json
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.runtimeconfig.json
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.pdb
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.csproj.AssemblyReference.cache
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.AssemblyInfoInputs.cache
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.AssemblyInfo.cs
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.csproj.CoreCompileInputs.cache
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.sourcelink.json
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\refint\BusinessObjects.dll
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.pdb
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.genruntimeconfig.cache
+D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\ref\BusinessObjects.dll
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.deps.json
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.runtimeconfig.json
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.dll
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.pdb
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.csproj.AssemblyReference.cache
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.AssemblyInfoInputs.cache
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.AssemblyInfo.cs
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.csproj.CoreCompileInputs.cache
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.sourcelink.json
-D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.deps.json
-D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.runtimeconfig.json
-D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.dll
-D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\bin\Debug\net8.0\BusinessObjects.pdb
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.dll
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\refint\BusinessObjects.dll
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\BusinessObjects\obj\Debug\net8.0\BusinessObjects.pdb
