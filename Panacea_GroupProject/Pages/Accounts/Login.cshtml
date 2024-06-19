@@ -4,8 +4,7 @@
     ViewData["Title"] = "Login";
 }
 
-<!DOCTYPE html>
-<html lang="en">
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,23 +13,33 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="wrapper">
         <form method="post">
             <h1>Login</h1>
             <div class="input-box">
                 <input type="text" placeholder="Email" asp-for="Email" required>
                 <span asp-validation-for="Email"></span>
+=======
+    <div class=" wrapper container-fluid">
+        <form action="" method="post">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" asp-for="Email" placeholder="Email" required>
+>>>>>>> 46ee39115b877dcd163520425765df480be4ed6d
                 <i class='bx bxs-user'></i>
+                <span asp-validation-for="Email"></span>
             </div>
             <div class="input-box">
+<<<<<<< HEAD
                 <input type="password" placeholder="Password" asp-for="Password" required>
                 <span asp-validation-for="Password"></span>
+=======
+                <input type="password" asp-for="Password" placeholder="Password" required>
+>>>>>>> 46ee39115b877dcd163520425765df480be4ed6d
                 <i class='bx bxs-lock-alt'></i>
-            </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox">Remember Me</label>
-                <a href="#">Forgot Password</a>
-            </div>
+                <span asp-validation-for="Password"></span>
+            </div> 
             <button type="submit" class="btn">Login</button>
             <div class="register-link">
                 <p>Don't have an account? <a href="/Accounts/Register">Register</a></p>
@@ -38,4 +47,8 @@
         </form>
     </div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+ 
+>>>>>>> 46ee39115b877dcd163520425765df480be4ed6d
