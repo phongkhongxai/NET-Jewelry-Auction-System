@@ -7,15 +7,15 @@
       "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\groupprojectprn221.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|d:\\semester 7\\fpt - prn221\\net-jewelry-auction-system\\dataaccessobjects\\groupprojectprn221.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\dataaccessobjects\\groupprojectprn221.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\groupprojectprn221.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\semester 7\\fpt - prn221\\net-jewelry-auction-system\\businessobjects\\migrations\\20240619092045_initial.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\businessobjects\\migrations\\20240619092045_initial.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\migrations\\20240619092045_initial.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\semester 7\\fpt - prn221\\net-jewelry-auction-system\\panacea_groupproject\\pages\\template\\myprofile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\panacea_groupproject\\pages\\template\\myprofile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\template\\myprofile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "BusinessObjects\\GroupProjectPRN221.cs",
               "ToolTip": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\GroupProjectPRN221.cs",
               "RelativeToolTip": "BusinessObjects\\GroupProjectPRN221.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAYwAYAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-19T13:41:30.064Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "DataAccessObjects\\GroupProjectPRN221.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T13:41:20.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T13:41:20.722Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "BusinessObjects\\Migrations\\20240619092045_Initial.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T13:41:01.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T13:41:01.288Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "Panacea_GroupProject\\Pages\\Template\\MyProfile.cshtml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T09:24:59.715Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T09:24:59.715Z"
             }
           ]
         }
