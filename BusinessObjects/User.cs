@@ -45,5 +45,6 @@ namespace BusinessObjects
 
         public virtual ICollection<Bid> Bids { get; set; } = new List<Bid>();
         public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
+        public virtual ICollection<AuctionRequest> AuctionRequests { get; set; } = new List<AuctionRequest>();
     }
 }

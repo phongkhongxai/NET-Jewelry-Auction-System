@@ -27,6 +27,7 @@ namespace DataAccessObjects
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<JewelryMaterial> JewelryMaterials { get; set; }
         public DbSet<UserAuction> UserAuctions { get; set; }
+        public DbSet<AuctionRequest> AuctionRequests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -134,6 +135,20 @@ namespace DataAccessObjects
                 entity.HasKey(e => e.Id);
                 entity.HasOne(e => e.User).WithMany(u => u.UserAuctions).HasForeignKey(e => e.UserId);
                 entity.HasOne(e => e.Auction).WithMany(a => a.UserAuctions).HasForeignKey(e => e.AuctionId);
+            });
+
+            // AuctionRequest
+            modelBuilder.Entity<AuctionRequest>(enttity =>
+            {
+                enttity.HasKey(e => e.id);
+                enttity.Property(e => e.Title).IsRequired();
+                enttity.Property(e => e.Description);
+                enttity.Property(e => e.Image);
+                enttity.HasOne(e => e.Auction).WithMany(a => a.AuctionRequests).HasForeignKey(e => e.AuctionId);
+                enttity.HasOne(e => e.User).WithMany(u => u.AuctionRequests).HasForeignKey(e => e.UserId);
+                enttity.Property(e => e.RequestDate).HasColumnType("datetime");
+                enttity.Property(e => e.Status).HasMaxLength(20);
+                enttity.Property(e => e.IsDelete);
             });
         }
     }

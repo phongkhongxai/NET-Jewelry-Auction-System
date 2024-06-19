@@ -40,24 +40,28 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact us</a>
                             </li>
-                            @if (loggedInUser != null)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">@loggedInUser.Name</a>
-                                </li>
-                                <li class="nav-item">
-                                    <form method="post" asp-page="/Accounts/Logout" class="form-inline">
-                                        <button type="submit" class="btn btn-link nav-link">Logout</button>
-                                    </form>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/Accounts/Login">Login</a>
-                                </li>
-                            }
-                        </ul>
+                  
+
+                                @if (Model.LoggedInUser != null)
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Hi, @Model.LoggedInUser.Name
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="/Accounts/Login">Logout</a>
+                                        </div>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Accounts/Login">Login</a>
+                                    </li>
+                                }
+                        
 
                     </div>
                     <div class="quote_btn-container ">
