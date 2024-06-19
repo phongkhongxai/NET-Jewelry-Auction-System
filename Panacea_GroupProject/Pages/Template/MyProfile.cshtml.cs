@@ -25,5 +25,33 @@ namespace Panacea_GroupProject.Pages.Template
 
             return Page();
         }
+
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            User = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+            if (User == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            // Update user properties with form data
+            User.Name = Request.Form["name"];
+            User.Email = Request.Form["email"];
+            User.Address = Request.Form["address"];
+            User.Dob = DateOnly.Parse(Request.Form["dob"]);
+
+            // Update user in the database
+            _userService.UpdateUser(User);
+
+            // Update the session
+            HttpContext.Session.SetObjectAsJson("LoggedInUser", User);
+
+            return RedirectToPage("/Template/MyProfile");
+        }
     }
 }
