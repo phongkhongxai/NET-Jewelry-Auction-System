@@ -15,14 +15,16 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="">
+        <form method="post">
             <h1>Login</h1>
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" placeholder="Email" asp-for="Email" required>
+                <span asp-validation-for="Email"></span>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" asp-for="Password" required>
+                <span asp-validation-for="Password"></span>
                 <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="remember-forgot">
@@ -31,7 +33,7 @@
             </div>
             <button type="submit" class="btn">Login</button>
             <div class="register-link">
-                <p>Dont have an account? <a href="/Accounts/Register">Register</a></p>
+                <p>Don't have an account? <a href="/Accounts/Register">Register</a></p>
             </div>
         </form>
     </div>

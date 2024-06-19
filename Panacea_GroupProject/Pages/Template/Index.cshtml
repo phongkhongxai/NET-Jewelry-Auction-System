@@ -57,9 +57,26 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/Template/Contact">Contact us</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/Accounts/Login">Login</a>
-                                </li>
+                                @if (Model.LoggedInUser != null)
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Hi, @Model.LoggedInUser.Name
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="/Accounts/Login">Logout</a>
+                                        </div>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Accounts/Login">Login</a>
+                                    </li>
+                                }
+
                             </ul>
                         </div>
 
