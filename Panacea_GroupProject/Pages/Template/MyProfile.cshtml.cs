@@ -51,6 +51,8 @@ namespace Panacea_GroupProject.Pages.Template
             // Update the session
             HttpContext.Session.SetObjectAsJson("LoggedInUser", User);
 
+            TempData["SuccessMessage"] = "Profile updated successfully!";
+
             return RedirectToPage("/Template/MyProfile");
         }
     }
