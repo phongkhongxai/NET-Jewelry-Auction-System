@@ -44,6 +44,9 @@ namespace Repository
 			return UserDAO.SearchUser(name, email);
 		}
 
-        
+        public List<Role> GetRoles()
+        {
+            return UserDAO.GetAllRoles();	
+        }
     }
 }
