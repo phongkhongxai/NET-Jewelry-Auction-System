@@ -28,7 +28,12 @@ namespace Service
 			userRepository.DeleteUser(user);
 		}
 
-		public User GetUserByID(int id)
+        public List<Role> GetRoles()
+        {
+            return userRepository.GetRoles();
+        }
+
+        public User GetUserByID(int id)
 		{
 			return userRepository.GetUserByID(id);
 		}

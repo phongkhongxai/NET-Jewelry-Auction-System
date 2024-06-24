@@ -105,5 +105,17 @@ namespace DataAccessObjects
 			}
 		}
 
-	}
+        public static List<Role> GetAllRoles()
+        {
+            try
+            {
+                using var db = new GroupProjectPRN221();
+                return db.Roles.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error getting roles: " + ex.Message);
+            }
+        }
+    }
 }

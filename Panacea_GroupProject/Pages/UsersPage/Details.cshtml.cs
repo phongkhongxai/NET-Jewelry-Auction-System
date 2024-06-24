@@ -7,28 +7,36 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
+using Service;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
     public class DetailsModel : PageModel
     {
-        private readonly DataAccessObjects.GroupProjectPRN221 _context;
+        //private readonly DataAccessObjects.GroupProjectPRN221 _context;
 
-        public DetailsModel(DataAccessObjects.GroupProjectPRN221 context)
+        //public DetailsModel(DataAccessObjects.GroupProjectPRN221 context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IUserService _userService;
+
+        public DetailsModel(IUserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         public User User { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            var user = _userService.GetUserByID(id.Value);
             if (user == null)
             {
                 return NotFound();

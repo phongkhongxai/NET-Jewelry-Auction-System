@@ -17,5 +17,6 @@ namespace Service
         public void UpdateUser(User user);
 		public void DeleteUser(User user);
 		public List<User> SearchUser(string name, string email);
+        public List<Role> GetRoles();   
 	}
 }
