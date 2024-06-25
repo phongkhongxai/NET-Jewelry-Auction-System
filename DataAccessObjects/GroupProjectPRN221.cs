@@ -94,6 +94,10 @@ namespace DataAccessObjects
                 entity.Property(e => e.Description);
                 entity.Property(e => e.Price).IsRequired();
                 entity.HasMany(e => e.Auctions).WithOne(a => a.Jewelry).HasForeignKey(a => a.JewelryId);
+                entity.HasOne(e => e.AuctionRequest)
+                      .WithOne(a => a.Jewelry)
+                      .HasForeignKey<Jewelry>(e => e.AuctionRequestId)
+                      .IsRequired(false);
             });
 
             // Material
@@ -140,11 +144,10 @@ namespace DataAccessObjects
             // AuctionRequest
             modelBuilder.Entity<AuctionRequest>(enttity =>
             {
-                enttity.HasKey(e => e.id);
+                enttity.HasKey(e => e.Id);
                 enttity.Property(e => e.Title).IsRequired();
                 enttity.Property(e => e.Description);
                 enttity.Property(e => e.Image);
-                enttity.HasOne(e => e.Auction).WithMany(a => a.AuctionRequests).HasForeignKey(e => e.AuctionId);
                 enttity.HasOne(e => e.User).WithMany(u => u.AuctionRequests).HasForeignKey(e => e.UserId);
                 enttity.Property(e => e.RequestDate).HasColumnType("datetime");
                 enttity.Property(e => e.Status).HasMaxLength(20);

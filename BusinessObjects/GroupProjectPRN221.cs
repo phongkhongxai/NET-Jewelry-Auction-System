@@ -94,6 +94,10 @@ namespace BusinessObjects
                 entity.Property(e => e.Description);
                 entity.Property(e => e.Price).IsRequired();
                 entity.HasMany(e => e.Auctions).WithOne(a => a.Jewelry).HasForeignKey(a => a.JewelryId);
+                entity.HasOne(e => e.AuctionRequest)
+                      .WithOne(a => a.Jewelry)
+                      .HasForeignKey<Jewelry>(e => e.AuctionRequestId)
+                      .IsRequired(false);
             });
 
             // Material
@@ -138,17 +142,16 @@ namespace BusinessObjects
             });
 
             // AuctionRequest
-            modelBuilder.Entity<AuctionRequest>(enttity =>
+            modelBuilder.Entity<AuctionRequest>(entity =>
             {
-                enttity.HasKey(e => e.id);
-                enttity.Property(e => e.Title).IsRequired();
-                enttity.Property(e => e.Description);
-                enttity.Property(e => e.Image);
-                enttity.HasOne(e => e.Auction).WithMany(a => a.AuctionRequests).HasForeignKey(e => e.AuctionId);
-                enttity.HasOne(e => e.User).WithMany(u => u.AuctionRequests).HasForeignKey(e => e.UserId);
-                enttity.Property(e => e.RequestDate).HasColumnType("datetime");
-                enttity.Property(e => e.Status).HasMaxLength(20);
-                enttity.Property(e => e.IsDelete);
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Title).IsRequired();
+                entity.Property(e => e.Description);
+                entity.Property(e => e.Image);
+                entity.HasOne(e => e.User).WithMany(u => u.AuctionRequests).HasForeignKey(e => e.UserId);
+                entity.Property(e => e.RequestDate).HasColumnType("datetime");
+                entity.Property(e => e.Status).HasMaxLength(20);
+                entity.Property(e => e.IsDelete);
             });
         }
     }
