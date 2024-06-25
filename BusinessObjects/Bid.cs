@@ -17,7 +17,7 @@ namespace BusinessObjects
         public int AuctionId { get; set; }
         public virtual Auction Auction { get; set; }
 
-        [ForeignKey("Users")]
+        [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
 
