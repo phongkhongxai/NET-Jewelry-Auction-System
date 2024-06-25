@@ -9,7 +9,7 @@ namespace BusinessObjects
 {
     public class Role
     {
-        [Key] 
+        [Key]
         public int Id { get; set; }
 
         [Required]

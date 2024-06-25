@@ -54,13 +54,13 @@ namespace DataAccessObjects
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-                entity.Property(e => e.Email).IsRequired().HasMaxLength(100); 
+                entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.Phone).HasMaxLength(15);
                 entity.Property(e => e.Dob).HasColumnType("date");
                 entity.Property(e => e.Gender).HasMaxLength(10);
                 entity.Property(e => e.Address).HasMaxLength(200);
                 entity.Property(e => e.Password).IsRequired();
-                entity.HasOne(e => e.Role).WithMany(r => r.User).HasForeignKey(e => e.RoleId); 
+                entity.HasOne(e => e.Role).WithMany(r => r.User).HasForeignKey(e => e.RoleId);
                 entity.HasIndex(e => e.Email).IsUnique();
                 entity.HasIndex(e => e.Phone).IsUnique();
 
@@ -93,6 +93,11 @@ namespace DataAccessObjects
                 entity.Property(e => e.Name).IsRequired();
                 entity.Property(e => e.Description);
                 entity.Property(e => e.Price).IsRequired();
+                entity.Property(e => e.IsDelete).IsRequired();
+                entity.HasOne(e => e.AuctionRequest)
+                      .WithOne(a => a.Jewelry)
+                      .HasForeignKey<Jewelry>(e => e.AuctionRequestId)
+                      .IsRequired(false); // This makes the relationship optional
                 entity.HasMany(e => e.Auctions).WithOne(a => a.Jewelry).HasForeignKey(a => a.JewelryId);
             });
 
@@ -138,17 +143,16 @@ namespace DataAccessObjects
             });
 
             // AuctionRequest
-            modelBuilder.Entity<AuctionRequest>(enttity =>
+            modelBuilder.Entity<AuctionRequest>(entity =>
             {
-                enttity.HasKey(e => e.id);
-                enttity.Property(e => e.Title).IsRequired();
-                enttity.Property(e => e.Description);
-                enttity.Property(e => e.Image);
-                enttity.HasOne(e => e.Auction).WithMany(a => a.AuctionRequests).HasForeignKey(e => e.AuctionId);
-                enttity.HasOne(e => e.User).WithMany(u => u.AuctionRequests).HasForeignKey(e => e.UserId);
-                enttity.Property(e => e.RequestDate).HasColumnType("datetime");
-                enttity.Property(e => e.Status).HasMaxLength(20);
-                enttity.Property(e => e.IsDelete);
+                entity.HasKey(e => e.Id);  
+                entity.Property(e => e.Title);
+                entity.Property(e => e.Description);
+                entity.Property(e => e.Image);
+                entity.Property(e => e.RequestDate).HasColumnType("datetime");
+                entity.Property(e => e.Status).HasMaxLength(20);
+                entity.Property(e => e.IsDelete).IsRequired();
+                entity.HasOne(e => e.User).WithMany(u => u.AuctionRequests).HasForeignKey(e => e.UserId);
             });
         }
     }
