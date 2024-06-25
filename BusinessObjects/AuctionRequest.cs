@@ -11,21 +11,20 @@ namespace BusinessObjects
     public class AuctionRequest
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Image { get; set; }
-        [ForeignKey("Auction")]
-        public int AuctionId { get; set; }
-        public virtual Auction Auction { get; set; }
+        public string Image { get; set; } 
 
-        [ForeignKey("Users")]
+        [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public DateTime RequestDate { get; set; }
         public string Status { get; set; }
 
-        public bool IsDelete { get; set; } = false;
+        public bool IsDelete { get; set; } = false; 
+
+        public virtual Jewelry Jewelry { get; set; }
 
     }
 }
