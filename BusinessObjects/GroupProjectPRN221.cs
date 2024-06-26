@@ -99,6 +99,10 @@ namespace BusinessObjects
                       .HasForeignKey<Jewelry>(e => e.AuctionRequestId)
                       .IsRequired(false); // This makes the relationship optional
                 entity.HasMany(e => e.Auctions).WithOne(a => a.Jewelry).HasForeignKey(a => a.JewelryId);
+                entity.HasOne(e => e.AuctionRequest)
+                      .WithOne(a => a.Jewelry)
+                      .HasForeignKey<Jewelry>(e => e.AuctionRequestId)
+                      .IsRequired(false);
             });
 
             // Material

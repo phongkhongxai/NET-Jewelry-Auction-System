@@ -28,5 +28,6 @@ namespace BusinessObjects
         public virtual ICollection<JewelryMaterial> JewelryMaterials { get; set; } = new List<JewelryMaterial>();
 
 
+
     }
 }
