@@ -10,7 +10,10 @@ namespace Repository
     public interface IAuctionRequestRepository
     {
         public List<AuctionRequest> GetAllAuctionRq();
-        public AuctionRequest GetAuctionRqById(int id);
+
+        public List<AuctionRequest> GetAllAuctionRequestsWithoutJewelry();
+
+		public AuctionRequest GetAuctionRqById(int id);
         public void CreateAuctionRequest(AuctionRequest auctionRequest);
         public void UpdateAuctionRequest(AuctionRequest auctionRequest);
         public void DeleteAuctionRequest(AuctionRequest auctionRequest);

@@ -47,8 +47,29 @@ namespace DataAccessObjects
             return list;
         }
 
-        // Update
-        public static void UpdateAuctionRequest(AuctionRequest auctionRequest)
+		public static List<AuctionRequest> GetAllAuctionRequestsWithoutJewelry()
+		{
+			List<AuctionRequest> list = new List<AuctionRequest>();
+			try
+			{
+				using (var db = new GroupProjectPRN221())
+				{
+					// Query AuctionRequests that do not have associated Jewelry
+					list = db.AuctionRequests
+						.Where(ar => ar.Jewelry == null)
+						.ToList();
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception("Error retrieving AuctionRequests without Jewelry: " + ex.Message);
+			}
+			return list;
+		}
+
+
+		// Update
+		public static void UpdateAuctionRequest(AuctionRequest auctionRequest)
         {
             try
             {

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+ 
 using BusinessObjects;
-using DataAccessObjects;
+ 
 using Service;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+ 
 
 namespace Panacea_GroupProject.Pages.AuctionRequestPage
 {
@@ -84,8 +84,7 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
                 if (user == null)
                 {
                     return NotFound();
-                }
-                Console.WriteLine(user.Id);
+                } 
 
                 AuctionRequest auction = new AuctionRequest { User = user, Title = Title, Description = Description,
                 Image = Image,

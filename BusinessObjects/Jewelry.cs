@@ -17,6 +17,8 @@ namespace BusinessObjects
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public string Image { get; set; }
+
         public bool IsDelete { get; set; } = false;
 
         [ForeignKey("AuctionRequest")]
@@ -26,6 +28,7 @@ namespace BusinessObjects
         public virtual ICollection<Auction> Auctions { get; set; } = new List<Auction>();
 
         public virtual ICollection<JewelryMaterial> JewelryMaterials { get; set; } = new List<JewelryMaterial>();
+
 
 
     }
