@@ -25,19 +25,3 @@ D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debu
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.pdb
 D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\ref\DataAccessObjects.dll
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.AssemblyReference.cache
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.GeneratedMSBuildEditorConfig.editorconfig
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfoInputs.cache
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfo.cs
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.CoreCompileInputs.cache
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.sourcelink.json
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.deps.json
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.dll
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.pdb
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\BusinessObjects.dll
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\BusinessObjects.pdb
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.CopyComplete
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.dll
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.pdb
-D:\FPT\PRN221\Asg nhom\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\ref\DataAccessObjects.dll
