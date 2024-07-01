@@ -20,7 +20,13 @@ namespace Repository
             AuctionRequestDAO.DeleteAuctionRequest(auctionRequest);
         }
 
-        public List<AuctionRequest> GetAllAuctionRq()
+		public List<AuctionRequest> GetAllAuctionRequestsWithoutJewelry()
+		{
+			return AuctionRequestDAO.GetAllAuctionRequestsWithoutJewelry();
+
+		}
+
+		public List<AuctionRequest> GetAllAuctionRq()
         {
             return AuctionRequestDAO.GetAllAuctionRequest();
         }

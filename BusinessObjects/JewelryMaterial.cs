@@ -21,6 +21,6 @@ namespace BusinessObjects
         public int MaterialId { get; set; }
         public virtual Material Material { get; set; }
 
-        public int Quantity { get; set; }
+        public decimal Quantity { get; set; }
     }
 }
