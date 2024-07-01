@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace DataAccessObjects
             try
             {
                 using var db = new GroupProjectPRN221();
-                list = db.Users.Where(u  => !u.IsDelete).ToList();
+                list = db.Users.Include(u => u.Role).Where(u  => !u.IsDelete).ToList();
             } catch (Exception ex){
                 throw new Exception(ex.Message);
             }

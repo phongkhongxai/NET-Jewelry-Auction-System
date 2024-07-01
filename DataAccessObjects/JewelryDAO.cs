@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace DataAccessObjects
 			try
 			{
 				using var db = new GroupProjectPRN221();
-				list = db.Jewelries.ToList();
+				list = db.Jewelries.Include(j => j.AuctionRequest).ToList();
 			} catch (Exception ex)
 			{
 				throw new Exception(ex.Message);
