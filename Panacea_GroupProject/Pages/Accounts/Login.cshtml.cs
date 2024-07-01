@@ -31,7 +31,13 @@ namespace Panacea_GroupProject.Pages.Accounts
                 return Page();
             }
             HttpContext.Session.SetObjectAsJson("LoggedInUser", user);   
-            return RedirectToPage("/Template/Index"); 
+            if(user.RoleId.Equals(1))
+            {
+                return RedirectToPage("/AdminPage/ManageUser/Index");
+            } else
+            {
+                return RedirectToPage("/Template/Index"); 
+            }
         }
     }
 }

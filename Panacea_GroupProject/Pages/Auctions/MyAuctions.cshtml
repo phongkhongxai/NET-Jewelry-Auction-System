@@ -1,0 +1,51 @@
+﻿@page
+@model Panacea_GroupProject.Pages.Auctions.MyAuctionsModel
+@{
+}
+
+<div class="container">
+    <h1>My Auctions</h1>
+
+    @if (Model.Auctions.Count > 0)
+    {
+        @foreach (var auction in Model.Auctions)
+        {
+            <div class="auction-card">
+                <h3>@auction.Jewelry.Name</h3>
+                <p><strong>Start Date:</strong> @auction.StartDate</p>
+                <p><strong>End Date:</strong> @auction.EndDate</p>
+                <p><strong>Status:</strong> @auction.Status</p>
+                <div class="action-buttons">
+                    <a href="/Auctions/BidPrice?id=@auction.Id" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No auctions found.</p>
+    }
+</div>
+
+<style>
+    .auction-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+
+        .auction-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .auction-card p {
+            margin-bottom: 5px;
+        }
+
+    .action-buttons {
+        margin-top: 10px;
+    }
+</style>

@@ -35,6 +35,11 @@ namespace Service
             return _auctionRepository.GetAuctionById(id);
         }
 
+        public List<Bid> GetBidForAuction(int auctionId)
+        {
+           return _auctionRepository.GetBidForAuction(auctionId);
+        }
+
         public void UpdateAuction(Auction auction)
         {
             _auctionRepository.UpdateAuction(auction);
