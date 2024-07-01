@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace DataAccessObjects
 			try
 			{
 				using var db = new GroupProjectPRN221();
-				list = db.Auctions.ToList();
+				list = db.Auctions.Include(c => c.Jewelry).ToList();
 			} catch (Exception ex)
 			{
 				throw new Exception(ex.Message);
@@ -73,5 +74,19 @@ namespace DataAccessObjects
 				throw new Exception(ex.Message);
 			}
 		}
+
+		public static List<Bid> GetBidForAuctionId(int auctionId)
+		{
+            var list = new List<Bid>();
+            try
+			{
+                using var db = new GroupProjectPRN221();
+                list = db.Bids.Where(b => b.AuctionId == auctionId).ToList();
+            } catch (Exception ex)
+			{
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
 	}
 }

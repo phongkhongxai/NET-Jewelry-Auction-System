@@ -22,7 +22,7 @@ namespace DataAccessObjects
             }
         }
 
-        public List<Bid> GetBidsByAuctionId()
+        public static List<Bid> GetAllBids()
         {
             var list = new List<Bid>();
             try
@@ -36,13 +36,13 @@ namespace DataAccessObjects
             return list;
         }
 
-        public Bid GetBidById(int bidId)
+        public static Bid GetBidById(int bidId)
         {
             using var db = new GroupProjectPRN221();
             return db.Bids.FirstOrDefault(b => b.Id == bidId);
         }
 
-        public void UpdateBid(Bid bid)
+        public static void UpdateBid(Bid bid)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace DataAccessObjects
             }
         }
 
-        public void DeleteBid(Bid bid)
+        public static void DeleteBid(Bid bid)
         {
             try
             {
@@ -70,6 +70,12 @@ namespace DataAccessObjects
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public static List<Bid> GetBidsByAuctionId(int auctionId)
+        {
+            using var db = new GroupProjectPRN221();
+            return db.Bids.Where(b => b.AuctionId == auctionId).ToList();
         }
     }
 }

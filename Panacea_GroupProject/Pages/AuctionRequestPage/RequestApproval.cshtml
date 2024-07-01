@@ -418,16 +418,20 @@
                                     <td>@request.Title</td>
                                     <td>@request.Description</td>
                                     <td><img src="@request.Image" alt="Request Image" /></td>
+                                    <td>@request.Status</td>
                                     <td>
-                                        <form method="post">
-                                            <input type="hidden" name="requestId" value="@request.Id" />
-                                            <button type="submit" name="accept" class="btn accept">
-                                                ACCEPT <i class="fa fa-check"></i>
-                                            </button>
-                                            <button type="submit" name="deny" class="btn deny">
-                                                DENY <i class="fa fa-times"></i>
-                                            </button>
-                                        </form>
+                                        @if (request.Status == "Pending")
+                                        {
+                                            <form method="post">
+                                                <input type="hidden" name="RequestId" value="@request.Id" />
+                                                <button type="submit" class="btn accept" asp-page-handler="Accept">
+                                                    <i class="fa fa-check" aria-hidden="true"></i> Accept
+                                                </button>
+                                                <button type="submit" class="btn deny" asp-page-handler="Deny">
+                                                    <i class="fa fa-times" aria-hidden="true"></i> Deny
+                                                </button>
+                                            </form>
+                                        }
                                     </td>
 
                                 </tr>

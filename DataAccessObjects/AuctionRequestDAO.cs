@@ -38,7 +38,7 @@ namespace DataAccessObjects
             try
             {
                 using var db = new GroupProjectPRN221();
-                list = db.AuctionRequests.ToList();
+                list = db.AuctionRequests.Where(a => a.Status == "Approved").ToList();
             }
             catch (Exception ex)
             {
