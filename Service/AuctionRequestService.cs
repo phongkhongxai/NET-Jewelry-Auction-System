@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using DataAccessObjects;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,13 @@ namespace Service
 
         }
 
-        public List<AuctionRequest> GetAllAuctionRq()
+		public List<AuctionRequest> GetAllAuctionRequestsWithoutJewelry()
+		{
+			return auctionRequestRepository.GetAllAuctionRequestsWithoutJewelry();
+
+		}
+
+		public List<AuctionRequest> GetAllAuctionRq()
         {
              return auctionRequestRepository.GetAllAuctionRq();
         }

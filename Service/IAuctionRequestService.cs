@@ -11,7 +11,8 @@ namespace Service
     {
         public List<AuctionRequest> GetAllAuctionRq();
         public AuctionRequest GetAuctionRqById(int id);
-        public void CreateAuctionRequest(AuctionRequest auctionRequest);
+        public List<AuctionRequest> GetAllAuctionRequestsWithoutJewelry();
+		public void CreateAuctionRequest(AuctionRequest auctionRequest);
         public void UpdateAuctionRequest(AuctionRequest auctionRequest);
         public void DeleteAuctionRequest(AuctionRequest auctionRequest);
     }

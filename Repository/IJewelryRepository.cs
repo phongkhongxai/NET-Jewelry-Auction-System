@@ -13,6 +13,6 @@ namespace Repository
 		public Jewelry GetJewelryById(int id);
 		public void CreateJewelry(Jewelry jewelry);
 		public void UpdateJewelry(Jewelry jewelry);
-		public void DeleteJewelry(Jewelry jewelry);
+		public void DeleteJewelry(Jewelry jewelry); 
 	}
 }

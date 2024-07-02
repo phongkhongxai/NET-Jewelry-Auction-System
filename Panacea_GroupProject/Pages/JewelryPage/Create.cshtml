@@ -261,44 +261,61 @@
 							<h2>
 								Create the Jewelry
 							</h2>
+						@if (TempData["SuccessMessage"] != null)
+						{
+							<div class="alert alert-success" role="alert">
+								@TempData["SuccessMessage"]
+							</div>
+						}
 						</div>
-					</div>
-				</div>
+					</div> 
+			</div>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-container">
-						<form method="post">
+						<form method="post" enctype="multipart/form-data">
 							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 							<div class="form-group">
-								<label asp-for="Jewelry.Name" class="control-label"></label>
-								<input asp-for="Jewelry.Name" class="form-control" />
-								<span asp-validation-for="Jewelry.Name" class="text-danger"></span>
+								<label asp-for="Name" class="control-label"></label>
+								<input asp-for="Name" class="form-control" />
+								<span asp-validation-for="Name" class="text-danger"></span>
 							</div>
 							<div class="form-group">
-								<label asp-for="Jewelry.Description" class="control-label"></label>
-								<input asp-for="Jewelry.Description" class="form-control" />
-								<span asp-validation-for="Jewelry.Description" class="text-danger"></span>
+								<label asp-for="Description" class="control-label"></label>
+								<input asp-for="Description" class="form-control" />
+								<span asp-validation-for="Description" class="text-danger"></span>
 							</div>
 							<div class="form-group">
-								<label asp-for="Jewelry.Price" class="control-label"></label>
-								<input asp-for="Jewelry.Price" class="form-control" />
-								<span asp-validation-for="Jewelry.Price" class="text-danger"></span>
+								<label asp-for="Price" class="control-label">Price (auto-calculated)</label>
+								<input asp-for="Price" id="totalPrice" class="form-control" readonly />
+								<span asp-validation-for="Price" class="text-danger"></span>
 							</div>
 							<div class="form-group">
-								<label asp-for="Jewelry.AuctionRequestId" class="control-label">Select Auction Request</label>
-								<select id="auctionRequestDropdown" class="form-control" asp-for="Jewelry.AuctionRequestId" asp-items="ViewBag.AuctionRequestId"></select>
-							</div>
-
-							<div class="form-group">
-								<label id="descriptionLabel" class="control-label">Description:</label>
-								<p id="descriptionText"></p>
-							</div>
-
+								<label asp-for="AuctionRequestId" class="control-label">Select Auction Request</label>
+								<select id="auctionRequestDropdown" class="form-control" asp-for="AuctionRequestId" asp-items="ViewBag.AuctionRequestId"></select>
+								<span asp-validation-for="AuctionRequestId" class="text-danger"></span>
+							</div> 
 							<div class="form-group">
 								<label id="imageLabel" class="control-label">Image:</label>
-								<img id="imagePreview" src="#" alt="Image Preview" style="max-width: 200px; max-height: 200px;" />
+								<input type="file" id="imageInput" class="form-control" name="ImageFile" />
+								<img id="imagePreview" src="#" alt="Image Preview" style="max-width: 200px; max-height: 200px; display:none;" />
+								<span asp-validation-for="ImageFile" class="text-danger"></span>
+							</div> 
+							<div class="form-group">
+								<label class="control-label">Materials</label>
+								@foreach (var material in (SelectList)ViewData["MaterialOptions"])
+								{
+									var materialName = material.Text;
+									var indexOfDash = materialName.LastIndexOf("-");
+									var materialNamePart = materialName.Substring(indexOfDash + 1).Trim();
+									var materialPrice = decimal.Parse(materialNamePart);
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input material-checkbox" name="SelectedMaterialIds" value="@material.Value" id="material-@material.Value" data-quantity-input="quantity-@material.Value" data-price="@materialPrice" />
+										<label class="form-check-label" for="material-@material.Value">@materialName</label>
+										<input type="number" class="form-control material-quantity" name="SelectedMaterialQuantities" id="quantity-@material.Value" data-material="@material.Value" placeholder="Quantity" min="0.01" step="0.01" disabled />
+									</div>
+								}
 							</div>
-
 							<div class="form-group d-flex justify-content-between">
 								<button type="submit" class="btn btn-primary">CREATE JEWELRY</button>
 							</div>
@@ -414,22 +431,63 @@
 
 @section Scripts {
 	<script>
-		// Function to update description and image when selecting a new auction request
-		document.getElementById("auctionRequestDropdown").addEventListener("change", function () {
-			   var selectedOption = this.options[this.selectedIndex];
-			   var description = selectedOption.getAttribute("data-description");
-			   var image = selectedOption.getAttribute("data-image");
-
-			   document.getElementById("descriptionText").textContent = description;
-			   document.getElementById("imagePreview").src = image;
+		document.getElementById('imageInput').addEventListener('change', function (event) {
+			const file = event.target.files[0];
+			if (file) {
+				const reader = new FileReader();
+				reader.onload = function (e) {
+					const imagePreview = document.getElementById('imagePreview');
+					imagePreview.src = e.target.result;
+					imagePreview.style.display = 'block';
+				};
+				reader.readAsDataURL(file);
+			}
 		});
+		document.addEventListener("DOMContentLoaded", function() {
+            var checkboxes = document.querySelectorAll(".material-checkbox");
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener("change", function() {
+                    var quantityInput = document.getElementById(this.getAttribute("data-quantity-input"));
+                    if (this.checked) {
+                        quantityInput.disabled = false;
+                    } else {
+                        quantityInput.value = "";
+                        quantityInput.disabled = true;
+                    }
+                });
+            });
+        });
 
-		  // Initial update based on the selected value
-		  var initialOption = document.getElementById("auctionRequestDropdown").options[document.getElementById("auctionRequestDropdown").selectedIndex];
-		  var initialDescription = initialOption.getAttribute("data-description");
-		  var initialImage = initialOption.getAttribute("data-image");
+		document.addEventListener("DOMContentLoaded", function () {
+			var checkboxes = document.querySelectorAll(".material-checkbox");
+			var quantityInputs = document.querySelectorAll(".material-quantity");
+			var totalPriceInput = document.getElementById("totalPrice");
 
-		  document.getElementById("descriptionText").textContent = initialDescription;
-		  document.getElementById("imagePreview").src = initialImage;
+			checkboxes.forEach(function (checkbox) {
+				checkbox.addEventListener("change", calculateTotalPrice);
+			});
+
+			quantityInputs.forEach(function (input) {
+				input.addEventListener("input", calculateTotalPrice);
+			});
+
+			function calculateTotalPrice() {
+				var totalPrice = 0;
+
+				checkboxes.forEach(function (checkbox) {
+					if (checkbox.checked) {
+						var materialId = checkbox.value;
+						var quantityInput = document.querySelector(".material-quantity[id='quantity-" + materialId + "']");
+						if (quantityInput.value) {
+							var quantity = parseFloat(quantityInput.value);
+							var price = parseFloat(checkbox.getAttribute("data-price"));
+							totalPrice += quantity * price;
+						}
+					}
+				});
+
+				totalPriceInput.value = totalPrice.toFixed(2);
+			}
+		});
 	</script>
 }
