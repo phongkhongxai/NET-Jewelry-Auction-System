@@ -408,6 +408,7 @@
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Image</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -424,10 +425,10 @@
                                         {
                                             <form method="post">
                                                 <input type="hidden" name="RequestId" value="@request.Id" />
-                                                <button type="submit" class="btn accept" asp-page-handler="Accept">
+                                                <button type="submit" class="btn accept" name="action" value="Accept">
                                                     <i class="fa fa-check" aria-hidden="true"></i> Accept
                                                 </button>
-                                                <button type="submit" class="btn deny" asp-page-handler="Deny">
+                                                <button type="submit" class="btn deny" name="action" value="Deny">
                                                     <i class="fa fa-times" aria-hidden="true"></i> Deny
                                                 </button>
                                             </form>
