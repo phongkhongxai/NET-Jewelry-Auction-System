@@ -71,6 +71,7 @@
                                         {
                                             <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                         }
+                                        <a class="dropdown-item" href="/JewelryPage/ViewAll">See all browsed jewelry</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -111,16 +112,11 @@
                             </ul>
                         </div>
 
-                        <div class="quote_btn-container ">
-                            <a href="">
-                                <img src="~/images/cart.png" alt="">
-                                <div class="cart_number">
-                                    0
-                                </div>
-                            </a>
-                            <form class="form-inline">
-                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                        <div class="quote_btn-container">
+                            <form class="form-inline search-form" method="get" action="/search">
+                                <input class="form-control mr-sm-2 d-none" type="search" placeholder="Search" aria-label="Search" name="query">
                             </form>
+                            <button class="btn my-2 my-sm-0 nav_search-btn" type="button"></button>
                         </div>
                     </div>
                 </nav>

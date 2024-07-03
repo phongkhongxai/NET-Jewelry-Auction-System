@@ -30,9 +30,19 @@ namespace Service
             return jewelryRepository.GetAllJewelries();
         }
 
+        public List<Jewelry> GetJewelriesByPage(int page, int pageSize)
+        {
+            return jewelryRepository.GetJewelriesByPage(page, pageSize);
+        }
+
         public Jewelry GetJewelryById(int id)
         {
             return jewelryRepository.GetJewelryById(id);
+        }
+
+        public int GetTotalJewelries()
+        {
+            return jewelryRepository.GetTotalJewelries();
         }
 
         public void UpdateJewelry(Jewelry jewelry)

@@ -1,0 +1,82 @@
+﻿@page
+@model Panacea_GroupProject.Pages.AdminPage.AdminDashboardModel
+@{
+    var username = "Admin";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 56px; /* height of the navbar */
+            left: 0;
+            bottom: 0;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .main-content {
+            margin-left: 220px; /* width of the sidebar */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Admin Dashboard</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="nav-link">Hi, @username</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 bg-light sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/AdminPage/AdminDashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminPage/ManageUser/Index">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminPage/ManageAuction/ViewAuction">Auctions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminPage/ManageJewelry/ViewJewelry">Jewelry</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Other Tables</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10 main-content">
+                <h1>Welcome to the Admin Dashboard</h1>
+                <p>Select an option from the sidebar to manage the corresponding data.</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
