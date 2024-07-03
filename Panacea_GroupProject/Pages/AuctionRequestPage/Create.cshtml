@@ -73,6 +73,7 @@
                                         {
                                             <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                         }
+                                        <a class="dropdown-item" href="/JewelryPage/ViewAll">See all browsed jewelry</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -80,12 +81,13 @@
                                         Auction
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="auction-link">
-                                        <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a>
+                                        <a class="dropdown-item" href="/#">Upcoming Auctions</a>
                                         <a class="dropdown-item" href="/AuctionsPage/Request">Auctions Request</a>
                                         @if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
                                         {
                                             <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
                                         }
+                                        <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
