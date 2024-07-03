@@ -15,5 +15,6 @@ namespace Repository
 		public void UpdateAuction(Auction auction);
 		public void DeleteAuction(Auction auction);
 		public List<Bid> GetBidForAuction(int auctionId);
+		public List<Auction> GetAuctionsByUserId(int userId);
 	}
 }
