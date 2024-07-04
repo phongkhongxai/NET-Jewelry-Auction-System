@@ -38,7 +38,7 @@ namespace DataAccessObjects
             try
             {
                 using var db = new GroupProjectPRN221();
-                list = db.AuctionRequests.Where(a => a.Status == "Approved").ToList();
+                list = db.AuctionRequests.Where(a => a.Status == "Pending").ToList();
             }
             catch (Exception ex)
             {
@@ -56,7 +56,7 @@ namespace DataAccessObjects
 				{
 					// Query AuctionRequests that do not have associated Jewelry
 					list = db.AuctionRequests
-						.Where(ar => ar.Jewelry == null)
+						.Where(ar => ar.Jewelry == null && ar.Status == "Approved")
 						.ToList();
 				}
 			}
@@ -75,6 +75,7 @@ namespace DataAccessObjects
             {
                 using var db = new GroupProjectPRN221();
                 db.Entry<AuctionRequest>(auctionRequest).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
             }
             catch (Exception ex)
             {
