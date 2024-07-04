@@ -12,20 +12,26 @@ namespace Panacea_GroupProject.Pages.Template
         private readonly IUserService _userService;
         private readonly IAuctionService _auctionService;
         private readonly IBidService _bidService;
-        public AuctionsModel(IUserService userService, IAuctionService auctionService, IBidService bidService)
+        private readonly IUserAuctionService _userAuctionService;
+
+        public AuctionsModel(IUserAuctionService userAuctionService, IUserService userService, IAuctionService auctionService, IBidService bidService)
         {
             _userService = userService;
             _auctionService = auctionService;
             _bidService = bidService;
+            _userAuctionService = userAuctionService;
+
 
         }
 
         public User LoggedInUser { get; private set; }
         public IList<Auction> UpcomingAuctions { get; set; }
         public Auction CurrentAuctions { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchQuery { get; set; }
         public async Task OnGet()
         {
-            await LoadDataAsync();
+            LoadDataAsync();
             //UpcomingAuctions =  _auctionService.GetAllAuctions();
             //CurrentAuctions = UpcomingAuctions.FirstOrDefault(c=> c.Status == "Processing");
             //LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
@@ -33,18 +39,16 @@ namespace Panacea_GroupProject.Pages.Template
 
         [BindProperty]
         public decimal BidAmount { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string SearchQuery { get; set; }
-        public async Task<IActionResult> OnPost()
+
+        public async Task<IActionResult> OnPost(int id)
         {
             LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
-            Bid newBid = new Bid();
-            newBid.UserId = LoggedInUser.Id;
-            newBid.Amount = 1;
-            newBid.AuctionId = 4;
-            newBid.BidTime = DateTime.Now;
-            newBid.IsDeleted = false;
-            _bidService.AddBid(newBid);
+            UserAuction userAuction = new UserAuction()
+            {
+                UserId = LoggedInUser.Id,
+                AuctionId = id
+            };
+            _userAuctionService.CreateAuction(userAuction);
             await LoadDataAsync();
             return Page();
         }

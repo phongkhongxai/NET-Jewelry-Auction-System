@@ -66,7 +66,7 @@
 									{
 										<a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
 									}
-									<a class="dropdown-item" href="/JewelryPage/ViewAll">See all browsed jewelry</a>
+									<a class="dropdown-item" href="/JewelryPage/ViewAll">View All</a>
 								</div>
 							</li>
 							<li class="nav-item dropdown">
@@ -74,13 +74,13 @@
 									Auction
 								</a>
 								<div class="dropdown-menu" aria-labelledby="auction-link">
-									<a class="dropdown-item" href="/#">Upcoming Auctions</a>
+									<a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a>
 									<a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
 									@if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
 									{
 										<a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
 									}
-									<a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+									<a class="dropdown-item" href="/Auctions/Bid">Bid</a>
 								</div>
 							</li>
 							<li class="nav-item">
@@ -254,12 +254,12 @@
 					<div class="jewelry_img"><img src="" alt="" /></div>
 				</div>
 				<div class="col-md-6">
-					<h1 class="jewelry_taital">@Model.Auction?.Jewelry?.Name</h1>
-					<p class="jewelry_text">Price: $@Model.Auction?.Price</p>
-					<p class="jewelry_text">Status: @Model.Auction?.Status</p>
-					<p class="jewelry_text">Start Date: @Model.Auction.StartDate</p>
-					<p class="jewelry_text">End Date: @Model.Auction.EndDate</p>
-					<p class="jewelry_text">@Model.Auction?.Jewelry?.Description</p>
+					<h1 class="jewelry_taital">@Model.currentAuction?.Jewelry?.Name</h1>
+					<p class="jewelry_text">Price: $@Model.currentAuction?.Price</p>
+					<p class="jewelry_text">Status: @Model.currentAuction?.Status</p>
+					<p class="jewelry_text">Start Date: @Model.currentAuction.StartDate</p>
+					<p class="jewelry_text">End Date: @Model.currentAuction.EndDate</p>
+					<p class="jewelry_text">@Model.currentAuction?.Jewelry?.Description</p>
 				</div>
 
 			</div>
@@ -296,7 +296,7 @@
 			<form asp-page-handler="PlaceBid" method="post" class="form-inline justify-content-center">
 				<div class="form-group mb-2">
 					<label for="bidAmount" class="sr-only">Bid Amount</label>
-					<input type="number" class="form-control" id="bidAmount" name="BidAmount" placeholder="Enter your bid">
+					<input type="number" class="form-control" id="bidAmount" name="BidAmount" placeholder="Enter your bid" value="@Model.AmountBid">
 				</div>
 				<button type="submit" class="btn btn-primary mb-2">Place Bid</button>
 			</form>
