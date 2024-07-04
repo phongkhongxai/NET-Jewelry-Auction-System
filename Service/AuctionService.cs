@@ -46,5 +46,9 @@ namespace Service
         }
         public List<Auction> Search(string keyword) =>  _auctionRepository.GetAllAuctions().Where(c => c.Jewelry.Name.Contains(keyword)).ToList();
 
+        public List<Auction> GetAuctionByUserID(int id)
+        {
+            return _auctionRepository.GetAuctionByUserID(id);
+        }
     }
 }
