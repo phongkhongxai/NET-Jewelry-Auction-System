@@ -20,8 +20,6 @@ namespace Panacea_GroupProject.Pages.Template
             _auctionService = auctionService;
             _bidService = bidService;
             _userAuctionService = userAuctionService;
-
-
         }
 
         public User LoggedInUser { get; private set; }
@@ -31,7 +29,7 @@ namespace Panacea_GroupProject.Pages.Template
         public string SearchQuery { get; set; }
         public async Task OnGet()
         {
-            LoadDataAsync();
+            await LoadDataAsync();
             //UpcomingAuctions =  _auctionService.GetAllAuctions();
             //CurrentAuctions = UpcomingAuctions.FirstOrDefault(c=> c.Status == "Processing");
             //LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");

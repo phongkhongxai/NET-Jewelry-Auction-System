@@ -50,6 +50,7 @@ namespace DataAccessObjects
             {
                 using var db = new GroupProjectPRN221();
                 db.Entry<Invoice>(Invoice).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+				db.SaveChanges();
             }
             catch (Exception ex)
             {

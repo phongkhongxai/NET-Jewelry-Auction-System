@@ -88,5 +88,21 @@ namespace DataAccessObjects
             }
             return list;
         }
-	}
+
+        public static List<Auction> GetAuctionByUserID(int userId)
+        {
+            var list = new List<Auction>();	
+            try
+            {
+                using var db = new GroupProjectPRN221();
+                list = db.Auctions.Include(c => c.UserAuctions)
+                    .Where(a => a.UserAuctions.Any(u => u.UserId == userId)).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+    }
 }

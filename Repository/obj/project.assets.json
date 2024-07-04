@@ -3150,23 +3150,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
+    "C:\\Users\\84868\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\Repository\\Repository.csproj",
+      "projectUniqueName": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\Repository\\Repository.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\Repository\\obj\\",
+      "projectPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\Repository\\Repository.csproj",
+      "packagesPath": "C:\\Users\\84868\\.nuget\\packages\\",
+      "outputPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\84868\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3182,11 +3182,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj": {
-              "projectPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj"
+            "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj": {
+              "projectPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj"
             },
-            "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj": {
-              "projectPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj"
+            "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj": {
+              "projectPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj"
             }
           }
         }
@@ -3221,7 +3221,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
