@@ -49,6 +49,7 @@ namespace DataAccessObjects
 			{
 				using var db = new GroupProjectPRN221();
 				db.Entry<Auction>(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+				db.SaveChanges();
 			} catch (Exception ex)
 			{
 				throw new Exception(ex.Message);
