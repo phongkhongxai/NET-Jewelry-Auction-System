@@ -38,7 +38,7 @@ namespace DataAccessObjects
             try
             {
                 using var db = new GroupProjectPRN221();
-                list = db.AuctionRequests.Where(a => a.Status == "Pending").ToList();
+                list = db.AuctionRequests.Where(a => a.Status == "Approved").ToList();
             }
             catch (Exception ex)
             {
@@ -75,7 +75,6 @@ namespace DataAccessObjects
             {
                 using var db = new GroupProjectPRN221();
                 db.Entry<AuctionRequest>(auctionRequest).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                db.SaveChanges();
             }
             catch (Exception ex)
             {

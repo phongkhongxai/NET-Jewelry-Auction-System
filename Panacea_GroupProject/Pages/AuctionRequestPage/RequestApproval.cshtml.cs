@@ -19,22 +19,5 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
         {
             AuctionRequests = _auctionRequestService.GetAllAuctionRq();
         }
-        public IActionResult OnPost(string action, int RequestId)
-        {
-            var request = _auctionRequestService.GetAuctionRqById(RequestId);
-            if (request != null)
-            {
-                if (action == "Accept")
-                {
-                    request.Status = "Approved";
-                }
-                else if (action == "Deny")
-                {
-                    request.Status = "Rejected";
-                }
-                _auctionRequestService.UpdateAuctionRequest(request);
-            }
-            return RedirectToPage();
-        }
     }
 }
