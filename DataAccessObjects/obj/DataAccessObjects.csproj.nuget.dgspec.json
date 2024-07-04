@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj": {}
+    "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj": {}
   },
   "projects": {
-    "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj": {
+    "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
+        "projectUniqueName": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
         "projectName": "BusinessObjects",
-        "projectPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
-        "packagesPath": "C:\\Users\\84868\\.nuget\\packages\\",
-        "outputPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\obj\\",
+        "projectPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\84868\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -81,24 +81,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj": {
+    "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj",
+        "projectUniqueName": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj",
         "projectName": "DataAccessObjects",
-        "projectPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj",
-        "packagesPath": "C:\\Users\\84868\\.nuget\\packages\\",
-        "outputPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\DataAccessObjects\\obj\\",
+        "projectPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\DataAccessObjects\\DataAccessObjects.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\DataAccessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\84868\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -114,8 +114,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\FPTU_Ky7\\PRN221\\2_7\\up git\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj"
               }
             }
           }
@@ -150,7 +150,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

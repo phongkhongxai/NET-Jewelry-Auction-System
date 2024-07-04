@@ -30,12 +30,7 @@ namespace Repository
             return AuctionDAO.GetAuctionById(id);
         }
 
-		public List<Auction> GetAuctionsByUserId(int userId)
-		{
-			return AuctionDAO.GetAllAuctionByUserID(userId);
-		}
-
-		public List<Bid> GetBidForAuction(int auctionId)
+        public List<Bid> GetBidForAuction(int auctionId)
         {
             return AuctionDAO.GetBidForAuctionId(auctionId);
         }
