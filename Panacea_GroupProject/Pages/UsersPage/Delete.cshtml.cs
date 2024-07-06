@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
+    [Authorize(Policy = "AdminOnly")]
     public class DeleteModel : PageModel
     {
         private readonly DataAccessObjects.GroupProjectPRN221 _context;

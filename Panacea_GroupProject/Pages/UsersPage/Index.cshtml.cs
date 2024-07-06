@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
 using Service;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
+    [Authorize(Policy = "AdminOnly")]
     public class IndexModel : PageModel
     {
         //private readonly DataAccessObjects.GroupProjectPRN221 _context;

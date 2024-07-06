@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using BusinessObjects;
 using DataAccessObjects;
 using Service;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
+    [Authorize(Policy = "AdminOnly")]
     public class CreateModel : PageModel
     {
         //private readonly DataAccessObjects.GroupProjectPRN221 _context;

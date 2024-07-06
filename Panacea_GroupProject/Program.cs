@@ -1,4 +1,5 @@
 using Service;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,20 +13,22 @@ builder.Services.AddScoped<IJewelryService, JewelryService>();
 builder.Services.AddDistributedMemoryCache();
 
 
-builder.Services.AddSession(options =>
+builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
+    options.Cookie.Name = "CookieAuth";
+    options.LoginPath = "/Accounts/Login";
+    options.AccessDeniedPath = "/Accounts/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Admin"));
+    options.AddPolicy("MemberOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Member"));
 });
 
 
 builder.Services.AddHttpContextAccessor();
-
-builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", options =>
-{
-    options.Cookie.Name = "CookieAuth";
-});
 
 var app = builder.Build();
 
@@ -40,7 +43,6 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseSession();
 
 app.MapRazorPages();
 

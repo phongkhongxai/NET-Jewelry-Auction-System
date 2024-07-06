@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
+    [Authorize(Policy = "AdminOnly")]
     public class EditModel : PageModel
     {
         private readonly DataAccessObjects.GroupProjectPRN221 _context;
