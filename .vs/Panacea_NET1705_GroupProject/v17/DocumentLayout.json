@@ -1,7 +1,120 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\accounts\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\accounts\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\template\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\template\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\accounts\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\accounts\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\dataaccessobjects\\userdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\userdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\accounts\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\accounts\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\accounts\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\accounts\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\userspage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\userspage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\userspage\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\userspage\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\userspage\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\userspage\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\userspage\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\userspage\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\userspage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\userspage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\panacea_groupproject\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E3E6F10-FA00-46D6-98C6-37A65547B808}|Panacea_GroupProject\\Panacea_GroupProject.csproj|solutionrelative:panacea_groupproject\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\jewelry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\jewelry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\jewelrymaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\jewelrymaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\userauction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\userauction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\dataaccessobjects\\groupprojectprn221.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\groupprojectprn221.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|d:\\fpt\\2024_summer\\prn221\\jewelry_auction\\net-jewelry-auction-system\\businessobjects\\businessobjects.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{57F0FEC2-2335-4488-B9E4-35BB33FD863C}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\businessobjects.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +122,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +135,352 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Template\\Index.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\Template\\Index.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Template\\Index.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\Template\\Index.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAC4AAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-06T11:43:29.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Program.cs",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Program.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Program.cs",
+              "RelativeToolTip": "Panacea_GroupProject\\Program.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAkwBMAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T03:36:32.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\UsersPage\\Edit.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Edit.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\UsersPage\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:35:56.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Index.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\UsersPage\\Index.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Index.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\UsersPage\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:35:55.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Accounts\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\Accounts\\Login.cshtml.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Accounts\\Login.cshtml.cs",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\Accounts\\Login.cshtml.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAA3wCMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T03:35:38.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Logout.cshtml.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Accounts\\Logout.cshtml.cs",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\Accounts\\Logout.cshtml.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Accounts\\Logout.cshtml.cs",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\Accounts\\Logout.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T03:35:25.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\User.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\User.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\User.cs",
+              "RelativeToolTip": "BusinessObjects\\User.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAA7wDEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T10:44:55.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Accounts\\Login.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\Accounts\\Login.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Accounts\\Login.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\Accounts\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:35:12.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Details.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\UsersPage\\Details.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Details.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\UsersPage\\Details.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:35:56.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\UsersPage\\Delete.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Delete.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\UsersPage\\Delete.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:35:57.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\appsettings.json",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\appsettings.json",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\appsettings.json",
+              "RelativeToolTip": "Panacea_GroupProject\\appsettings.json",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAIwAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-17T12:29:00.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Accounts\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\Accounts\\Register.cshtml.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Accounts\\Register.cshtml.cs",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\Accounts\\Register.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T09:42:08.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserDAO.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\DataAccessObjects\\UserDAO.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\UserDAO.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\DataAccessObjects\\UserDAO.cs",
+              "RelativeToolTip": "DataAccessObjects\\UserDAO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T11:35:36.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Role.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Role.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Role.cs",
+              "RelativeToolTip": "BusinessObjects\\Role.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T11:38:20.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Create.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\UsersPage\\Create.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\UsersPage\\Create.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\UsersPage\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:35:57.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\_ViewStart.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\_ViewStart.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\_ViewStart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:36:02.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Error.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\Error.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Error.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\Error.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:36:02.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\Index.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Index.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:36:03.775Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Panacea_GroupProject\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\Panacea_GroupProject\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Panacea_GroupProject\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-05T03:35:46.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Auction.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Auction.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Auction.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Auction.cs",
+              "RelativeToolTip": "BusinessObjects\\Auction.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAqwBgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T02:02:37.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Bid.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Bid.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Bid.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Bid.cs",
+              "RelativeToolTip": "BusinessObjects\\Bid.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T02:02:36.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Invoice.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Invoice.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Invoice.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Invoice.cs",
+              "RelativeToolTip": "BusinessObjects\\Invoice.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T02:02:35.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Jewelry.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Jewelry.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Jewelry.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Jewelry.cs",
+              "RelativeToolTip": "BusinessObjects\\Jewelry.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T02:02:35.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "JewelryMaterial.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\JewelryMaterial.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\JewelryMaterial.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\JewelryMaterial.cs",
+              "RelativeToolTip": "BusinessObjects\\JewelryMaterial.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T02:02:34.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Material.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Material.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Material.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\Material.cs",
+              "RelativeToolTip": "BusinessObjects\\Material.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T02:02:32.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "BusinessObjects.csproj",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
+              "RelativeDocumentMoniker": "BusinessObjects\\BusinessObjects.csproj",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
+              "RelativeToolTip": "BusinessObjects\\BusinessObjects.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-23T11:33:09.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UserAuction.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\UserAuction.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\UserAuction.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\UserAuction.cs",
+              "RelativeToolTip": "BusinessObjects\\UserAuction.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T10:44:56.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "GroupProjectPRN221.cs",
+              "DocumentMoniker": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\DataAccessObjects\\GroupProjectPRN221.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\GroupProjectPRN221.cs",
+              "ToolTip": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\DataAccessObjects\\GroupProjectPRN221.cs",
+              "RelativeToolTip": "DataAccessObjects\\GroupProjectPRN221.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T12:31:05.841Z"
             }
           ]
         }
