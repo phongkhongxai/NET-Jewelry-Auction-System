@@ -25,7 +25,7 @@
 
 	<!-- bootstrap core css -->
 	<link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 	<!-- fonts style -->
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
 	<!-- Custom styles for this template -->
@@ -74,13 +74,13 @@
 									Auction
 								</a>
 								<div class="dropdown-menu" aria-labelledby="auction-link">
-									<a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a>
+									@* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
 									<a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
 									@if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
 									{
 										<a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
 									}
-									<a class="dropdown-item" href="/Auctions/Bid">Bid</a>
+									<a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
 								</div>
 							</li>
 							<li class="nav-item">
@@ -124,127 +124,32 @@
 		</div>
 	</header>
 	<!-- end header section -->
-	<!-- slider section -->
-	<section class=" slider_section position-relative">
-		<div class="design-box">
-			<img src="~/images/design-1.png" alt="">
-		</div>
-		<div class="slider_number-container d-none d-md-block">
-			<div class="number-box">
-				<span>
-					01
-				</span>
-				<hr>
-				<span class="jwel">
-					J <br>
-					e <br>
-					w <br>
-					e <br>
-					l <br>
-					l <br>
-					e <br>
-					r <br>
-					y
-				</span>
-				<hr>
-				<span>
-					02
-				</span>
+	 
+</div>
+<div class="jewelry_section">
+	<div class="container">
+		<h1 class="feature_taital text-center">Jewelry Detail</h1>
+		<div class="row">
+			<!-- Phần 1: Ảnh sản phẩm -->
+			<div class="col-md-4">
+				<img src="@Model.currentAuction?.Jewelry.Image" alt="Jewelry Image" class="img-fluid rounded shadow" />
 			</div>
-		</div>
-		<div class="container">
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">01</li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="detail_box">
-									<h2>
-										<span> New Collection</span>
-									</h2>
-									<h1>
-										Jewellery
-									</h1>
-									<p>
-										Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felislacinia
-										aptent taciti sociosqu ad litora torquent per conubia nostra
-									</p>
-									<div>
-										<a href="">Shop Now</a>
-									</div>
-								</div>
+
+			<!-- Phần 2: Thông tin đấu giá -->
+			<div class="col-md-4">
+				<div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="statusModalLabel">Auction Status Update</h5> 
 							</div>
-							<div class="col-md-6">
-								<div class="img-box">
-									<img src="~/images/slider-img.png" alt="">
-								</div>
-							</div>
+							<div class="modal-body" id="modalBody">
+								<!-- Status message will be injected here -->
+							</div> 
 						</div>
-					</div>
-					<div class="carousel-item ">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="detail_box">
-									<h2>
-										<span> New Collection</span>
-									</h2>
-									<h1>
-										Jewellery
-									</h1>
-									<p>
-										Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felislacinia
-										aptent taciti sociosqu ad litora torquent per conubia nostra
-									</p>
-									<div>
-										<a href="">Shop Now</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="img-box">
-									<img src="~/images/slider-img.png" alt="">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item ">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="detail_box">
-									<h2>
-										<span> New Collection</span>
-										<hr>
-									</h2>
-									<h1>
-										Jewellery
-									</h1>
-									<p>
-										Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felislacinia
-										aptent taciti sociosqu ad litora torquent per conubia nostra
-									</p>
-									<div>
-										<a href="">Shop Now</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="img-box">
-									<img src="~/images/slider-img.png" alt="">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</section>
 	<!-- end slider section -->
-</div>
+					</div>
 <div class="jewelry_section">
 	<div class="container">
 		<h1 class="feature_taital">Jewelry Detail</h1>
@@ -253,54 +158,155 @@
 				<div class="col-md-6">
 					<div class="jewelry_img"><img src="" alt="" /></div>
 				</div>
-				<div class="col-md-6">
-					<h1 class="jewelry_taital">@Model.currentAuction?.Jewelry?.Name</h1>
-					<p class="jewelry_text">Price: $@Model.currentAuction?.Price</p>
-					<p class="jewelry_text">Status: @Model.currentAuction?.Status</p>
-					<p class="jewelry_text">Start Date: @Model.currentAuction.StartDate</p>
-					<p class="jewelry_text">End Date: @Model.currentAuction.EndDate</p>
-					<p class="jewelry_text">@Model.currentAuction?.Jewelry?.Description</p>
-				</div>
-
-			</div>
-			<h2 class="text-center mt-5">Bids</h2>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th scope="col">Bidder</th>
-						<th scope="col">Bid Amount</th>
-						<th scope="col">Bid Time</th>
-					</tr>
-				</thead>
-				<tbody>
-					@if (Model.Bids != null)
+				<div id="auctionDetail" class="border p-3 rounded shadow bg-white">
+					<h2 class="jewelry_taital">@Model.currentAuction?.Jewelry?.Name</h2>
+					<p class="jewelry_text">Price: <strong>$@Model.currentAuction?.Price</strong></p>
+					Status:
+					@if (Model.currentAuction?.Status == "Pausing")
 					{
-						@foreach (var bid in Model.Bids)
-						{
-							<tr>
-								<td>@bid.User.Name</td>
-								<td>@bid.Amount</td>
-								<td>@bid.BidTime</td>
-							</tr>
-						}
+						<span class="badge badge-warning">@Model.currentAuction.Status</span>
+					}
+					else if (Model.currentAuction?.Status == "End")
+					{
+						<span class="badge badge-danger">@Model.currentAuction.Status</span>
 					}
 					else
 					{
-						<tr>
-							<td colspan="3">No bids found.</td>
-						</tr>
+						<span class="badge badge-info">@Model.currentAuction.Status</span>
 					}
-				</tbody>
-			</table>
+					<p class="jewelry_text">Start Date: @Model.currentAuction?.StartDate</p>
+					<p class="jewelry_text">End Date: @Model.currentAuction?.EndDate</p>
+					<p class="jewelry_text">@Model.currentAuction?.Jewelry?.Description</p>
 
-			<form asp-page-handler="PlaceBid" method="post" class="form-inline justify-content-center">
-				<div class="form-group mb-2">
-					<label for="bidAmount" class="sr-only">Bid Amount</label>
-					<input type="number" class="form-control" id="bidAmount" name="BidAmount" placeholder="Enter your bid" value="@Model.AmountBid">
+					@if (Model.currentAuction.Status == "Pausing")
+					{
+						<div class="alert alert-info">The auction is pausing.</div>
+					}
+
+					<!-- Buttons for pausing and ending auction -->
+					<div class="auction-actions">
+						@if ((loggedInUser != null && loggedInUser.RoleId.Equals(4)) || (loggedInUser != null && loggedInUser.RoleId.Equals(5)))
+						{
+							@if (Model.currentAuction.Status == "Processing")
+							{
+								<form method="post" asp-page-handler="PauseAuction" class="d-inline">
+									<input type="hidden" name="AuctionId" value="@Model.currentAuction?.Id" />
+									<button type="submit" class="btn btn-warning mb-2">Pause</button>
+								</form>
+								@if (loggedInUser.RoleId.Equals(5))
+								{
+									<form method="post" asp-page-handler="EndAuction" class="d-inline">
+										<input type="hidden" name="AuctionId" value="@Model.currentAuction?.Id" />
+										<button type="submit" class="btn btn-danger mb-2">End</button>
+									</form>
+								}
+							}
+							else if (Model.currentAuction.Status == "Pausing")
+							{
+								<form method="post" asp-page-handler="ResumeAuction" class="d-inline">
+									<input type="hidden" name="AuctionId" value="@Model.currentAuction?.Id" />
+									<button type="submit" class="btn btn-success mb-2">Resume</button>
+								</form>
+							}
+						}
+					</div> 
+					<p class="jewelry_text_hehe">Time Remaining: <span id="countdown"></span></p>
 				</div>
-				<button type="submit" class="btn btn-primary mb-2">Place Bid</button>
-			</form>
+
+			</div>
+
+			<!-- Phần 3: Danh sách các lượt đặt giá -->
+			<div class="col-md-4">
+				<h2 class="text-center">Bids</h2>
+				<div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+					<table id="bidsTable" class="table table-striped table-bordered">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Bidder</th>
+								<th scope="col">Bid Amount</th>
+								<th scope="col">Bid Time</th>
+							</tr>
+						</thead>
+						<tbody>
+							@if (Model.Bids != null && Model.Bids.Any())
+							{
+								@foreach (var bid in Model.Bids.OrderByDescending(b => b.Amount))
+								{
+									<tr>
+										<td>@bid.User.Name</td>
+										<td>@bid.Amount</td>
+										<td>@bid.BidTime.ToString("dd MMM yyyy HH:mm:ss")</td>
+									</tr>
+								}
+							}
+							else
+							{
+								<tr>
+									<td colspan="3">No bids found.</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+
+				@if (TempData["FailMessage"] != null)
+				{
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						@TempData["FailMessage"]
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				}
+				@if (TempData["SuccessMessage"] != null)
+				{
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						@TempData["SuccessMessage"]
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				}
+
+				<div id="placeBidDetail">
+					<!-- Form để người dùng đặt giá mới -->
+					@if (loggedInUser != null && loggedInUser.RoleId.Equals(3) && Model.currentAuction?.Status != "Pausing")
+					{
+						<form asp-page-handler="PlaceBid" method="post" class="form-inline justify-content-center">
+							<input type="hidden" name="AuctionId" value="@Model.currentAuction?.Id" />
+							<div class="form-group mb-2">
+								<label for="bidAmount" class="sr-only">Bid Amount</label>
+								<button type="button" id="decreaseBid" class="btn btn-secondary ml-2" onclick="adjustBidAmount(-50)">-</button>
+								<input type="number" class="form-control ml-2" id="bidAmount" name="AmountBid" placeholder="Enter your bid" readonly />
+								<button type="button" id="increaseBid" class="btn btn-secondary ml-2" onclick="adjustBidAmount(50)">+</button>
+							</div>
+							<button type="submit" class="btn btn-primary mb-2">Place Bid</button>
+						</form>
+					}
+					else if (loggedInUser != null && loggedInUser.RoleId.Equals(3) && Model.currentAuction?.Status == "Pausing")
+					{
+						<div class="alert alert-info">The auction is currently paused. You cannot place a bid at this time.</div>
+					}
+				</div>
+
+			</div>
 		</div>
+
+		<!-- Phần chat -->
+		<div class="row mt-5">
+			<div class="col-md-12">
+				<h2 class="text-center">Chat</h2>
+				<div class="chat-container border p-3 mb-3 bg-light rounded" style="height: 300px; overflow-y: scroll;">
+					<ul id="messagesList" class="list-unstyled" style="padding: 0;"></ul>
+				</div>
+				<form id="sendMessageForm" class="form-inline" style="background-color: #fff; border-radius: 8px; padding: 10px;">
+					<input type="hidden" id="userInput" value="@loggedInUser?.Name" />
+					<input type="text" id="messageInput" class="form-control mr-2" placeholder="Type your message..." style="flex-grow: 1; border-radius: 20px; padding: 10px;">
+					<button type="submit" class="btn btn-primary" style="border-radius: 20px; padding: 10px 20px;">Send</button>
+				</form>
+			</div>
+		</div>
+
 	</div>
 </div>
 <!-- footer section -->
@@ -396,3 +402,249 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+	body {
+		background-color: #f8f9fa;
+	}
+
+	.feature_taital {
+		font-size: 2.5rem;
+		margin-bottom: 20px;
+		font-weight: bold;
+		color: #343a40;
+	}
+
+	.jewelry_section {
+		padding: 50px 0;
+	}
+
+	.jewelry_taital {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: #343a40;
+	}
+
+	.jewelry_text {
+		font-size: 1rem;
+		color: #6c757d;
+	}
+
+	.jewelry_text_hehe {
+		font-family: Arial, sans-serif;
+		font-size: 18px;
+		color: #333;
+		margin-bottom: 10px;
+	}
+
+	#countdown {
+		font-size: 24px;
+		font-weight: bold;
+		color: #ff5722; /* Orange color */
+	}
+
+	.table {
+		margin-top: 20px;
+	}
+
+	.table-responsive {
+		max-height: 300px;
+		overflow-y: auto;
+	}
+
+	.table-striped tbody tr:nth-of-type(odd) {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+
+	.table-bordered {
+		border: 1px solid #dee2e6;
+	}
+
+		.table-bordered th,
+		.table-bordered td {
+			border: 1px solid #dee2e6;
+		}
+
+	.thead-dark th {
+		color: #fff;
+		background-color: #343a40;
+		border-color: #454d55;
+	}
+
+
+	.chat-container {
+		background-color: #f8f9fa;
+		border: 1px solid #dee2e6;
+	}
+
+	#sendMessageForm {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.btn-primary {
+		background-color: #007bff;
+		border-color: #007bff;
+		transition: background-color 0.3s, border-color 0.3s;
+	}
+
+		.btn-primary:hover {
+			background-color: #0056b3;
+			border-color: #004085;
+		}
+
+	.alert {
+		margin-top: 10px;
+	}
+
+	.badge-info {
+    background-color: #17a2b8;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+}
+
+	.badge-info {
+		background-color: #17a2b8;
+	}
+
+	.badge-warning {
+		background-color: #ffc107;
+	}
+
+	.badge-danger {
+		background-color: #dc3545;
+	}
+
+
+</style>
+<script>  
+
+
+	document.addEventListener("DOMContentLoaded", function () {
+		// Load messages from local storage on page load
+		loadMessages(); 
+		 
+	});
+	function loadMessages() {
+		let messages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+		const messagesList = document.getElementById("messagesList");
+		messagesList.innerHTML = "";
+
+		messages.forEach(msg => {
+			const li = document.createElement("li");
+			li.textContent = `${msg.user}: ${msg.message}`;
+			messagesList.appendChild(li);
+		});
+	}
+
+	$(document).ready(function () {
+		// Hide the success alert after 5 seconds
+		setTimeout(function () {
+			$("#success-alert").alert('close');
+		}, 3000);
+	});
+
+
+	window.onload = function () {
+		let allMessages = JSON.parse(sessionStorage.getItem("chatMessages")) || {};
+
+		// Get auctionId from URL query parameter
+		let urlParams = new URLSearchParams(window.location.search);
+		let auctionId = urlParams.get('id');
+
+		// Fetch messages for the specified auctionId
+		let auctionMessages = allMessages[auctionId] || [];
+
+		// Display each message in the messagesList element
+		auctionMessages.forEach(msg => {
+			const li = document.createElement("li");
+			li.textContent = `${msg.user}: ${msg.message}`;
+			document.getElementById("messagesList").appendChild(li);
+		});
+	}
+
+	var countdownInterval;
+
+	// Function to update the countdown timer
+	function updateCountdown(endDate) {
+		var countDownDate = new Date(endDate).getTime();
+
+		countdownInterval = setInterval(function () {
+			var now = new Date().getTime();
+			var distance = countDownDate - now;
+
+			 
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			document.getElementById("countdown").innerHTML = hours + "h "
+				+ minutes + "m " + seconds + "s ";
+
+			if (distance < 0) {
+				clearInterval(countdownInterval);
+				document.getElementById("countdown").innerHTML = "EXPIRED";
+				endAuction();
+			}
+		}, 1000);
+	}
+
+	// Function to start the countdown
+	function startCountdown(endDate) {
+		clearInterval(countdownInterval);
+		updateCountdown(endDate);
+	}
+
+	// Function to pause the countdown
+	function pauseCountdown() {
+		clearInterval(countdownInterval);
+	}
+
+	// Function to end the auction
+	function endAuction() {
+		 
+		document.getElementById("countdown").innerHTML = "Auction Ended";
+	}
+
+	// Check auction status and start/pause the countdown accordingly
+	var auctionStatus = '@Model.currentAuction?.Status';
+	var endDate = '@Model.currentAuction?.EndDate';
+	if (auctionStatus === "Processing") {
+		startCountdown(endDate);
+	} else if (auctionStatus === "Pausing") {
+		pauseCountdown();
+	}
+	 
+	 
+
+	var currentBid = @Model.currentAuction?.Price;
+
+	// Hàm điều chỉnh giá bid khi nhấn nút tăng/giảm
+	function adjustBidAmount(amount) {
+		var bidAmount = parseFloat(document.getElementById("bidAmount").value || currentBid);
+		var newBidAmount = bidAmount + amount;
+
+		// Giới hạn tối thiểu là giá bid cao nhất + 50
+		var minBidAmount = @((Model.Bids != null && Model.Bids.Any()) ? Model.Bids.Max(b => b.Amount) + 50 : Model.currentAuction?.Price + 50);
+
+		// Đảm bảo không thể nhỏ hơn minBidAmount
+		newBidAmount = Math.max(newBidAmount, minBidAmount);
+
+		// Cập nhật giá bid trên form
+		document.getElementById("bidAmount").value = newBidAmount;
+	}
+
+	 
+</script>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

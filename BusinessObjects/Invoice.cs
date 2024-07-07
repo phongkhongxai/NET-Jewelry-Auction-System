@@ -26,6 +26,7 @@ namespace BusinessObjects
 
         [Required]
         public DateTime InvoiceDate { get; set; }
+        public string Status { get; set; }
 
         public bool IsDelete { get; set; } = false;
     }

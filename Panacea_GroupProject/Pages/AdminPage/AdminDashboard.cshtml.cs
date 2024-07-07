@@ -34,7 +34,7 @@ namespace Panacea_GroupProject.Pages.AdminPage
                     ListObject = _userService.GetUsers().Cast<object>().ToList();
                 }
                 else if (objectName.Equals("Jewelry", StringComparison.OrdinalIgnoreCase))
-                {
+        {
                     ListObject = _jewelryService.GetAllJewelries().Cast<object>().ToList();
                 }
             }

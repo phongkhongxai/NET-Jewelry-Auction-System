@@ -15,7 +15,7 @@ namespace Service
         public UserAuctionService()
         {
             _repository = new UserAuctionRepository();
-        }
+		}
         public void CreateAuction(UserAuction userAuction) => _repository.CreateAuction(userAuction);
 
         public List<UserAuction> GetAllUserAuction() => _repository.GetAllUserAuction();

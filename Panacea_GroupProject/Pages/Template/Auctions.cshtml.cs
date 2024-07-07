@@ -55,7 +55,7 @@ namespace Panacea_GroupProject.Pages.Template
             }
             else
             {
-                _userAuctionService.CreateAuction(userAuction);
+            _userAuctionService.CreateAuction(userAuction);
                 return Redirect($"/Auctions/BidPrice?id={auctionId}");
 
             }
