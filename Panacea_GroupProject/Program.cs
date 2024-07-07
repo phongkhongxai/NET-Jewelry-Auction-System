@@ -1,3 +1,4 @@
+using Panacea_GroupProject;
 using Service;
 using System.Security.Claims;
 
@@ -9,7 +10,14 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<IUserService, UserService>(); 
 builder.Services.AddScoped<IAuctionService, AuctionService>();
 builder.Services.AddScoped<IJewelryService, JewelryService>();
+builder.Services.AddScoped<IAuctionRequestService, AuctionRequestService>();
+builder.Services.AddScoped<IMaterialService, MaterialService>(); 
+builder.Services.AddScoped<IBidService, BidService>(); 
+builder.Services.AddScoped<IUserAuctionService, UserAuctionService>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 
+
+builder.Services.AddSignalR();
 builder.Services.AddDistributedMemoryCache();
 
 
@@ -43,6 +51,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
+app.MapHub<AuctionHub>("/auctionHub");
 
 app.MapRazorPages();
 

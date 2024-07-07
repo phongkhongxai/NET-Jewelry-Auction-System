@@ -1,0 +1,74 @@
+﻿@page
+@model Panacea_GroupProject.Pages.AdminPage.ManageAuction.ViewAuctionModel
+
+@{
+    ViewData["Title"] = "ViewAuction";
+}
+
+<h1>ViewAuction</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<div>
+    <a class="btn btn-secondary" asp-page="./ViewAuction" asp-route-status="Upcoming">UpComming</a>
+    <a class="btn btn-primary" asp-page="./ViewAuction" asp-route-status="Ongoing">Ongoing</a>
+    <a class="btn btn-success" asp-page="./ViewAuction" asp-route-status="Completed">Completed</a>
+    <a class="btn btn-info" asp-page="./ViewAuction" asp-route-status="all">All</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].Jewelry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].Status)
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.Auction[0].IsDelete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Auction) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jewelry.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td hidden> 
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a href="/AdminPage/AdminDashboard">Back to Admin dashboard</a>

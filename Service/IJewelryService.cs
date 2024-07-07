@@ -14,5 +14,9 @@ namespace Service
         public void CreateJewelry(Jewelry jewelry);
         public void UpdateJewelry(Jewelry jewelry);
         public void DeleteJewelry(Jewelry jewelry);
+
+        //Paging method
+        public List<Jewelry> GetJewelriesByPage(int page, int pageSize);
+        public int GetTotalJewelries();
     }
 }

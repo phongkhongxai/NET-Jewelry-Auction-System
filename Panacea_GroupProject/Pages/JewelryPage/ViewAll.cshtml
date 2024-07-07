@@ -1,0 +1,176 @@
+﻿@page
+@model Panacea_GroupProject.Pages.JewelryPage.ViewAllModel
+
+@{
+    ViewData["Title"] = "ViewAll";
+}
+
+<h1>View all request</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jewelry[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jewelry[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jewelry[0].Price)
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.Jewelry[0].IsDelete)
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.Jewelry[0].AuctionRequest)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Jewelry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.AuctionRequest.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Jewelry Collection</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .jewelry-item {
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .image {
+            margin-bottom: 20px;
+        }
+
+            .image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+
+        .name {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            color: #009688;
+            font-weight: bold;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jewelry Collection</h1>
+        @foreach (var item in Model.Jewelry)
+        {
+                <div class="jewelry-item">
+                    <div class="image">
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            <img src="@item.Image" alt="Jewelry Image">
+                        }
+                        else
+                        {
+                            <p>No image available</p>
+                        }
+                    </div>
+                    <div class="details">
+                        <h2 class="name">@item.Name</h2>
+                        <p class="description">@item.Description</p>
+                        <p class="price">$@item.Price</p>
+                    </div>
+                </div>
+            
+        }
+    </div>
+</body>
+

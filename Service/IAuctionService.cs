@@ -14,5 +14,9 @@ namespace Service
         public void CreateAuction(Auction auction);
         public void UpdateAuction(Auction auction);
         public void DeleteAuction(Auction auction);
+        public List<Bid> GetBidForAuction(int auctionId);
+        public List<Auction> Search(string keyword);
+		public void UpdateAuctionStatus(int auctionId, string status); 
+		public List<Auction> GetAuctionByUserID(int id);
     }
 }

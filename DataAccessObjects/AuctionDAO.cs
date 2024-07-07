@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace DataAccessObjects
 			try
 			{
 				using var db = new GroupProjectPRN221();
-				list = db.Auctions.ToList();
+				list = db.Auctions.Include(c => c.Jewelry).ToList();
 			} catch (Exception ex)
 			{
 				throw new Exception(ex.Message);
@@ -26,7 +27,8 @@ namespace DataAccessObjects
 		public static Auction GetAuctionById(int id)
 		{
 			using var db = new GroupProjectPRN221();
-			return db.Auctions.SingleOrDefault(a => a.Id == id);
+			return db.Auctions.Include(a => a.Jewelry).SingleOrDefault(a => a.Id == id);
+
 		}
 
 		public static void CreateAuction(Auction auction)
@@ -48,11 +50,31 @@ namespace DataAccessObjects
 			{
 				using var db = new GroupProjectPRN221();
 				db.Entry<Auction>(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+				db.SaveChanges();
 			} catch (Exception ex)
 			{
 				throw new Exception(ex.Message);
 			}
 		}
+
+		public static void UpdateAuctionStatus(int auctionId, string status)
+		{
+			try
+			{
+				using var db = new GroupProjectPRN221();
+				var auction = db.Auctions.SingleOrDefault(a => a.Id == auctionId);
+				if (auction != null)
+				{
+					auction.Status = status;
+					db.SaveChanges();
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
+		}
+
 
 		public static void DeleteAuction(Auction auction)
 		{
@@ -73,5 +95,35 @@ namespace DataAccessObjects
 				throw new Exception(ex.Message);
 			}
 		}
-	}
+
+		public static List<Bid> GetBidForAuctionId(int auctionId)
+		{
+            var list = new List<Bid>();
+            try
+			{
+                using var db = new GroupProjectPRN221();
+                list = db.Bids.Where(b => b.AuctionId == auctionId).Include(b => b.Auction).Include(b => b.User).ToList();
+            } catch (Exception ex)
+			{
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
+        public static List<Auction> GetAuctionByUserID(int userId)
+        {
+            var list = new List<Auction>();	
+            try
+            {
+                using var db = new GroupProjectPRN221();
+                list = db.Auctions.Include(c => c.UserAuctions)
+                    .Where(a => a.UserAuctions.Any(u => u.UserId == userId)).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+    }
 }

@@ -9,57 +9,65 @@ using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
 using Microsoft.AspNetCore.Authorization;
+using Service;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
     [Authorize(Policy = "AdminOnly")]
     public class EditModel : PageModel
     {
-        private readonly DataAccessObjects.GroupProjectPRN221 _context;
+        //private readonly DataAccessObjects.GroupProjectPRN221 _context;
 
-        public EditModel(DataAccessObjects.GroupProjectPRN221 context)
+        //public EditModel(DataAccessObjects.GroupProjectPRN221 context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IUserService _userService;
+
+        public EditModel(IUserService userService)
         {
-            _context = context;
-        }
+            _userService = userService;
+        }   
 
         [BindProperty]
         public User User { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user =  await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            var user = _userService.GetUserByID(id.Value);
             if (user == null)
             {
                 return NotFound();
             }
+
             User = user;
-           ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Name");
+            ViewData["RoleId"] = new SelectList(_userService.GetRoles(), "Id", "Name");
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(User).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                _userService.UpdateUser(User);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(User.Id))
+                var user = _userService.GetUserByID(User.Id);
+                if (user == null)
                 {
                     return NotFound();
                 }
@@ -70,11 +78,6 @@ namespace Panacea_GroupProject.Pages.UsersPage
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private bool UserExists(int id)
-        {
-            return _context.Users.Any(e => e.Id == id);
         }
     }
 }

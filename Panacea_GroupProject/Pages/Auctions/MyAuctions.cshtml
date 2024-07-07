@@ -1,0 +1,373 @@
+﻿@page
+@model Panacea_GroupProject.Pages.Auctions.MyAuctionsModel
+
+@using BusinessObjects
+@using Panacea_GroupProject.Helpers
+
+@{
+    var loggedInUser = ViewContext.HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Lodge</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/css/responsive.css" rel="stylesheet" />
+</head>
+
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="/Template/">
+                    <img src="~/images/logo.png" alt="">
+                    <span>
+                        Lodge
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Template">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Template/About">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/Template/Jewellery" id="jewelry-link" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Jewellery
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="jewelry-link">
+                                    @if (loggedInUser != null && loggedInUser.RoleId.Equals(5))
+                                    {
+                                        <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
+                                    }
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/Template/Auctions" id="auction-link" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Auction
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="auction-link">
+                                    @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
+                                    <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
+                                    @if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
+                                    {
+                                        <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
+                                    }
+                                    <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Template/Contact">Contact us</a>
+                            </li>
+                            @if (loggedInUser != null)
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Hi, @loggedInUser.Name
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/Accounts/Logout">Logout</a>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Accounts/Login">Login</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="quote_btn-container">
+                        <form class="form-inline search-form" method="get" action="/search">
+                            <input class="form-control mr-sm-2 d-none" type="search" placeholder="Search" aria-label="Search" name="query">
+                        </form>
+                        <button class="btn my-2 my-sm-0 nav_search-btn" type="button"></button>
+                    </div>
+
+
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+        <div class="design-box">
+            <img src="~/images/design-1.png" alt="">
+        </div>
+        <div class="slider_number-container d-none d-md-block">
+            <div class="number-box">
+                <span>
+                    01
+                </span>
+                <hr>
+                <span class="jwel">
+                    J <br>
+                    e <br>
+                    w <br>
+                    e <br>
+                    l <br>
+                    l <br>
+                    e <br>
+                    r <br>
+                    y
+                </span>
+                <hr>
+                <span>
+                    02
+                </span>
+            </div>
+        </div>
+        <div class="container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">01</li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail_box">
+                                    <h2>
+                                        <span> New Collection</span>
+                                    </h2>
+                                    <h1>
+                                        Jewellery
+                                    </h1>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felislacinia
+                                        aptent taciti sociosqu ad litora torquent per conubia nostra
+                                    </p>
+                                    <div>
+                                        <a href="">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="~/images/slider-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail_box">
+                                    <h2>
+                                        <span> New Collection</span>
+                                    </h2>
+                                    <h1>
+                                        Jewellery
+                                    </h1>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felislacinia
+                                        aptent taciti sociosqu ad litora torquent per conubia nostra
+                                    </p>
+                                    <div>
+                                        <a href="">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="~/images/slider-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail_box">
+                                    <h2>
+                                        <span> New Collection</span>
+                                        <hr>
+                                    </h2>
+                                    <h1>
+                                        Jewellery
+                                    </h1>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felislacinia
+                                        aptent taciti sociosqu ad litora torquent per conubia nostra
+                                    </p>
+                                    <div>
+                                        <a href="">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="~/images/slider-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- end slider section -->
+</div>
+<div class="container mt-5">
+    <h1>My Auctions</h1>
+    <div class="row">
+        @if (Model.Auctions.Count > 0)
+        {
+            @foreach (var auction in Model.Auctions)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@auction.Jewelry.Image" class="card-img-top" alt="Auction Image">
+                        <div class="card-body">
+                            <h5 class="card-title">@auction.Jewelry.Name</h5>
+                            <p class="card-text"><strong>Start Date:</strong> @auction.StartDate</p>
+                            <p class="card-text"><strong>End Date:</strong> @auction.EndDate</p>
+                            <p class="card-text"><strong>Status:</strong> @auction.Status</p>
+                            <p class="card-text">@auction.Jewelry.Description</p>
+                            <a href="/Auctions/BidPrice?id=@auction.Id" class="btn btn-primary">Bid now</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <p>No auctions found.</p>
+            </div>
+        }
+    </div>
+</div>
+
+<section class="info_section ">
+    <div class="container">
+        <div class="info_container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="info_logo">
+                        <a href="">
+                            <img src="~/images/logo.png" alt="">
+                            <span>
+                                Lodge
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info_contact">
+                        <a href="">
+                            <img src="~/images/location.png" alt="">
+                            <span>
+                                Address
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info_contact">
+                        <a href="">
+                            <img src="~/images/phone.png" alt="">
+                            <span>
+                                +01 1234567890
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info_contact">
+                        <a href="">
+                            <img src="~/images/mail.png" alt="">
+                            <span>
+                                demo@gmail.com
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="info_form">
+                <div class="d-flex justify-content-center">
+                    <h5 class="info_heading">
+                        Newsletter
+                    </h5>
+                </div>
+                <form action="">
+                    <div class="email_box">
+                        <label for="email2">Enter Your Email</label>
+                        <input type="text" id="email2">
+                    </div>
+                    <div>
+                        <button>
+                            subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="info_social">
+                <div class="d-flex justify-content-center">
+                    <h5 class="info_heading">
+                        Follow Us
+                    </h5>
+                </div>
+                <div class="social_box">
+                    <a href="">
+                        <img src="~/images/fb.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="~/images/twitter.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="~/images/linkedin.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="~/images/insta.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid footer_section">
+    <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+    </p>
+</section>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

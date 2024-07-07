@@ -18,5 +18,7 @@ namespace Repository
         public void UpdateUser(User user);
         public void DeleteUser(User user);
         public List<User> SearchUser(string name, string password);
+
+        public List<Role> GetRoles();
     }
 }

@@ -24,7 +24,7 @@ namespace DataAccessObjects
             try
             {
                 using var db = new GroupProjectPRN221();
-                list = db.Users.Where(u  => !u.IsDelete).ToList();
+                list = db.Users.Include(u => u.Role).Where(u  => !u.IsDelete).ToList();
             } catch (Exception ex){
                 throw new Exception(ex.Message);
             }
@@ -108,5 +108,17 @@ namespace DataAccessObjects
 			}
 		}
 
-	}
+        public static List<Role> GetAllRoles()
+        {
+            try
+            {
+                using var db = new GroupProjectPRN221();
+                return db.Roles.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error getting roles: " + ex.Message);
+            }
+        }
+    }
 }
