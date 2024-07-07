@@ -7,6 +7,9 @@
       "RelativeMoniker": "D:0:0:{EF1B99B4-2E23-4E2B-B3E7-731DE7E2F436}|Service\\Service.csproj|solutionrelative:service\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Msbuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\dataaccessobjects\\auctiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{012AAF85-5608-4875-A5F0-81525DE53D2F}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\auctiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,7 +21,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,20 +37,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Msbuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Msbuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AQIAAFYWAAAAAAAAAAAtwHEWAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-07-07T07:04:02.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "InvoiceService.cs",
               "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\Service\\InvoiceService.cs",
               "RelativeDocumentMoniker": "Service\\InvoiceService.cs",
               "ToolTip": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\Service\\InvoiceService.cs",
               "RelativeToolTip": "Service\\InvoiceService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA2AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T06:57:00.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AuctionDAO.cs",
               "DocumentMoniker": "D:\\Semester 7\\FPT - PRN221\\NET-Jewelry-Auction-System\\DataAccessObjects\\AuctionDAO.cs",
               "RelativeDocumentMoniker": "DataAccessObjects\\AuctionDAO.cs",
