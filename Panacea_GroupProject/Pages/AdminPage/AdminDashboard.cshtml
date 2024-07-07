@@ -1,0 +1,199 @@
+﻿@page
+@model Panacea_GroupProject.Pages.AdminPage.AdminDashboardModel
+@{
+    var username = "Admin";
+}
+@using BusinessObjects
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 56px; /* height of the navbar */
+            left: 0;
+            bottom: 0;
+            padding: 20px;
+            width: 220px; /* Adjust sidebar width */
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa; /* Light background color */
+        }
+
+        .main-content {
+            margin-left: 240px; /* Adjust main content margin to accommodate sidebar width */
+            padding: 20px;
+        }
+
+        .sidebar .nav-link {
+            color: #495057; /* Sidebar link color */
+        }
+
+            .sidebar .nav-link.active {
+                font-weight: bold; /* Active link font weight */
+                color: #007bff; /* Active link color */
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Admin Dashboard</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <span class="nav-link">Hi, @username</span>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 bg-light sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link @(Url.Page("AdminDashboard") == Request.Path ? "active" : "")" href="/AdminPage/AdminDashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <form id="user-form" method="get">
+                            <input type="hidden" id="object-name-user" name="objectName" value="Users" />
+                            <a class="nav-link @(Url.Page("ManageUser/Index") == Request.Path ? "active" : "")"  id="userButton">Users</a>
+                        </form>
+
+                    </li>
+                    <li class="nav-item">
+                        <form id="auction-form" method="get">
+                            <input type="hidden" id="object-name-auction" name="objectName" value="Auctions" />
+                            <a class="nav-link @(Url.Page("ManageAuction/ViewAuction") == Request.Path ? "active" : "")" id="auctionButton">Auctions</a>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form id="jewelry-form" method="get">
+                            <input type="hidden" id="object-name-jewelry" name="objectName" value="Jewelry" />
+                            <a class="nav-link @(Url.Page("ManageJewelry/ViewJewelry") == Request.Path ? "active" : "")"  id="jewelryButton">Jewelry</a>
+                        </form>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Other Tables</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10 main-content">
+                <h1>Welcome to the Admin Dashboard</h1>
+                <p>Select an option from the sidebar to manage the corresponding data.</p>
+
+                @if (Model.ListObject != null)
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                @if (Model.ObjectType == "Auction")
+                                {
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                }
+                                else if (Model.ObjectType == "User")
+                                {
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                }
+                                else if (Model.ObjectType == "Jewelry")
+                                {
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ListObject)
+                            {
+                                <tr>
+                                    @if (Model.ObjectType == "Auction")
+                                    {
+                                        var auction = item as Auction;
+                                        <td>@auction.Id</td>
+                                        <td>@auction.Jewelry.Name</td>
+                                        <td>@auction.StartDate</td>
+                                        <td>@auction.EndDate</td>
+                                    }
+                                    else if (Model.ObjectType == "User")
+                                    {
+                                        var user = item as User;
+                                        <td>@user.Id</td>
+                                        <td>@user.Name</td>
+                                        <td>@user.Email</td>
+                                    }
+                                    else if (Model.ObjectType == "Jewelry")
+                                    {
+                                        var jewelry = item as Jewelry;
+                                        <td>@jewelry.Id</td>
+                                        <td>@jewelry.Name</td>
+                                        @* <td>@jewelry</td> *@
+                                        <td>@jewelry.Price</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#auctionButton').click(function (e) {
+                e.preventDefault(); 
+
+                var objectName = "Auction"; 
+
+                $('#object-name-auction').val(objectName); 
+                $('#auction-form').submit();
+            });
+
+            $('#userButton').click(function (e) {
+                e.preventDefault();
+
+                var objectName = "User";
+
+                $('#object-name-user').val(objectName); 
+                $('#user-form').submit();
+            });
+
+            $('#jewelryButton').click(function (e) {
+                e.preventDefault();
+
+                var objectName = "Jewelry";
+
+                $('#object-name-jewelry').val(objectName);
+                $('#jewelry-form').submit();
+            });
+        });
+    </script>
+
+</body>
+</html>
