@@ -1,8 +1,11 @@
 using BusinessObjects;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Panacea_GroupProject.Helpers;
 using Service;
+using System.Security.Claims;
 
 namespace Panacea_GroupProject.Pages.Template
 {
@@ -14,11 +17,20 @@ namespace Panacea_GroupProject.Pages.Template
             _userService = userService;
         }
 
-        public User User { get; set; } = default!;
+        [BindProperty]
+        public User UserProfile { get; set; } = default!;
         public IActionResult OnGet()
         {
-            User = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
-            if (User == null)
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            UserProfile = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (UserProfile == null)
             {
                 return RedirectToPage("/Accounts/Login");
             }
@@ -26,30 +38,51 @@ namespace Panacea_GroupProject.Pages.Template
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            User = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
-            if (User == null)
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            UserProfile = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (UserProfile == null)
             {
                 return RedirectToPage("/Accounts/Login");
             }
 
             // Update user properties with form data
-            User.Name = Request.Form["name"];
-            User.Email = Request.Form["email"];
-            User.Address = Request.Form["address"];
-            User.Dob = DateOnly.Parse(Request.Form["dob"]);
+            UserProfile.Name = UserProfile.Name;
+            UserProfile.Email = UserProfile.Email;
+            UserProfile.Address = UserProfile.Address;
+            UserProfile.Dob = UserProfile.Dob;
 
             // Update user in the database
-            _userService.UpdateUser(User);
+            _userService.UpdateUser(UserProfile);
 
-            // Update the session
-            HttpContext.Session.SetObjectAsJson("LoggedInUser", User);
+            // Update the claims and re-issue the cookie
+            var claims = new List<Claim>
+            {
+                new Claim("Id", UserProfile.Id.ToString()), 
+                new Claim(ClaimTypes.Name, UserProfile.Name),
+                new Claim(ClaimTypes.Email, UserProfile.Email),
+                new Claim("RoleId", UserProfile.RoleId.ToString()),
+                new Claim(ClaimTypes.Role, UserProfile.Role.Name)
+            };
+
+            var identity = new ClaimsIdentity(claims, "CookieAuth");
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync("CookieAuth", principal);
 
             TempData["SuccessMessage"] = "Profile updated successfully!";
 

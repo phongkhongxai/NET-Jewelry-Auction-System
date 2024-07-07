@@ -5693,19 +5693,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\phong.truong\\.nuget\\packages\\": {}
+    "C:\\Users\\Nguyen Tuan Anh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT\\PRN221\\Asg nhom\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
+      "projectUniqueName": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
       "projectName": "BusinessObjects",
-      "projectPath": "D:\\FPT\\PRN221\\Asg nhom\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
-      "packagesPath": "C:\\Users\\phong.truong\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT\\PRN221\\Asg nhom\\NET-Jewelry-Auction-System\\BusinessObjects\\obj\\",
+      "projectPath": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\BusinessObjects.csproj",
+      "packagesPath": "C:\\Users\\Nguyen Tuan Anh\\.nuget\\packages\\",
+      "outputPath": "D:\\FPT\\2024_Summer\\PRN221\\Jewelry_Auction\\NET-Jewelry-Auction-System\\BusinessObjects\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\phong.truong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nguyen Tuan Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5713,6 +5713,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5725,6 +5726,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5766,7 +5772,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

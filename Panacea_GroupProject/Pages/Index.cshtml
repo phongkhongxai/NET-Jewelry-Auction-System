@@ -6,8 +6,9 @@
 
 @using BusinessObjects
 @using Panacea_GroupProject.Helpers
+@using System.Security.Claims
 @{
-    var loggedInUser = ViewContext.HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+    
 }
 
 <div class="hero_area">
@@ -40,10 +41,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact us</a>
                             </li>
-                            @if (loggedInUser != null)
+                            @if (Model.LoggedInUser != null)
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">@loggedInUser.Name</a>
+                                    <a class="nav-link" href="#">@Model.LoggedInUser.Name</a>
                                 </li>
                                 <li class="nav-item">
                                     <form method="post" asp-page="/Accounts/Logout" class="form-inline">
