@@ -33,6 +33,8 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Admin"));
     options.AddPolicy("MemberOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Member"));
+    options.AddPolicy("StaffOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Staff"));
+    options.AddPolicy("ManagerOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Manager"));
 });
 
 
@@ -51,7 +53,6 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseSession();
 app.MapHub<AuctionHub>("/auctionHub");
 
 app.MapRazorPages();

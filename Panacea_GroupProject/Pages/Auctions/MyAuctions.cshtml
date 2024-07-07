@@ -3,9 +3,10 @@
 
 @using BusinessObjects
 @using Panacea_GroupProject.Helpers
+@using System.Security.Claims
 
 @{
-    var loggedInUser = ViewContext.HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+    
 }
 
 
@@ -62,7 +63,7 @@
                                     Jewellery
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="jewelry-link">
-                                    @if (loggedInUser != null && loggedInUser.RoleId.Equals(5))
+                                    @if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(5))
                                     {
                                         <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                     }
@@ -75,7 +76,7 @@
                                 <div class="dropdown-menu" aria-labelledby="auction-link">
                                     @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
                                     <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
-                                    @if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
+                                    @if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(4))
                                     {
                                         <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
                                     }
@@ -85,11 +86,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/Template/Contact">Contact us</a>
                             </li>
-                            @if (loggedInUser != null)
+                            @if (Model.LoggedInUser.Name != null)
                             {
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        Hi, @loggedInUser.Name
+                                        Hi, @Model.LoggedInUser.Name
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="/Template/MyProfile">Profile</a>

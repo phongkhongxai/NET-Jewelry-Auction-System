@@ -8,6 +8,7 @@ using NuGet.Packaging.Signing;
 using Panacea_GroupProject.Helpers;
 using Service;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace Panacea_GroupProject.Pages.Auctions
 {
@@ -29,6 +30,7 @@ namespace Panacea_GroupProject.Pages.Auctions
 			_hubContext = hubContext;
 
 		}
+		[BindProperty]
         public User LoggedInUser { get; private set; }
 		[BindProperty]
 		public Auction currentAuction { get;set; }
@@ -62,9 +64,17 @@ namespace Panacea_GroupProject.Pages.Auctions
 
         private async Task LoadDataAsync(int id)
         {
-            LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser"); 
             currentAuction = _auctionService.GetAuctionById(id);
-			Bids = _auctionService.GetBidForAuction(id);
+            Bids = _auctionService.GetBidForAuction(id);
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+				return;
+            }
+
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
 
 		}
 		 

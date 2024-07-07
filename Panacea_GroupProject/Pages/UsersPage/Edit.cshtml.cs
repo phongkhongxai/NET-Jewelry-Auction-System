@@ -13,7 +13,6 @@ using Service;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
-    [Authorize(Policy = "AdminOnly")]
     public class EditModel : PageModel
     {
         //private readonly DataAccessObjects.GroupProjectPRN221 _context;
@@ -31,7 +30,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
         }   
 
         [BindProperty]
-        public User User { get; set; } = default!;
+        public User UserProfile { get; set; } = default!;
 
         public IActionResult OnGet(int? id)
         {
@@ -46,7 +45,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
                 return NotFound();
             }
 
-            User = user;
+            UserProfile = user;
             ViewData["RoleId"] = new SelectList(_userService.GetRoles(), "Id", "Name");
             return Page();
         }
@@ -62,11 +61,11 @@ namespace Panacea_GroupProject.Pages.UsersPage
 
             try
             {
-                _userService.UpdateUser(User);
+                _userService.UpdateUser(UserProfile);
             }
             catch (DbUpdateConcurrencyException)
             {
-                var user = _userService.GetUserByID(User.Id);
+                var user = _userService.GetUserByID(UserProfile.Id);
                 if (user == null)
                 {
                     return NotFound();

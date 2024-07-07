@@ -8,10 +8,12 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
     public class RequestApprovalModel : PageModel
     {
         private readonly IAuctionRequestService _auctionRequestService;
+        private readonly IUserService _userService;
         
-        public RequestApprovalModel(IAuctionRequestService auctionRequestService)
+        public RequestApprovalModel(IAuctionRequestService auctionRequestService, IUserService userService)
         {
             _auctionRequestService = auctionRequestService;
+            _userService = userService;
         }
 
         public List<AuctionRequest> AuctionRequests { get; set; }

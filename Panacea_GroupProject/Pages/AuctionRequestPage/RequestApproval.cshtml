@@ -3,9 +3,18 @@
 
 @using BusinessObjects
 @using Panacea_GroupProject.Helpers
+@using System.Security.Claims
 
 @{
-    var loggedInUser = ViewContext.HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+    var loggedInUser = new BusinessObjects.User
+            {
+                Name = User.FindFirst(ClaimTypes.Name)?.Value,
+                Email = User.FindFirst(ClaimTypes.Email)?.Value,
+                Role = new BusinessObjects.Role
+                {
+                    Name = User.FindFirst(ClaimTypes.Role)?.Value
+                }
+            };
 }
 
 <!DOCTYPE html>

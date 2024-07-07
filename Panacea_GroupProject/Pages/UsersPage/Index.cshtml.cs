@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
-    [Authorize(Policy = "AdminOnly")]
     public class IndexModel : PageModel
     {
         //private readonly DataAccessObjects.GroupProjectPRN221 _context;
@@ -28,13 +27,13 @@ namespace Panacea_GroupProject.Pages.UsersPage
             _userService = userService;
         }
 
-        public IList<User> User { get;set; } = default!;
+        public IList<User> Users { get;set; } = default!;
 
         public void OnGet()
         {
             //User = await _context.Users
             //    .Include(u => u.Role).ToListAsync();
-            User = _userService.GetUsers();
+            Users = _userService.GetUsers();
         }
     }
 }

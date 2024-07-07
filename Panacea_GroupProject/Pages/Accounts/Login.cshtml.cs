@@ -34,19 +34,26 @@ namespace Panacea_GroupProject.Pages.Accounts
                 ModelState.AddModelError("", "Invalid email or password.");
                 return Page();
             }
-            //HttpContext.Session.SetObjectAsJson("LoggedInUser", user);
 
             var claims = new List<Claim>
             {
+                new Claim("Id", user.Id.ToString()),
                 new Claim(ClaimTypes.Name,  user.Name),
                 new Claim(ClaimTypes.Email, user.Email),
+                new Claim("RoleId", user.RoleId.ToString()),
                 new Claim(ClaimTypes.Role, user.Role.Name)
             };
             var identity = new ClaimsIdentity(claims, "CookieAuth");
             ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
 
             await HttpContext.SignInAsync("CookieAuth", claimsPrincipal);
-            return RedirectToPage("/Template/Index"); 
+            
+            if(user.RoleId.Equals(1))
+            {
+                return RedirectToPage("/AdminPage/AdminDashboard");
+            }
+
+            return RedirectToPage("/Template/Index");
         }
     }
 }

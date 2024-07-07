@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
 using Microsoft.AspNetCore.Authorization;
+using Service;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
-    [Authorize(Policy = "AdminOnly")]
     public class DeleteModel : PageModel
     {
         //private readonly DataAccessObjects.GroupProjectPRN221 _context;
@@ -28,7 +28,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
         }
 
         [BindProperty]
-        public User User { get; set; } = default!;
+        public User UserProfile { get; set; } = default!;
 
         public IActionResult OnGetAsync(int? id)
         {
@@ -45,7 +45,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
             }
             else
             {
-                User = user;
+                UserProfile = user;
             }
             return Page();
         }

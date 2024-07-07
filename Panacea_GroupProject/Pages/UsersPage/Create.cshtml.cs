@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
-    [Authorize(Policy = "AdminOnly")]
     public class CreateModel : PageModel
     {
         //private readonly DataAccessObjects.GroupProjectPRN221 _context;
@@ -31,7 +30,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
         }
 
         [BindProperty]
-        public User User { get; set; } = default!;
+        public User UserProfile { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -41,7 +40,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
                 return Page();
             }
 
-            User.RoleId = 3; //member
+            UserProfile.RoleId = 3; //member
 
             //_context.Users.Add(User);
             //await _context.SaveChangesAsync();

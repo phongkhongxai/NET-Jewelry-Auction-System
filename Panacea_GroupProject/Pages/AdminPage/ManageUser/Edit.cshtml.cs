@@ -10,9 +10,11 @@ using BusinessObjects;
 using DataAccessObjects;
 using Service;
 using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.AdminPage.ManageUser
 {
+    [Authorize(Policy = "AdminOnly")]
     public class EditModel : PageModel
     {
         private readonly IUserService _userService;
@@ -22,7 +24,7 @@ namespace Panacea_GroupProject.Pages.AdminPage.ManageUser
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public User UserProfile { get; set; }
         public IActionResult OnGet(int? id)
         {
             if (id == null)
@@ -30,9 +32,9 @@ namespace Panacea_GroupProject.Pages.AdminPage.ManageUser
                 return NotFound();
             }
 
-            User = _userService.GetUserByID(id.Value);
+            UserProfile = _userService.GetUserByID(id.Value);
 
-            if (User == null)
+            if (UserProfile == null)
             {
                 return NotFound();
             }
@@ -49,7 +51,7 @@ namespace Panacea_GroupProject.Pages.AdminPage.ManageUser
                 return Page();
             }
                 
-            _userService.UpdateUser(User);
+            _userService.UpdateUser(UserProfile);
 
 
             return RedirectToPage("./Index");
