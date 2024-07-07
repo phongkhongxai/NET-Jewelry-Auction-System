@@ -33,7 +33,7 @@ namespace Panacea_GroupProject.Pages.Accounts
             HttpContext.Session.SetObjectAsJson("LoggedInUser", user);   
             if(user.RoleId.Equals(1))
             {
-                return RedirectToPage("/AdminPage/ManageUser/Index");
+                return RedirectToPage("/AdminPage/AdminDashboard");
             } else
             {
                 return RedirectToPage("/Template/Index"); 

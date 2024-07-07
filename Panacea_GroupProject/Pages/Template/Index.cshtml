@@ -70,7 +70,6 @@
                                     {
                                         <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                     }
-                                    <a class="dropdown-item" href="/JewelryPage/ViewAll">View All</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -78,7 +77,7 @@
                                     Auction
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="auction-link">
-                                    <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a>
+                                    @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
                                     <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
                                     @if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
                                     {
@@ -112,17 +111,14 @@
                         </ul>
                     </div>
 
-                    <div class="quote_btn-container ">
-                        <a href="">
-                            <img src="~/images/cart.png" alt="">
-                            <div class="cart_number">
-                                0
-                            </div>
-                        </a>
-                        <form class="form-inline">
-                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                    <div class="quote_btn-container">
+                        <form class="form-inline search-form" method="get" action="/search">
+                            <input class="form-control mr-sm-2 d-none" type="search" placeholder="Search" aria-label="Search" name="query">
                         </form>
+                        <button class="btn my-2 my-sm-0 nav_search-btn" type="button"></button>
                     </div>
+
+
                 </div>
             </nav>
         </div>
@@ -700,3 +696,18 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="~/js/custom.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchBtn = document.querySelector(".nav_search-btn");
+        const searchForm = document.querySelector(".search-form");
+
+        searchBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            const searchInput = searchForm.querySelector('input[type="search"]');
+            searchInput.classList.toggle("d-none");
+            searchInput.focus(); // Đặt focus vào input để người dùng có thể nhập ngay lập tức
+        });
+    });
+</script>
+

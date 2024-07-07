@@ -1,0 +1,106 @@
+﻿@page
+@model Panacea_GroupProject.Pages.AdminPage.ManageJewelry.ViewJewelryModel
+
+@{
+    ViewData["Title"] = "ViewJewelry";
+}
+
+<h1>ViewJewelry</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jewelry[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jewelry[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jewelry[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jewelry[0].Image)
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.Jewelry[0].IsDelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jewelry[0].AuctionRequest)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Jewelry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                    <img src="@item.Image" alt="Jewelry Image" style="max-width: 100px; max-height: 100px;" />
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuctionRequest.Title)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@if (Model.Jewelry.Count == 0)
+{
+    <p>No items found.</p>
+}
+else
+{
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            @if (Model.CurrentPage != 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-page="./ViewJewelry" asp-route-page="1">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-page="./ViewJewelry" asp-route-page="@(Model.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+
+            @for (int i = 1; i <= Math.Ceiling((double)Model.TotalItems / Model.PageSize); i++)
+            {
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-page="./ViewJewelry" asp-route-page="@i">@i</a>
+                </li>
+            }
+
+            @if (Model.CurrentPage != Math.Ceiling((double)Model.TotalItems / Model.PageSize))
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-page="./ViewJewelry" asp-route-page="@(Model.CurrentPage + 1)">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-page="./ViewJewelry" asp-route-page="@Math.Ceiling((double)Model.TotalItems / Model.PageSize)">Last</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+<a href="/AdminPage/ManageJewelry">Back to Admin Dashboard</a>

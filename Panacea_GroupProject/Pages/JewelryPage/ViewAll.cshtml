@@ -5,7 +5,7 @@
     ViewData["Title"] = "ViewAll";
 }
 
-<h1>ViewAll</h1>
+<h1>View all request</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -152,23 +152,24 @@
         <h1>Jewelry Collection</h1>
         @foreach (var item in Model.Jewelry)
         {
-            <div class="jewelry-item">
-                <div class="image">
-                    @if (item.AuctionRequest != null && !string.IsNullOrEmpty(item.AuctionRequest.Image))
-                    {
-                        <img src="@item.AuctionRequest.Image" alt="Jewelry Image">
-                    }
-                    else
-                    {
-                        <p>No image available</p>
-                    }
+                <div class="jewelry-item">
+                    <div class="image">
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            <img src="@item.Image" alt="Jewelry Image">
+                        }
+                        else
+                        {
+                            <p>No image available</p>
+                        }
+                    </div>
+                    <div class="details">
+                        <h2 class="name">@item.Name</h2>
+                        <p class="description">@item.Description</p>
+                        <p class="price">$@item.Price</p>
+                    </div>
                 </div>
-                <div class="details">
-                    <h2 class="name">@item.Name</h2>
-                    <p class="description">@item.Description</p>
-                    <p class="price">$@item.Price</p>
-                </div>
-            </div>
+            
         }
     </div>
 </body>

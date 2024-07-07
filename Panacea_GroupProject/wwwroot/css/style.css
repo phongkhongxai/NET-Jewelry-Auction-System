@@ -924,6 +924,25 @@ a:focus {
 }
 
 
+/* search */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.nav_search-btn {
+    background: url('~/images/search-icon.png') no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.d-none {
+    display: none;
+}
+
+
 
 
 /* footer section*/

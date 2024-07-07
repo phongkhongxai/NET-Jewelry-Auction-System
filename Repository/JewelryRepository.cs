@@ -34,5 +34,16 @@ namespace Repository
         {
             JewelryDAO.UpdateJewelry(jewelry);
         }
+
+        //paging method
+        public List<Jewelry> GetJewelriesByPage(int page, int pageSize)
+        {
+            return JewelryDAO.GetJewelryByPage(page, pageSize);
+        }
+
+        public int GetTotalJewelries()
+        {
+            return JewelryDAO.GetTotalJewelry();
+        }
     }
 }

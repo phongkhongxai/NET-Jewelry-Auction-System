@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,23 +25,24 @@ namespace DataAccessObjects
 
         public static List<Bid> GetAllBids()
         {
-            var list = new List<Bid>();
-            try
-            {
-                using var db = new GroupProjectPRN221();
-                list = db.Bids.ToList();
-            } catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return list;
-        }
+			var list = new List<Bid>();
+			try
+			{
+				using var db = new GroupProjectPRN221();
+				list = db.Bids.Include(b => b.Auction).Include(b => b.User).ToList();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
+			return list;
+		}
 
         public static Bid GetBidById(int bidId)
         {
-            using var db = new GroupProjectPRN221();
-            return db.Bids.FirstOrDefault(b => b.Id == bidId);
-        }
+			using var db = new GroupProjectPRN221();
+			return db.Bids.Include(b => b.Auction).Include(b => b.User).FirstOrDefault(b => b.Id == bidId);
+		}
 
         public static void UpdateBid(Bid bid)
         {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessObjects.Migrations
 {
     [DbContext(typeof(GroupProjectPRN221))]
-    [Migration("20240701031219_ii2s2003")]
-    partial class ii2s2003
+    [Migration("20240705012236_helloword")]
+    partial class helloword
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,9 @@ namespace BusinessObjects.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<TimeOnly?>("TotalTime")
+                        .HasColumnType("time");
 
                     b.HasKey("Id");
 

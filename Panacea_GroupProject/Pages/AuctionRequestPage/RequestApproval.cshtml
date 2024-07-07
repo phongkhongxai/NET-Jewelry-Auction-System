@@ -222,12 +222,13 @@
                                         Auction
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="auction-link">
-                                        <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a>
+                                        @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
                                         <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
                                         @if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
                                         {
                                             <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
                                         }
+                                        <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
@@ -408,6 +409,7 @@
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Image</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -424,10 +426,10 @@
                                         {
                                             <form method="post">
                                                 <input type="hidden" name="RequestId" value="@request.Id" />
-                                                <button type="submit" class="btn accept" asp-page-handler="Accept">
+                                                <button type="submit" class="btn accept" name="action" value="Accept">
                                                     <i class="fa fa-check" aria-hidden="true"></i> Accept
                                                 </button>
-                                                <button type="submit" class="btn deny" asp-page-handler="Deny">
+                                                <button type="submit" class="btn deny" name="action" value="Deny">
                                                     <i class="fa fa-times" aria-hidden="true"></i> Deny
                                                 </button>
                                             </form>
