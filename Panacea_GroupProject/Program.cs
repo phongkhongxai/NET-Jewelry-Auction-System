@@ -1,3 +1,4 @@
+using Panacea_GroupProject;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +13,10 @@ builder.Services.AddScoped<IAuctionRequestService, AuctionRequestService>();
 builder.Services.AddScoped<IMaterialService, MaterialService>(); 
 builder.Services.AddScoped<IBidService, BidService>(); 
 builder.Services.AddScoped<IUserAuctionService, UserAuctionService>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 
 
+builder.Services.AddSignalR();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -35,6 +38,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 app.UseSession();
+app.MapHub<AuctionHub>("/auctionHub");
 
 app.MapRazorPages();
 

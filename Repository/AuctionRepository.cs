@@ -45,5 +45,9 @@ namespace Repository
             AuctionDAO.UpdateAuction(auction);
         }
 
-    }
+		public void UpdateAuctionStatus(int auctionId, string status)
+		{
+			AuctionDAO.UpdateAuctionStatus(auctionId, status);
+		}
+	}
 }

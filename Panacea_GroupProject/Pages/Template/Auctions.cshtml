@@ -31,6 +31,24 @@
 	<link href="~/css/responsive.css" rel="stylesheet" />
 
 	<style>
+		.notification {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			width: 300px;
+			padding: 15px;
+			background-color: #f0f0f0;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			z-index: 1000;
+		}
+
+			.notification.alert-info {
+				background-color: #d1ecf1;
+				color: #0c5460;
+				border-color: #bee5eb;
+			}
 		.auction-page {
 			padding: 50px 0;
 		}
@@ -311,6 +329,12 @@
 	@* chua start *@
 	<section class="price_section layout_padding">
 		<div class="container">
+			@if (TempData["Message"] != null)
+			{
+				<div class="notification alert-info" role="alert">
+					@TempData["Message"]
+				</div>
+			}
 			<div class="heading_container">
 				<h2>
 					Auction

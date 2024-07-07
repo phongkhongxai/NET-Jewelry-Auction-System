@@ -1,0 +1,29 @@
+﻿@model List<BusinessObjects.Bid>
+<table id="bidsTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Bidder</th>
+            <th scope="col">Bid Amount</th>
+            <th scope="col">Bid Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var bid in Model.OrderByDescending(b => b.Amount))
+            {
+                <tr>
+                    <td>@bid.User.Name</td>
+                    <td>@bid.Amount</td>
+                    <td>@bid.BidTime</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">No bids found.</td>
+            </tr>
+        }
+    </tbody>
+</table> 

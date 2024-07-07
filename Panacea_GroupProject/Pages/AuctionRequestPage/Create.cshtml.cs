@@ -86,7 +86,7 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
                     return NotFound();
                 } 
 
-                AuctionRequest auction = new AuctionRequest { User = user, Title = Title, Description = Description,
+                AuctionRequest auction = new AuctionRequest { UserId = user.Id, Title = Title, Description = Description,
                 Image = Image,
                     Status = "Pending",
                     RequestDate = DateTime.UtcNow,
