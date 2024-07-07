@@ -77,5 +77,5 @@ namespace DataAccessObjects
             using var db = new GroupProjectPRN221();
             return db.Bids.Where(b => b.AuctionId == auctionId).ToList();
         }
-    }
+	}
 }

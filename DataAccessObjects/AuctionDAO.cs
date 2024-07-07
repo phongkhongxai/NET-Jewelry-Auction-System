@@ -27,7 +27,7 @@ namespace DataAccessObjects
 		public static Auction GetAuctionById(int id)
 		{
 			using var db = new GroupProjectPRN221();
-			return db.Auctions.SingleOrDefault(a => a.Id == id);
+			return db.Auctions.Include(a => a.JewelryId).SingleOrDefault(a => a.Id == id);
 		}
 
 		public static void CreateAuction(Auction auction)

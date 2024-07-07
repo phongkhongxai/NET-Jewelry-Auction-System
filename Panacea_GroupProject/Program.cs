@@ -12,6 +12,7 @@ builder.Services.AddScoped<IAuctionRequestService, AuctionRequestService>();
 builder.Services.AddScoped<IMaterialService, MaterialService>(); 
 builder.Services.AddScoped<IBidService, BidService>(); 
 builder.Services.AddScoped<IUserAuctionService, UserAuctionService>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 
 
 builder.Services.AddDistributedMemoryCache();

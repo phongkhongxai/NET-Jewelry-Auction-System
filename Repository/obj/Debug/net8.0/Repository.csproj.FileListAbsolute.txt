@@ -27,3 +27,21 @@ D:\FPTU_Ky7\PRN221\2_7\NET-Jewelry-Auction-System\NET-Jewelry-Auction-System\Rep
 D:\FPTU_Ky7\PRN221\2_7\NET-Jewelry-Auction-System\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\refint\Repository.dll
 D:\FPTU_Ky7\PRN221\2_7\NET-Jewelry-Auction-System\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.pdb
 D:\FPTU_Ky7\PRN221\2_7\NET-Jewelry-Auction-System\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\ref\Repository.dll
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\bin\Debug\net8.0\Repository.deps.json
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\bin\Debug\net8.0\Repository.dll
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\bin\Debug\net8.0\Repository.pdb
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\bin\Debug\net8.0\BusinessObjects.dll
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\bin\Debug\net8.0\DataAccessObjects.dll
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\bin\Debug\net8.0\BusinessObjects.pdb
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\bin\Debug\net8.0\DataAccessObjects.pdb
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.csproj.AssemblyReference.cache
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.AssemblyInfoInputs.cache
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.AssemblyInfo.cs
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.csproj.CoreCompileInputs.cache
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.sourcelink.json
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.csproj.Up2Date
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.dll
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\refint\Repository.dll
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\Repository.pdb
+D:\Semester 7\FPT - PRN221\NET-Jewelry-Auction-System\Repository\obj\Debug\net8.0\ref\Repository.dll

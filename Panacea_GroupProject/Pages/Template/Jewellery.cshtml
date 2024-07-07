@@ -24,6 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet" />
     <link href="~/css/responsive.css" rel="stylesheet" />
+
 </head>
 
 <body class="sub_page">
@@ -61,7 +62,6 @@
                                         {
                                             <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                         }
-                                        <a class="dropdown-item" href="/JewelryPage/ViewAll">See all browsed jewelry</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -181,63 +181,34 @@
                 </h2>
             </div>
             <div class="price_container">
-                <div class="box">
-                    <div class="name">
-                        <h6>
-                            Diamond Ring
-                        </h6>
+                @foreach (var item in Model.Jewelries)
+                {
+                    <div class="box">
+                        <div class="name">
+                            <h6>
+                                @item.Name
+                            </h6>
+                        </div>
+                        <div class="img-box" style="height: 300px">
+                            @if (!string.IsNullOrEmpty(item.Image))
+                            {
+                                <img style="width: 300px" src="@item.Image" alt="Jewelry Image">
+                            }
+                            else
+                            {
+                                <p>No image available</p>
+                            }
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                $<span>@item.Price</span>
+                            </h5>
+                        </div>
                     </div>
-                    <div class="img-box">
-                        <img src="~/images/p-1.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            $<span>1000.00</span>
-                        </h5>
-                        <a href="">
-                            Buy Now
-                        </a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="name">
-                        <h6>
-                            Diamond Ring
-                        </h6>
-                    </div>
-                    <div class="img-box">
-                        <img src="~/images/i-2.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            $<span>1000.00</span>
-                        </h5>
-                        <a href="">
-                            Buy Now
-                        </a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="name">
-                        <h6>
-                            Diamond Ring
-                        </h6>
-                    </div>
-                    <div class="img-box">
-                        <img src="~/images/i-3.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            $<span>1000.00</span>
-                        </h5>
-                        <a href="">
-                            Buy Now
-                        </a>
-                    </div>
-                </div>
+                }
             </div>
             <div class="d-flex justify-content-center">
-                <a href="" class="price_btn">
+                <a href="javascript:void(0)" class="price_btn">
                     See More
                 </a>
             </div>
@@ -347,6 +318,33 @@
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const boxes = document.querySelectorAll('.box');
+            const seeMoreButton = document.querySelector('.price_btn');
+            const itemsToShow = 3;
+            let currentItem = 0;
+
+            function showItems() {
+                for (let i = currentItem; i < currentItem + itemsToShow; i++) {
+                    if (i < boxes.length) {
+                        boxes[i].style.display = 'block';
+                    }
+                }
+                currentItem += itemsToShow;
+
+                if (currentItem >= boxes.length) {
+                    seeMoreButton.style.display = 'none';
+                }
+            }
+
+            seeMoreButton.addEventListener('click', showItems);
+
+            // Initial display
+            showItems();
+        });
+    </script>
 </body>
 
 </html>
