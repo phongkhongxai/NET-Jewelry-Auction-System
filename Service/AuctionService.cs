@@ -50,5 +50,10 @@ namespace Service
         {
             return _auctionRepository.GetAuctionByUserID(id);
         }
-    }
+
+		public void UpdateAuctionStatus(int auctionId, string status)
+		{
+			_auctionRepository.UpdateAuctionStatus(auctionId, status);
+		}
+	}
 }

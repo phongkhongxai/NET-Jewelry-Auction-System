@@ -16,7 +16,7 @@ namespace Service
         public void DeleteAuction(Auction auction);
         public List<Bid> GetBidForAuction(int auctionId);
         public List<Auction> Search(string keyword);
-
-        public List<Auction> GetAuctionByUserID(int id);
+		public void UpdateAuctionStatus(int auctionId, string status); 
+		public List<Auction> GetAuctionByUserID(int id);
     }
 }

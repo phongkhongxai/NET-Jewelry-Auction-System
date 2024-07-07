@@ -14,8 +14,7 @@ namespace DataAccessObjects
         {
             try
             {
-                using var db = new GroupProjectPRN221();
-                db.Users.Attach(auctionRequest.User);
+                using var db = new GroupProjectPRN221(); 
                 db.AuctionRequests.Add(auctionRequest);
                 db.SaveChanges();
             }

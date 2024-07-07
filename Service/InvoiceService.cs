@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public class InvoiceService : IInvoiceService
+    public class InvoiceService:IInvoiceService
     {
         private readonly IInvoiceRepository _invoiceRepository;
         public InvoiceService()

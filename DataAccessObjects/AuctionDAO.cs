@@ -27,7 +27,8 @@ namespace DataAccessObjects
 		public static Auction GetAuctionById(int id)
 		{
 			using var db = new GroupProjectPRN221();
-			return db.Auctions.Include(a => a.JewelryId).SingleOrDefault(a => a.Id == id);
+			return db.Auctions.Include(a => a.Jewelry).SingleOrDefault(a => a.Id == id);
+
 		}
 
 		public static void CreateAuction(Auction auction)
@@ -56,6 +57,25 @@ namespace DataAccessObjects
 			}
 		}
 
+		public static void UpdateAuctionStatus(int auctionId, string status)
+		{
+			try
+			{
+				using var db = new GroupProjectPRN221();
+				var auction = db.Auctions.SingleOrDefault(a => a.Id == auctionId);
+				if (auction != null)
+				{
+					auction.Status = status;
+					db.SaveChanges();
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
+		}
+
+
 		public static void DeleteAuction(Auction auction)
 		{
 			try
@@ -82,7 +102,7 @@ namespace DataAccessObjects
             try
 			{
                 using var db = new GroupProjectPRN221();
-                list = db.Bids.Where(b => b.AuctionId == auctionId).ToList();
+                list = db.Bids.Where(b => b.AuctionId == auctionId).Include(b => b.Auction).Include(b => b.User).ToList();
             } catch (Exception ex)
 			{
                 throw new Exception(ex.Message);

@@ -50,6 +50,9 @@ namespace BusinessObjects.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<TimeOnly?>("TotalTime")
+                        .HasColumnType("time");
+
                     b.HasKey("Id");
 
                     b.HasIndex("JewelryId");
@@ -146,6 +149,10 @@ namespace BusinessObjects.Migrations
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
