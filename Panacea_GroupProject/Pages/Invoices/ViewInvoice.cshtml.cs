@@ -7,25 +7,30 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
+using Service;
 
 namespace Panacea_GroupProject.Pages.Invoices
 {
     public class ViewInvoiceModel : PageModel
     {
-        private readonly DataAccessObjects.GroupProjectPRN221 _context;
+        private readonly IInvoiceService _invoiceService;
 
-        public ViewInvoiceModel(DataAccessObjects.GroupProjectPRN221 context)
+        public ViewInvoiceModel(IInvoiceService invoiceService)
         {
-            _context = context;
+            _invoiceService = invoiceService;
         }
 
-        public IList<Invoice> Invoice { get;set; }
+        public Invoice Invoice { get;set; }
+        public User User { get; set; }
 
-        public async Task OnGetAsync()
+        public IActionResult OnGet(int id)
         {
-            Invoice = await _context.Invoices
-                .Include(i => i.Auction)
-                .Include(i => i.User).ToListAsync();
+            Invoice = _invoiceService.GetInvoiceById(id);
+            if (Invoice == null)
+            {
+                return NotFound();
+            }
+            return Page();
         }
     }
 }
