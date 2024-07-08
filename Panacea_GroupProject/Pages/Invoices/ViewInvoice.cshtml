@@ -300,6 +300,8 @@
 					<td>@Model.Invoice.Auction.Jewelry.Name</td>
 					<td>@Model.Invoice.Status</td>
 					<td>@Model.Invoice.TotalPrice</td>
+					@if (Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5)) 
+					{
 					<td>
 						@if (Model.Invoice.Status.Equals("Pending"))
 						{
@@ -309,6 +311,7 @@
 							</form>
 						}
 					</td>
+					}
 				</tr>
 
 				<tr>

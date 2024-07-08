@@ -25,8 +25,26 @@ namespace DataAccessObjects
             return list;
         }
 
+		public static List<Auction> GetAuctionByStatus(string status)
+		{
+			var list = new List<Auction>();
+			try
+			{
+				using var db = new GroupProjectPRN221();
+				list = db.Auctions
+						 .Include(c => c.Jewelry)
+						 .Include(a => a.Bids)
+						 .Where(a => a.Status == status)
+						 .ToList();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
+			return list;
+		}
 
-        public static Auction GetAuctionById(int id)
+		public static Auction GetAuctionById(int id)
 		{
 			using var db = new GroupProjectPRN221();
 			return db.Auctions.Include(a => a.Jewelry).SingleOrDefault(a => a.Id == id);

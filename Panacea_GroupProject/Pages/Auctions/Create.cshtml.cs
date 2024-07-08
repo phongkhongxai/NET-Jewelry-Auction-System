@@ -39,6 +39,11 @@ namespace Panacea_GroupProject.Pages.Auctions
 			{
 				return RedirectToPage("/Accounts/Login");
 			}
+			if (!LoggedInUser.RoleId.Equals(5))
+			{
+				return RedirectToPage("/Template/Index");
+
+			}
 			ViewData["JewelryId"] = new SelectList(_jewelryService.GetAllJewelries(), "Id", "Name");
 			return Page();
 		}

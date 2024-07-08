@@ -34,7 +34,7 @@ namespace DataAccessObjects
         public static User GetUserById(int id)
         {
             using var db = new GroupProjectPRN221();
-            return db.Users.FirstOrDefault(u => u.Id == id && !u.IsDelete);
+            return db.Users.Include(u => u.Role).FirstOrDefault(u => u.Id == id && !u.IsDelete);
         }
  
 

@@ -30,6 +30,12 @@ namespace Repository
             return AuctionDAO.GetAuctionById(id);
         }
 
+		public List<Auction> GetAuctionByStatus(string status)
+		{
+            return AuctionDAO.GetAuctionByStatus(status);
+		}
+
+		
 		public List<Auction> GetAuctionByJewelryId(int id)
 		{
 			return AuctionDAO.GetAuctionByJewelryId(id);
