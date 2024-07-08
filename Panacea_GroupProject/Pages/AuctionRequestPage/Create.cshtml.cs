@@ -18,7 +18,6 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
         private readonly IAuctionRequestService _auctionRequestService;
         private readonly IUserService _userService;
 
-		[BindProperty]
 		public User LoggedInUser { get; private set; }
 
 		public CreateModel(IAuctionRequestService auctionRequestService, IUserService userService)

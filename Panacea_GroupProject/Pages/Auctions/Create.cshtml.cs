@@ -25,7 +25,6 @@ namespace Panacea_GroupProject.Pages.Auctions
 			_userService = userService;
 		}
 
-		[BindProperty]
 		public User LoggedInUser { get; private set; }
 		public IActionResult OnGet()
 		{
@@ -61,7 +60,18 @@ namespace Panacea_GroupProject.Pages.Auctions
 
 		public IActionResult OnPost()
 		{
-			if (!ModelState.IsValid)
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+            if (LoggedInUser == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+            if (!ModelState.IsValid)
 			{
 				ViewData["JewelryId"] = new SelectList(_jewelryService.GetAllJewelries(), "Id", "Name");
 				return Page();
@@ -72,6 +82,14 @@ namespace Panacea_GroupProject.Pages.Auctions
 			if (jewelry == null)
 			{
 				ModelState.AddModelError(string.Empty, "Invalid Jewelry ID.");
+				return Page();
+			}
+
+			var auctions = _auctionService.GetAuctionByJewelryId(JewelryId);
+			if (auctions.Any(a => a.Status == "Processing" || a.Status == "Pending"))
+			{
+				ModelState.AddModelError(string.Empty, "Cannot create auction for jewelry that already has a 'Processing' or 'Pending' auction.");
+				ViewData["JewelryId"] = new SelectList(_jewelryService.GetAllJewelries(), "Id", "Name");
 				return Page();
 			}
 
@@ -103,7 +121,7 @@ namespace Panacea_GroupProject.Pages.Auctions
 			_auctionService.CreateAuction(auction);
 
 			TempData["SuccessMessage"] = "Auction created successfully.";
-			return RedirectToPage();
+			return Page();
 		}
 	}
 }

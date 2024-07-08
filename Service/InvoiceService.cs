@@ -35,7 +35,7 @@ namespace Service
             return _invoiceRepository.GetInvoiceById(id);
         }
 
-		public Invoice GetInvoiceByUserId(int id)
+		public List<Invoice> GetInvoiceByUserId(int id)
 		{
 			return _invoiceRepository.GetInvoiceByUserId(id);
 		}

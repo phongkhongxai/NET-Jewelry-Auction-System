@@ -26,7 +26,6 @@ namespace Panacea_GroupProject.Pages.Template
 
         }
 
-        [BindProperty]
         public User LoggedInUser { get; private set; }
         public IList<Auction> UpcomingAuctions { get; set; }
         public Auction CurrentAuctions { get; set; }

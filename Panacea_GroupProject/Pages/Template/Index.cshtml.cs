@@ -11,7 +11,6 @@ namespace Panacea_GroupProject.Pages.Template
     {
         private readonly IUserService _userService;
 
-        [BindProperty]
         public User LoggedInUser { get; private set; }
         public IndexModel(IUserService userService)
         {

@@ -31,7 +31,7 @@ namespace Panacea_GroupProject.Pages.Accounts
 
             if (user == null)
             {
-                ModelState.AddModelError("", "Invalid email or password.");
+                ModelState.AddModelError(nameof(Password), "Invalid email or password.");
                 return Page();
             }
 
