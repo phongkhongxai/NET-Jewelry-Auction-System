@@ -3,13 +3,18 @@
 @{
     var username = "Admin";
 }
+@using BusinessObjects
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>@ViewData["Title"]</title>
-    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,24 +30,31 @@
             left: 0;
             bottom: 0;
             padding: 20px;
+            width: 220px; /* Adjust sidebar width */
             border-right: 1px solid #ddd;
+            background-color: #f8f9fa; /* Light background color */
         }
 
         .main-content {
-            margin-left: 220px; /* width of the sidebar */
+            margin-left: 240px; /* Adjust main content margin to accommodate sidebar width */
             padding: 20px;
         }
+
+        .sidebar .nav-link {
+            color: #495057; /* Sidebar link color */
+        }
+
+            .sidebar .nav-link.active {
+                font-weight: bold; /* Active link font weight */
+                color: #007bff; /* Active link color */
+            }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Admin Dashboard</a>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <span class="nav-link">Hi, @username</span>
-                </li>
-            </ul>
+            <span class="nav-link">Hi, @username</span>
         </div>
     </nav>
 
@@ -51,16 +63,25 @@
             <div class="col-md-2 bg-light sidebar">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/AdminPage/AdminDashboard">Dashboard</a>
+                        <a class="nav-link @(Url.Page("AdminDashboard") == Request.Path ? "active" : "")" href="/AdminPage/AdminDashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/AdminPage/ManageUser/Index">Users</a>
+                        <form id="user-form" method="get">
+                            <input type="hidden" id="object-name-user" name="objectName" value="Users" />
+                            <a class="nav-link @(Url.Page("ManageUser/Index") == Request.Path ? "active" : "")" id="userButton">Users</a>
+                        </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/AdminPage/ManageAuction/ViewAuction">Auctions</a>
+                        <form id="auction-form" method="get">
+                            <input type="hidden" id="object-name-auction" name="objectName" value="Auctions" />
+                            <a class="nav-link @(Url.Page("ManageAuction/ViewAuction") == Request.Path ? "active" : "")" id="auctionButton">Auctions</a>
+                        </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/AdminPage/ManageJewelry/ViewJewelry">Jewelry</a>
+                        <form id="jewelry-form" method="get">
+                            <input type="hidden" id="object-name-jewelry" name="objectName" value="Jewelry" />
+                            <a class="nav-link @(Url.Page("ManageJewelry/ViewJewelry") == Request.Path ? "active" : "")" id="jewelryButton">Jewelry</a>
+                        </form>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Other Tables</a>
@@ -70,13 +91,271 @@
             <div class="col-md-10 main-content">
                 <h1>Welcome to the Admin Dashboard</h1>
                 <p>Select an option from the sidebar to manage the corresponding data.</p>
+
+                @*                 <button class="btn btn-primary mb-3" onclick="location.href='@Url.Page("Create")'">+ Create</button>
+                *@
+                @if (Model.ListObject != null)
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                @if (Model.ObjectType == "Auction")
+                                {
+                                    <th>Action</th>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                }
+                                else if (Model.ObjectType == "User")
+                                {
+                                    <th>Action</th>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                }
+                                else if (Model.ObjectType == "Jewelry")
+                                {
+                                    <th>Action</th>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ListObject)
+                            {
+                                <tr>
+                                    @if (Model.ObjectType == "Auction")
+                                    {
+                                        var auction = item as Auction;
+                                        <td>
+                                            <button class="btn btn-warning btn-sm edit-button" data-toggle="modal" data-target="#editModal" data-id="@auction.Id" data-name="@auction.Jewelry.Name" data-start-date="@auction.StartDate" data-end-date="@auction.EndDate">Edit</button>
+                                            <button class="btn btn-danger btn-sm delete-button" data-toggle="modal" data-target="#deleteConfirmationModal" data-id="@auction.Id" data-objectname="Auction">Delete</button>
+                                        </td>
+                                        <td>@auction.Id</td>
+                                        <td>@auction.Jewelry.Name</td>
+                                        <td>@auction.StartDate</td>
+                                        <td>@auction.EndDate</td>
+                                    }
+                                    else if (Model.ObjectType == "User")
+                                    {
+                                        var user = item as User;
+                                        <td>
+                                            <button class="btn btn-warning btn-sm edit-button" data-toggle="modal" data-target="#editModal" data-id="@user.Id" data-name="@user.Name" data-email="@user.Email" data-phone="@user.Phone" data-address="@user.Address">Edit</button>
+                                            <button class="btn btn-danger btn-sm delete-button" data-toggle="modal" data-target="#deleteConfirmationModal" data-id="@user.Id" data-objectname="User">Delete</button>
+                                        </td>
+                                        <td>@user.Id</td>
+                                        <td>@user.Name</td>
+                                        <td>@user.Email</td>
+                                        <td>@user.Phone</td>
+                                        <td>@user.Address</td>
+                                    }
+                                    else if (Model.ObjectType == "Jewelry")
+                                    {
+                                        var jewelry = item as Jewelry;
+                                        <td>
+                                            <button class="btn btn-warning btn-sm edit-button" data-toggle="modal" data-target="#editModal" data-id="@jewelry.Id" data-name="@jewelry.Name" data-price="@jewelry.Price">Edit</button>
+                                            <button class="btn btn-danger btn-sm delete-button" data-toggle="modal" data-target="#deleteConfirmationModal" data-id="@jewelry.Id" data-objectname="Jewelry">Delete</button>
+                                        </td>
+                                        <td>@jewelry.Id</td>
+                                        <td>@jewelry.Name</td>
+                                        <td>@jewelry.Price</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm" method="post" asp-page-handler="Edit" asp-route-objectName="@Model.ObjectType">
+                        <input type="hidden" id="edit-id" name="Id" />
 
+                        @if (Model.ObjectType == "Auction")
+                        {
+                            @* <div class="form-group">
+                        <label for="edit-name">Name</label>
+                        <input type="text" class="form-control" id="edit-name" name="Name" required />
+                        </div> *@
+                            <div class="form-group">
+                                <label for="edit-start-date">Start Date</label>
+                                <input type="date" class="form-control" id="edit-start-date" name="StartDate" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-end-date">End Date</label>
+                                <input type="date" class="form-control" id="edit-end-date" name="EndDate" required />
+                            </div>
+                        }
+                        else if (Model.ObjectType == "User")
+                        {
+                            <div class="form-group">
+                                <label for="edit-name">Name</label>
+                                <input type="text" class="form-control" id="edit-name" name="Name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-email">Email</label>
+                                <input type="email" class="form-control" id="edit-email" name="Email" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-phone">Phone</label>
+                                <input type="tel" class="form-control" id="edit-phone" name="Phone" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-address">Address</label>
+                                <input type="text" class="form-control" id="edit-address" name="Address" required />
+                            </div>
+                        }
+                        else if (Model.ObjectType == "Jewelry")
+                        {
+                            <div class="form-group">
+                                <label for="edit-name">Name</label>
+                                <input type="text" class="form-control" id="edit-name" name="Name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-price">Price</label>
+                                <input type="number" class="form-control" id="edit-price" name="Price" required />
+                            </div>
+                        }
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">Sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Sure bro??
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteForm" method="post" asp-page-handler="Delete" asp-route-objectName="@Model.ObjectType">
+                        <input type="hidden" id="delete-id" name="Id" />
+                        <input type="hidden" id="delete-objectname" name="objectName" value="@Model.ObjectType" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        // function openDeleteConfirmationModal(id) {
+        //     $('#confirmDeleteBtn').data('id', id);
+
+        //     $('#deleteConfirmationModal').modal('show');
+        // }
+
+        $('#deleteConfirmationModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var id = button.data('id');
+            var objectName = button.data('objectname');
+            var modal = $(this);
+            modal.find('#delete-id').val(id);
+            modal.find('#delete-objectname').val(objectName);
+        });
+
+
+
+        $(document).ready(function () {
+            $('#auctionButton').click(function (e) {
+                e.preventDefault();
+
+                var objectName = "Auction";
+
+                $('#object-name-auction').val(objectName);
+                $('#auction-form').submit();
+            });
+
+            $('#userButton').click(function (e) {
+                e.preventDefault();
+
+                var objectName = "User";
+
+                $('#object-name-user').val(objectName);
+                $('#user-form').submit();
+            });
+
+            $('#jewelryButton').click(function (e) {
+                e.preventDefault();
+
+                var objectName = "Jewelry";
+
+                $('#object-name-jewelry').val(objectName);
+                $('#jewelry-form').submit();
+            });
+
+            $('.edit-button').click(function () {
+                var id = $(this).data('id');
+                var name = $(this).data('name');
+                var startDate = $(this).data('start-date');
+                var endDate = $(this).data('end-date');
+                var email = $(this).data('email');
+                var phone = $(this).data('phone');
+                var address = $(this).data('address');
+                var price = $(this).data('price'); // Make sure data-price is correctly set in HTML
+
+                $('#edit-id').val(id);
+                $('#edit-name').val(name);
+
+                if (startDate) {
+                    $('#edit-start-date').val(new Date(startDate).toISOString().split('T')[0]);
+                }
+                if (endDate) {
+                    $('#edit-end-date').val(new Date(endDate).toISOString().split('T')[0]);
+                }
+                if (email) {
+                    $('#edit-email').val(email);
+                }
+                if (phone) {
+                    $('#edit-phone').val(phone);
+                }
+                if (address) {
+                    $('#edit-address').val(address);
+                }
+                if (price) {
+                    $('#edit-price').val(price);
+                }
+            });
+        });
+
+    </script>
 </body>
 </html>

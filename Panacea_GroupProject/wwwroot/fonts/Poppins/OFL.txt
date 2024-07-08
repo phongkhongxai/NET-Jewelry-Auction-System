@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+
+ HEAD
 Copyright 2014-2017 Indian Type Foundry (info@indiantypefoundry.com)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
