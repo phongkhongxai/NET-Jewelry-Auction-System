@@ -60,10 +60,9 @@
 									Jewellery
 								</a>
 								<div class="dropdown-menu" aria-labelledby="jewelry-link">
-									@if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(5))
+									@if (Model.LoggedInUser.RoleId.Equals(5))
 									{
 										<a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
-										<a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
 									}
 								</div>
 							</li>
@@ -74,13 +73,17 @@
 								<div class="dropdown-menu" aria-labelledby="auction-link">
 									@* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
 									<a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
-									@if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(4))
+									@if (Model.LoggedInUser.RoleId.Equals(4))
 									{
 										<a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
 									}
 									@if (Model.LoggedInUser.RoleId.Equals(3))
 									{
 										<a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+									}
+									@if (Model.LoggedInUser.RoleId.Equals(5))
+									{
+										<a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
 									}
 								</div>
 							</li>
@@ -97,7 +100,7 @@
 										<a class="dropdown-item" href="/Template/MyProfile">Profile</a>
 										@if (Model.LoggedInUser.RoleId.Equals(3))
 										{
-											<a class="dropdown-item" href="/Invoices/ViewInvoices">My Invoices</a>
+											<a class="dropdown-item" href="/Invoices/MyInvoice">My Invoices</a>
 										}
 										@if (Model.LoggedInUser.RoleId.Equals(4))
 										{
@@ -224,7 +227,6 @@
 								<div class="detail_box">
 									<h2>
 										<span> New Collection</span>
-										<hr>
 									</h2>
 									<h1>
 										Jewellery
@@ -283,41 +285,41 @@
 			<thead>
 				<tr class="bg-primary-subtle">
 					<th scope="col">No.</th>
-					<th scope="col">Description</th>
+					<th scope="col">Jewelry</th>
+					<th scope="col">Status</th>
 					<th scope="col">Price</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Total</th>
+					@if(Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5))
+					{
+						<th scope="col">Action</th>
+					}				
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<th scope="row">1</th>
-					<td>Jewelry Item</td>
-					<td>@Model.Invoice.Auction.Jewelry.Price.ToString("C")</td>
-					<td>1</td>
-					<td>@Model.Invoice.Auction.Jewelry.Price.ToString("C")</td>
+					<td>@Model.Invoice.Auction.Jewelry.Name</td>
+					<td>@Model.Invoice.Status</td>
+					<td>@Model.Invoice.TotalPrice</td>
+					@if (Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5)) 
+					{
+					<td>
+						@if (Model.Invoice.Status.Equals("Pending"))
+						{
+							<form method="post">
+								<input type="hidden" name="invoiceId" value="@Model.Invoice.Id" />
+								<button type="submit" class="btn btn-primary">Update</button>
+							</form>
+						}
+					</td>
+					}
 				</tr>
 
 				<tr>
 					<th></th>
 					<td></td>
-					<td></td>
-					<td>Sub-Total</td>
+					<td>Total</td>
 					<td>@Model.Invoice.TotalPrice.ToString("C")</td>
-				</tr>
-				<tr>
-					<th></th>
 					<td></td>
-					<td></td>
-					<td>TAX 20%</td>
-					<td>@(Model.Invoice.TotalPrice * 0.20M).ToString("C")</td>
-				</tr>
-				<tr>
-					<th></th>
-					<td></td>
-					<td></td>
-					<td class="text-primary fw-bold">Grand-Total</td>
-					<td class="text-primary fw-bold">@((Model.Invoice.TotalPrice * 1.20M).ToString("C"))</td>
 				</tr>
 			</tbody>
 		</table>
@@ -328,7 +330,7 @@
 				<ul class="list-unstyled">
 					<li>
 						<iconify-icon class="social-icon text-primary fs-5 me-2" icon="mdi:location" style="vertical-align:text-bottom"></iconify-icon>
-						Panacea_GroupProject.net1705@gmail.com
+						Panacea.net1705@gmail.com
 					</li>
 					<li>
 						<iconify-icon class="social-icon text-primary fs-5 me-2" icon="solar:phone-bold" style="vertical-align:text-bottom"></iconify-icon>
@@ -336,25 +338,29 @@
 					</li>
 					<li>
 						<iconify-icon class="social-icon text-primary fs-5 me-2" icon="ic:baseline-email" style="vertical-align:text-bottom"></iconify-icon>
-						Panacea.net1705@gmail.com
+						FPT University
 					</li>
 				</ul>
 			</div>
 			<div>
 				<h5 class="fw-bold my-4">Payment Info</h5>
 				<ul class="list-unstyled">
-					<li><span class="fw-semibold">Account No: </span> 123456789</li>
+					<li><span class="fw-semibold">Account No: </span>999998868683979</li>
 					<li><span class="fw-semibold">Account Name: </span> John Doe</li>
-					<li><span class="fw-semibold">Branch Name: </span> Sai Gon</li>
+					<li><span class="fw-semibold">Bank Name: </span> MB Bank</li>
+					<li><span class="fw-semibold">Content: </span> <strong>"Your name"</strong> pay for <strong>"Jewelry name"</strong></li>
 				</ul>
+				<span>
+					<img src='https://img.vietqr.io/image/MB-999998868683979-compact.png' style="width: 50%" />
+				</span>
 			</div>
 		</div>
 
-		<div class="text-center my-5">
+		@* <div class="text-center my-5">
 			<p class="text-muted">
 				<span class="fw-semibold">NOTICE: </span> A finance charge of 1.5% will be made on unpaid balances after 30 days.
 			</p>
-		</div>
+		</div> *@
 	</div>
 </section>
 

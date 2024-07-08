@@ -1,8 +1,6 @@
 ﻿@page
-@model Panacea_GroupProject.Pages.Invoices.SeeAllInvoiceModel
-
+@model Panacea_GroupProject.Pages.Invoices.MyInvoiceModel
 @{
-    ViewData["Title"] = "SeeAllInvoice";
 }
 
 @using BusinessObjects
@@ -264,7 +262,7 @@
 <section class="jewellery_section layout_padding">
     <div class="container">
         <div class="heading_container">
-            <h2>Invoices</h2>
+            <h2>My Invoices</h2>
         </div>
         <div class="row">
             @if (Model.Invoice != null && Model.Invoice.Count > 0)

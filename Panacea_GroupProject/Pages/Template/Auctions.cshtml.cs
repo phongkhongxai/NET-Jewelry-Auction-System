@@ -5,6 +5,7 @@ using Panacea_GroupProject.Helpers;
 using Service;
 using System;
 using System.Security.Claims;
+using System.Linq;
 
 namespace Panacea_GroupProject.Pages.Template
 {
@@ -21,9 +22,10 @@ namespace Panacea_GroupProject.Pages.Template
             _auctionService = auctionService;
             _bidService = bidService;
             _userAuctionService = userAuctionService;
+
+
         }
 
-        [BindProperty]
         public User LoggedInUser { get; private set; }
         public IList<Auction> UpcomingAuctions { get; set; }
         public Auction CurrentAuctions { get; set; }
@@ -55,28 +57,65 @@ namespace Panacea_GroupProject.Pages.Template
         [BindProperty]
         public decimal BidAmount { get; set; }
 
-        public async Task<IActionResult> OnPost(int id)
+        public async Task<IActionResult> OnPost(int auctionId)
+
         {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (LoggedInUser == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
             UserAuction userAuction = new UserAuction()
             {
                 UserId = LoggedInUser.Id,
-                AuctionId = id
+                AuctionId = auctionId
             };
-            _userAuctionService.CreateAuction(userAuction);
-            await LoadDataAsync();
-            return Page();
+            if (_userAuctionService.GetUserAuctionByAuctionId(auctionId).Any(c => c.UserId == userAuction.UserId))
+            {
+                return Redirect($"/Auctions/BidPrice?id={auctionId}");
+            }
+            else
+            {
+                _userAuctionService.CreateAuction(userAuction);
+                return Redirect($"/Auctions/BidPrice?id={auctionId}");
+
+            }
+
+            //await LoadDataAsync();
+            //return Page();
         }
 
         private async Task LoadDataAsync()
         {
-			if (!string.IsNullOrWhiteSpace(SearchQuery))
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                 RedirectToPage("/Accounts/Login");
+            }
+
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (LoggedInUser == null)
+            {
+                 RedirectToPage("/Accounts/Login");
+            }
+            if (!string.IsNullOrWhiteSpace(SearchQuery))
             {
                 UpcomingAuctions = _auctionService.Search(SearchQuery);
             }
             else
             {
-                UpcomingAuctions = _auctionService.GetAllAuctions();
-                CurrentAuctions = UpcomingAuctions.FirstOrDefault(c => c.Status == "Processing");
+                CurrentAuctions = _auctionService.GetAllAuctions().FirstOrDefault(c => c.Status == "Processing");
+                UpcomingAuctions = _auctionService.GetAllAuctions().Where(c => c.Id != CurrentAuctions.Id).ToList();
             }
         }
     }

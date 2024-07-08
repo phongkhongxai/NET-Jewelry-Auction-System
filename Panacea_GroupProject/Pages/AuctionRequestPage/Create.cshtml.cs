@@ -18,7 +18,6 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
         private readonly IAuctionRequestService _auctionRequestService;
         private readonly IUserService _userService;
 
-		[BindProperty]
 		public User LoggedInUser { get; private set; }
 
 		public CreateModel(IAuctionRequestService auctionRequestService, IUserService userService)
@@ -42,7 +41,7 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
 			{
 				return RedirectToPage("/Accounts/Login");
 			}
-            if (!LoggedInUser.RoleId.Equals(4) && !LoggedInUser.RoleId.Equals(5))
+            if (!LoggedInUser.RoleId.Equals(3))
             {
 				return RedirectToPage("/Template/Index");
 

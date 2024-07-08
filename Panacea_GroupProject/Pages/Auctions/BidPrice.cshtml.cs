@@ -30,7 +30,6 @@ namespace Panacea_GroupProject.Pages.Auctions
 			_hubContext = hubContext;
 
 		}
-		[BindProperty]
         public User LoggedInUser { get; private set; }
 		[BindProperty]
 		public Auction currentAuction { get;set; }

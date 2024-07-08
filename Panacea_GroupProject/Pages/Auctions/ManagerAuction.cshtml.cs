@@ -100,7 +100,13 @@ namespace Panacea_GroupProject.Pages.Auctions
 				TempData["AuctionNotStarted"] = "The auction cannot be started yet. The start date is in the future.";
 				return RedirectToPage("/Auctions/ManagerAuction");
 			}
-			_auctionService.UpdateAuctionStatus(auction.Id, "Processing"); 
+			_auctionService.UpdateAuctionStatus(auction.Id, "Processing");
+			UserAuction userAuction = new UserAuction()
+			{
+				UserId = LoggedInUser.Id,
+				AuctionId = auction.Id
+			};
+			_userAuctionService.CreateAuction(userAuction);  
 			return RedirectToPage("/Auctions/BidPrice", new { id = auction.Id });
 		}
 
