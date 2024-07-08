@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,10 @@ namespace DataAccessObjects
         {
             try
             {
-                return new GroupProjectPRN221().UserAuctions.Where(c => c.UserId == id).ToList();
+                return new GroupProjectPRN221().UserAuctions
+                               .Include(ua => ua.Auction).ThenInclude(c=> c.Jewelry)
+                               .Where(ua => ua.UserId == id)
+                               .ToList();
             }
             catch (Exception ex)
             {

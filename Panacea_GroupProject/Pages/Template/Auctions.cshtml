@@ -9,538 +9,513 @@
 }
 
 <head>
-	<!-- Basic -->
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<!-- Mobile Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<!-- Site Metas -->
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-	<title>Upcoming Auctions</title>
+    <title>Upcoming Auctions</title>
 
-	<!-- bootstrap core css -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-	<!-- fonts style -->
-	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
-	<!-- Custom styles for this template -->
-	<link href="~/css/style.css" rel="stylesheet" />
-	<!-- responsive style -->
-	<link href="~/css/responsive.css" rel="stylesheet" />
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/css/responsive.css" rel="stylesheet" />
 
-	<style>
-		.notification {
-			position: fixed;
-			top: 20px;
-			right: 20px;
-			width: 300px;
-			padding: 15px;
-			background-color: #f0f0f0;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-			z-index: 1000;
-		}
+    <style>
+        .auction-page {
+            padding: 50px 0;
+        }
 
-			.notification.alert-info {
-				background-color: #d1ecf1;
-				color: #0c5460;
-				border-color: #bee5eb;
-			}
-		.auction-page {
-			padding: 50px 0;
-		}
+        .auction-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-		.auction-header {
-			text-align: center;
-			margin-bottom: 50px;
-		}
+            .auction-header h1 {
+                font-size: 36px;
+                font-weight: bold;
+            }
 
-			.auction-header h1 {
-				font-size: 36px;
-				font-weight: bold;
-			}
+        .auction-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-		.auction-content {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-wrap: wrap;
-			gap: 20px;
-		}
+            .auction-content .auction-current h2 {
+                text-align: center;
+            }
 
-		.auction-image {
-			flex: 1;
-			max-width: 500px;
-		}
+        .auction-image {
+            flex: 1;
+            max-width: 500px;
+        }
 
-			.auction-image img {
-				width: 100%;
-				height: auto;
-				border-radius: 8px;
-			}
+            .auction-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
 
-		.auction-details {
-			flex: 1;
-			max-width: 500px;
-		}
+        .auction-details {
+            flex: 1;
+            max-width: 500px;
+        }
 
-			.auction-details h2 {
-				font-size: 28px;
-				font-weight: bold;
-				margin-bottom: 20px;
-			}
+            .auction-details h2 {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
 
-			.auction-details p {
-				font-size: 16px;
-				margin-bottom: 20px;
-			}
+            .auction-details p {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
 
-		.countdown {
-			display: flex;
-			justify-content: center;
-			gap: 10px;
-			margin-bottom: 20px;
-		}
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
 
-			.countdown div {
-				text-align: center;
-				font-size: 18px;
-				font-weight: bold;
-			}
+            .countdown div {
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+            }
 
-				.countdown div span {
-					display: block;
-					font-size: 14px;
-					font-weight: normal;
-				}
+                .countdown div span {
+                    display: block;
+                    font-size: 14px;
+                    font-weight: normal;
+                }
 
-		.auction-buttons {
-			display: flex;
-			justify-content: center;
-			gap: 20px;
-		}
+        .auction-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-			.auction-buttons a {
-				display: inline-block;
-				padding: 10px 20px;
-				font-size: 16px;
-				border: 2px solid #000;
-				border-radius: 30px;
-				text-decoration: none;
-				color: #000;
-				transition: background-color 0.3s, color 0.3s;
-			}
+            .auction-buttons button {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 16px;
+                border: 2px solid #000;
+                border-radius: 30px;
+                text-decoration: none;
+                color: #000;
+                transition: background-color 0.3s, color 0.3s;
+            }
 
-				.auction-buttons a:hover {
-					background-color: #000;
-					color: #fff;
-				}
+                .auction-buttons button:hover {
+                    background-color: #FFFF00;
+                    color: #fff;
+                }
 
-		.search-section {
-			background-color: #f9f9f9;
-			padding: 20px 0;
-		}
+        .search-section {
+            background-color: #f9f9f9;
+            padding: 20px 0;
+        }
 
 
 
-		.search-box {
-			display: flex;
-			align-items: center;
-			background-color: #ffffff;
-			border-radius: 5px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			overflow: hidden;
-		}
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-		.search-form {
-			display: flex;
-			flex: 1;
-			padding: 0;
-		}
+        .search-form {
+            display: flex;
+            flex: 1;
+            padding: 0;
+        }
 
-		.search-input {
-			flex: 1;
-			padding: 10px;
-			border: none;
-			outline: none;
-			font-size: 16px;
-			border-radius: 0;
-		}
+        .search-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-radius: 0;
+        }
 
-		.search-button {
-			padding: 10px 20px;
-			background-color: #007bff;
-			color: #ffffff;
-			border: none;
-			cursor: pointer;
-			border-radius: 0 5px 5px 0;
-			transition: background-color 0.3s;
-		}
-	</style>
+        .search-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            transition: background-color 0.3s;
+        }
+    </style>
 </head>
 
 <body class="sub_page">
-	<div class="hero_area">
-		<!-- header section strats -->
-		<header class="header_section">
-			<div class="container-fluid">
-				<nav class="navbar navbar-expand-lg custom_nav-container ">
-					<a class="navbar-brand" href="/Template">
-						<img src="~/images/logo.png" alt="">
-						<span>
-							Lodge
-						</span>
-					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="/Template">
+                        <img src="~/images/logo.png" alt="">
+                        <span>
+                            Lodge
+                        </span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-							<ul class="navbar-nav">
-								<li class="nav-item active">
-									<a class="nav-link" href="/Template">Home <span class="sr-only">(current)</span></a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="/Template/About">About</a>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="/Template/Jewellery" id="jewelry-link" role="button" aria-haspopup="true" aria-expanded="false">
-										Jewellery
-									</a>
-									<div class="dropdown-menu" aria-labelledby="jewelry-link">
-										@if (Model.LoggedInUser.RoleId.Equals(5))
-										{
-											<a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
-										}
-									</div>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="/Template/Auctions" id="auction-link" role="button" aria-haspopup="true" aria-expanded="false">
-										Auction
-									</a>
-									<div class="dropdown-menu" aria-labelledby="auction-link">
-										@* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
-										<a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
-										@if (Model.LoggedInUser.RoleId.Equals(4))
-										{
-											<a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
-										}
-										@if (Model.LoggedInUser.RoleId.Equals(3))
-										{
-											<a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
-										}
-										@if (Model.LoggedInUser.RoleId.Equals(5))
-										{
-											<a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
-										}
-									</div>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="/Template/Contact">Contact us</a>
-								</li>
-								@if (Model.LoggedInUser.Name != null)
-								{
-									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-											Hi, @Model.LoggedInUser.Name
-										</a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<a class="dropdown-item" href="/Template/MyProfile">Profile</a>
-											@if (Model.LoggedInUser.RoleId.Equals(3))
-											{
-												<a class="dropdown-item" href="/Invoices/MyInvoice">My Invoices</a>
-											}
-											@if (Model.LoggedInUser.RoleId.Equals(4))
-											{
-												<a class="dropdown-item" href="/Invoices/SeeAllInvoice">See all invoice</a>
-											}
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="/Accounts/Logout">Logout</a>
-										</div>
-									</li>
-								}
-								else
-								{
-									<li class="nav-item">
-										<a class="nav-link" href="/Accounts/Login">Login</a>
-									</li>
-								}
-							</ul>
-						</div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/Template">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Template/About">About</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/Template/Jewellery" id="jewelry-link" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Jewellery
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="jewelry-link">
+                                        @if (Model.LoggedInUser.RoleId.Equals(5))
+                                        {
+                                            <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
+                                        }
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/Template/Auctions" id="auction-link" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Auction
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="auction-link">
+                                        @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
+                                        <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
+                                        @if (Model.LoggedInUser.RoleId.Equals(4))
+                                        {
+                                            <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
+                                        }
+                                        @if (Model.LoggedInUser.RoleId.Equals(3))
+                                        {
+                                            <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+                                        }
+                                        @if (Model.LoggedInUser.RoleId.Equals(5))
+                                        {
+                                            <a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
+                                        }
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Template/Contact">Contact us</a>
+                                </li>
+                                @if (Model.LoggedInUser.Name != null)
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            Hi, @Model.LoggedInUser.Name
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+                                            @if (Model.LoggedInUser.RoleId.Equals(3))
+                                            {
+                                                <a class="dropdown-item" href="/Invoices/MyInvoice">My Invoices</a>
+                                            }
+                                            @if (Model.LoggedInUser.RoleId.Equals(4))
+                                            {
+                                                <a class="dropdown-item" href="/Invoices/SeeAllInvoice">See all invoice</a>
+                                            }
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="/Accounts/Logout">Logout</a>
+                                        </div>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Accounts/Login">Login</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
 
-						@* <div class="quote_btn-container">
-						<form class="form-inline search-form" method="get" action="/search">
-						<input class="form-control mr-sm-2 d-none" type="search" placeholder="Search" aria-label="Search" name="query">
-						</form>
-						<button class="btn my-2 my-sm-0 nav_search-btn" type="button"></button>
-						</div> *@
-					</div>
-				</nav>
-			</div>
-		</header>
-		<!-- end header section -->
-	</div>
+                        @* <div class="quote_btn-container">
+                        <form class="form-inline search-form" method="get" action="/search">
+                        <input class="form-control mr-sm-2 d-none" type="search" placeholder="Search" aria-label="Search" name="query">
+                        </form>
+                        <button class="btn my-2 my-sm-0 nav_search-btn" type="button"></button>
+                        </div> *@
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+    </div>
 
-	<section class="search-section">
-		<div class="container">
-			<div class="search-box">
-				<form method="get" asp-page-handler="Search" class="search-form">
-					<input type="text" name="SearchQuery" class="search-input" placeholder="Search auctions..." value="@Model.SearchQuery" />
-					<button type="submit" class="search-button">Search</button>
-				</form>
-			</div>
-		</div>
-	</section>
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <form method="get" asp-page-handler="Search" class="search-form">
+                    <input type="text" name="SearchQuery" class="search-input" placeholder="Search auctions..." value="@Model.SearchQuery" />
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-	@* <>Current</> *@
-	@if (Model.CurrentAuctions != null)
-	{
-		<section class="auction-page">
-			<div class="container">
-				<div class="auction-header">
-					<h1>Current auction</h1>
-				</div>
-				<div class="auction-content">
-					<div class="auction-current">
-						<h2>Name</h2>
-						<div class="auction-image">
-							<img src="~/images/auctions.jpg" alt="Auction Image">
-						</div>
-						<div class="auction-details">
-							<br />
-							<div class="countdown">
-								<div>
-									<span id="days">05</span> Days
-								</div>
-								<div>
-									<span id="hours">03</span> Hours
-								</div>
-								<div>
-									<span id="minutes">29</span> Minutes
-								</div>
-								<div>
-									<span id="seconds">09</span> Seconds
-								</div>
-							</div>
-							<div class="auction-buttons">
-								@* <a href="/Auctions/BidPrice?id=@Model.CurrentAuctions.Id">Join</a> *@
-								<form method="post" asp-page-handler="Join">
-									<button type="submit" class="join-button">Join</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	}
-
-	<!-- end auction section -->
-	@* chua start *@
-	<section class="price_section layout_padding">
-		<div class="container">
-			@if (TempData["Message"] != null)
-			{
-				<div class="notification alert-info" role="alert">
-					@TempData["Message"]
-				</div>
-			}
-			<div class="heading_container">
-				<h2>
-					Auction
-				</h2>
-			</div>
-			<div class="price_container">
-				@foreach (var auction in Model.UpcomingAuctions)
-				{
-					<div class="box">
-						<div class="name">
-							<h6>
-								@auction.Jewelry.Name
-							</h6>
-						</div>
-						<div class="img-box">
-							<img src="~/images/p-1.png" alt="">
-						</div>
-						<div class="detail-box">
-							<div class="countdown">
-								<div>
-									<span id="days-up">05</span> Days
-								</div>
-								<div>
-									<span id="hours-up">03</span> Hours
-								</div>
-								<div>
-									<span id="minutes-up">29</span> Minutes
-								</div>
-								<div>
-									<span id="seconds-up">09</span> Seconds
-								</div>
-							</div>
-							<h5>
-								Starting Price: <span>@auction.Price</span>
-							</h5>
-							<div class="auction-buttons">
-								@* <button type="submit">Join</button> *@
-								<a href="/Auctions/BidPrice?id=@auction.Id">Join</a>
-							</div>
-						</div>
-					</div>
-				}
+    @* <>Current</> *@
+    @if (Model.CurrentAuctions != null)
+    {
+        <section class="auction-page">
+            <div class="container">
+                <div class="auction-header">
+                    <h1>Current auction</h1>
+                </div>
+                <div class="auction-content">
+                    <div class="auction-current">
+                        <h2>@Model.CurrentAuctions.Jewelry.Name</h2>
+                        <div class="auction-image">
+                            <img src="~/images/auctions.jpg" alt="Auction Image">
+                        </div>
+                        <div class="auction-details">
+                            <br />
+                            <div class="auction-buttons">
+                                @* <a href="/Auctions/BidPrice?id=@Model.CurrentAuctions.Id">Join</a> *@
+                                <h4 class="auction-content">Gia khoi diem:@Model.CurrentAuctions.Price </h4>
+                                <form method="post" asp-page-handler="Join">
+                                    <input type="hidden" name="auctionId" value="@Model.CurrentAuctions.Id" />
+                                    <button type="submit" class="join-button">Join</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
 
 
-				@* </div><div class="d-flex justify-content-center">
-				<a href="" class="price_btn">
-				See More
-				</a>
-				</div> *@
-	</section>
+    <!-- end auction section -->
+    @* chua start *@
+    <section class="price_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Auction
+                </h2>
+            </div>
+            <div class="price_container">
+                @if(Model.UpcomingAuctions != null)
+                {
+                    @foreach (var auction in @Model.UpcomingAuctions)
+                    {
+                        <div class="box">
+                            <div class="name">
+                                <h6>
+                                    @auction.Jewelry.Name
+                                </h6>
+                            </div>
+                            <div class="img-box">
+                                <img src="~/images/p-1.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                @* <div class="countdown">
+                                    <div>
+                                        <span id="days-up">05</span> Days
+                                    </div>
+                                    <div>
+                                        <span id="hours-up">03</span> Hours
+                                    </div>
+                                    <div>
+                                        <span id="minutes-up">29</span> Minutes
+                                    </div>
+                                    <div>
+                                        <span id="seconds-up">09</span> Seconds
+                                    </div>
+                                </div> *@
+                                <span>@auction.Status</span><br />
+                                <h5>
+                                    Gia khoi diem: <span>@auction.Price</span>
+                                </h5>
+                                <div class="auction-buttons">
+                                    @* <button type="submit">Join</button> *@
+                                    @*                                 <input type="hidden" name="auctionId" value="@auction.Id" />
+                            <a href="/Auctions/BidPrice?id=@auction.Id">Join</a> *@
+                                    <form method="post" asp-page-handler="Join">
+                                        <input type="hidden" name="auctionId" value="@auction.Id" />
+                                        <button type="submit" class="join-button">Join</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <h3>Have no auctions</h3>
+                }
+    </section>
 
 
 
 
-	<!-- info section -->
-	<section class="info_section ">
-		<div class="container">
-			<div class="info_container">
-				<div class="row">
-					<div class="col-md-3">
-						<div class="info_logo">
-							<a href="">
-								<img src="~/images/logo.png" alt="">
-								<span>
-									Lodge
-								</span>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="info_contact">
-							<a href="">
-								<img src="~/images/location.png" alt="">
-								<span>
-									Address
-								</span>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="info_contact">
-							<a href="">
-								<img src="~/images/phone.png" alt="">
-								<span>
-									+01 1234567890
-								</span>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="info_contact">
-							<a href="">
-								<img src="~/images/mail.png" alt="">
-								<span>
-									demo@gmail.com
-								</span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="info_form">
-					<div class="d-flex justify-content-center">
-						<h5 class="info_heading">
-							Newsletter
-						</h5>
-					</div>
-					<form action="">
-						<div class="email_box">
-							<label for="email2">Enter Your Email</label>
-							<input type="text" id="email2">
-						</div>
-						<div>
-							<button>
-								subscribe
-							</button>
-						</div>
-					</form>
-				</div>
-				<div class="info_social">
-					<div class="d-flex justify-content-center">
-						<h5 class="info_heading">
-							Follow Us
-						</h5>
-					</div>
-					<div class="social_box">
-						<a href="">
-							<img src="~/images/fb.png" alt="">
-						</a>
-						<a href="">
-							<img src="~/images/twitter.png" alt="">
-						</a>
-						<a href="">
-							<img src="~/images/linkedin.png" alt="">
-						</a>
-						<a href="">
-							<img src="~/images/insta.png" alt="">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- info section -->
+    <section class="info_section ">
+        <div class="container">
+            <div class="info_container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="info_logo">
+                            <a href="">
+                                <img src="~/images/logo.png" alt="">
+                                <span>
+                                    Lodge
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_contact">
+                            <a href="">
+                                <img src="~/images/location.png" alt="">
+                                <span>
+                                    Address
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_contact">
+                            <a href="">
+                                <img src="~/images/phone.png" alt="">
+                                <span>
+                                    +01 1234567890
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_contact">
+                            <a href="">
+                                <img src="~/images/mail.png" alt="">
+                                <span>
+                                    demo@gmail.com
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info_form">
+                    <div class="d-flex justify-content-center">
+                        <h5 class="info_heading">
+                            Newsletter
+                        </h5>
+                    </div>
+                    <form action="">
+                        <div class="email_box">
+                            <label for="email2">Enter Your Email</label>
+                            <input type="text" id="email2">
+                        </div>
+                        <div>
+                            <button>
+                                subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="info_social">
+                    <div class="d-flex justify-content-center">
+                        <h5 class="info_heading">
+                            Follow Us
+                        </h5>
+                    </div>
+                    <div class="social_box">
+                        <a href="">
+                            <img src="~/images/fb.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="~/images/twitter.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="~/images/linkedin.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="~/images/insta.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- end info_section -->
-	<!-- footer section -->
-	<section class="container-fluid footer_section">
-		<p>
-			&copy; 2024 All Rights Reserved. Panacea Group
-			@* <a href="https://html.design/">Free Html Templates</a> *@
-		</p>
-	</section>
-	<!-- footer section -->
+    <!-- end info_section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+        <p>
+            &copy; 2024 All Rights Reserved. Panacea Group
+            @* <a href="https://html.design/">Free Html Templates</a> *@
+        </p>
+    </section>
+    <!-- footer section -->
 
-	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
 
-	<script>
-		// Set the date we're counting down to
-		var countDownDate = new Date(Date.now().getTime();
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date(Date.now().getTime();
 
-		// Update the count down every 1 second
-		var x = setInterval(function () {
-			// Get today's date and time
-			var now = new Date().getTime();
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+            // Get today's date and time
+            var now = new Date().getTime();
 
-			// Find the distance between now and the count down date
-			var distance = countDownDate - now;
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
 
-			// Time calculations for days, hours, minutes and seconds
-			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-			// Display the result in the elements with id="days", "hours", "minutes", "seconds"
-			document.getElementById("days").innerHTML = days;
-			document.getElementById("hours").innerHTML = hours;
-			document.getElementById("minutes").innerHTML = minutes;
-			document.getElementById("seconds").innerHTML = seconds;
-			document.getElementById("days-up").innerHTML = days;
-			document.getElementById("hours-up").innerHTML = hours;
-			document.getElementById("minutes-up").innerHTML = minutes;
-			document.getElementById("seconds-up").innerHTML = seconds;
-			// If the count down is finished, write some text
-			if (distance < 0) {
-				clearInterval(x);
-				document.querySelector(".countdown").innerHTML = "EXPIRED";
-			}
-		}, 1000);
-	</script>
+            // Display the result in the elements with id="days", "hours", "minutes", "seconds"
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            document.getElementById("days-up").innerHTML = days;
+            document.getElementById("hours-up").innerHTML = hours;
+            document.getElementById("minutes-up").innerHTML = minutes;
+            document.getElementById("seconds-up").innerHTML = seconds;
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 
 </body>
 
