@@ -25,7 +25,7 @@ namespace Repository
             return BidDAO.GetAllBids();
         }
 
-        public Bid GetBidById(int bidId)
+		public Bid GetBidById(int bidId)
         {
             return BidDAO.GetBidById(bidId);
         }

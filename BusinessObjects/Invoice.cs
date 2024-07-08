@@ -24,9 +24,10 @@ namespace BusinessObjects
         [Required]
         public decimal TotalPrice { get; set; }
 
+        public string Status { get; set; }
+
         [Required]
         public DateTime InvoiceDate { get; set; }
-        public string Status { get; set; }
 
         public bool IsDelete { get; set; } = false;
     }

@@ -216,8 +216,8 @@
 										@if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(5))
 										{
 											<a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
+											<a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
 										}
-										<a class="dropdown-item" href="/JewelryPage/ViewAll">See all browsed jewelry</a>
 									</div>
 								</li>
 								<li class="nav-item dropdown">
@@ -231,7 +231,10 @@
 										{
 											<a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
 										}
-										<a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+										@if (Model.LoggedInUser.RoleId.Equals(3))
+										{
+											<a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+										}
 									</div>
 								</li>
 								<li class="nav-item">
@@ -245,6 +248,7 @@
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 											<a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+											<a class="dropdown-item" href="/Invoices/ViewInvoices">My Invoices</a>
 											<div class="dropdown-divider"></div>
 											<a class="dropdown-item" href="/Accounts/Logout">Logout</a>
 										</div>

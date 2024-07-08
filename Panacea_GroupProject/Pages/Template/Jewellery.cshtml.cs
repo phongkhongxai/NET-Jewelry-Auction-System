@@ -9,13 +9,16 @@ namespace Panacea_GroupProject.Pages.Template
     public class JewelleryModel : PageModel
     {
         private readonly IUserService _userService;
+        private readonly IJewelryService _jewelryService;
 
         [BindProperty]
         public User LoggedInUser { get; private set; }
-        public JewelleryModel(IUserService userService)
+        public JewelleryModel(IUserService userService, IJewelryService jewelryService)
         {
             _userService = userService;
+            _jewelryService = jewelryService;
         }
+        public List<Jewelry> Jewelries { get; set; }
         public IActionResult OnGet()
         {
             var claimsIdentity = User.Identity as ClaimsIdentity;
@@ -31,6 +34,8 @@ namespace Panacea_GroupProject.Pages.Template
             {
                 return RedirectToPage("/Accounts/Login");
             }
+
+            Jewelries = _jewelryService.GetAllJewelries();
 
             return Page();
         }
