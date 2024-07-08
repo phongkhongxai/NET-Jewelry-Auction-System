@@ -22,7 +22,7 @@ namespace Panacea_GroupProject.Pages.JewelryPage
 		private readonly IMaterialService _materialService;
 		private readonly IWebHostEnvironment _environment;
 
-		[BindProperty]
+
 		public User LoggedInUser { get; private set; }
 
 		public CreateModel(IJewelryService jewelryService, IAuctionRequestService auctionRequestService, IUserService userService, IMaterialService material, IWebHostEnvironment environment)
@@ -96,8 +96,20 @@ namespace Panacea_GroupProject.Pages.JewelryPage
 		  
 
 		public async Task<IActionResult> OnPostAsync()
-		{ 
-			if (!ModelState.IsValid)
+		{
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+            if (LoggedInUser == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            if (!ModelState.IsValid)
             {
 				foreach (var modelStateEntry in ModelState.Values)
 				{

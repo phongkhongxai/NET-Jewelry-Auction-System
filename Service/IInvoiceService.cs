@@ -14,6 +14,6 @@ namespace Service
 		public void CreateInvoice(Invoice Invoice);
 		public void UpdateInvoice(Invoice Invoice);
 		public void DeleteInvoice(Invoice Invoice);
-		public Invoice GetInvoiceByUserId(int id);
+		public List<Invoice> GetInvoiceByUserId(int id);
 	}
 }

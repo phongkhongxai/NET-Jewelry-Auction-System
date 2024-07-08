@@ -6,7 +6,7 @@ namespace Panacea_GroupProject.Pages.Accounts
 {
     public class LogoutModel : PageModel
     {
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             await HttpContext.SignOutAsync("CookieAuth");
             return RedirectToPage("/Index");  

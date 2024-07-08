@@ -11,7 +11,6 @@ namespace Panacea_GroupProject.Pages.Template
         private readonly IUserService _userService;
         private readonly IJewelryService _jewelryService;
 
-        [BindProperty]
         public User LoggedInUser { get; private set; }
         public JewelleryModel(IUserService userService, IJewelryService jewelryService)
         {
