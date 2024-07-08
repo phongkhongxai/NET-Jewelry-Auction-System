@@ -339,7 +339,7 @@
                                 <img src="~/images/p-1.png" alt="">
                             </div>
                             <div class="detail-box">
-                                <div class="countdown">
+                                @* <div class="countdown">
                                     <div>
                                         <span id="days-up">05</span> Days
                                     </div>
@@ -352,9 +352,10 @@
                                     <div>
                                         <span id="seconds-up">09</span> Seconds
                                     </div>
-                                </div>
+                                </div> *@
+                                <span>@auction.Status</span><br />
                                 <h5>
-                                    Gia khoi diem: <span>@auction.Price)</span>
+                                    Gia khoi diem: <span>@auction.Price</span>
                                 </h5>
                                 <div class="auction-buttons">
                                     @* <button type="submit">Join</button> *@
