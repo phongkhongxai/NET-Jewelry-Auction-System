@@ -13,7 +13,9 @@ namespace DataAccessObjects
         public static User CheckLogin(string email, string password)
         {
             using var db = new GroupProjectPRN221();
-            return db.Users.FirstOrDefault(a => a.Email == email && a.Password == password && !a.IsDelete);
+            return db.Users
+                .Include(u => u.Role)
+                .FirstOrDefault(u => u.Email == email && u.Password == password && !u.IsDelete);
         }
 
         public static List<User> GetUsers()

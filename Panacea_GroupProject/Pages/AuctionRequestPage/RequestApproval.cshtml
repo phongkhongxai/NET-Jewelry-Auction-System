@@ -3,9 +3,18 @@
 
 @using BusinessObjects
 @using Panacea_GroupProject.Helpers
+@using System.Security.Claims
 
 @{
-    var loggedInUser = ViewContext.HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+    var loggedInUser = new BusinessObjects.User
+            {
+                Name = User.FindFirst(ClaimTypes.Name)?.Value,
+                Email = User.FindFirst(ClaimTypes.Email)?.Value,
+                Role = new BusinessObjects.Role
+                {
+                    Name = User.FindFirst(ClaimTypes.Role)?.Value
+                }
+            };
 }
 
 <!DOCTYPE html>
@@ -210,9 +219,10 @@
                                         Jewellery
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="jewelry-link">
-                                        @if (loggedInUser != null && loggedInUser.RoleId.Equals(5))
+                                        @if (loggedInUser.Name != null && loggedInUser.RoleId.Equals(5))
                                         {
                                             <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
+                                            <a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
                                         }
                                     </div>
                                 </li>
@@ -224,11 +234,14 @@
                                     <div class="dropdown-menu" aria-labelledby="auction-link">
                                         @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
                                         <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
-                                        @if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
+                                        @if (loggedInUser.Name != null && loggedInUser.RoleId.Equals(4))
                                         {
                                             <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
                                         }
-                                        <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+                                        @if (loggedInUser.RoleId.Equals(3))
+                                        {
+                                            <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+                                        }
                                     </div>
                                 </li>
                                 <li class="nav-item">
@@ -242,6 +255,14 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+                                            @if (loggedInUser.RoleId.Equals(3))
+                                            {
+                                                <a class="dropdown-item" href="/Invoices/ViewInvoices">My Invoices</a>
+                                            }
+                                            @if (loggedInUser.RoleId.Equals(4))
+                                            {
+                                                <a class="dropdown-item" href="/Invoices/SeeAllInvoice">See all invoice</a>
+                                            }
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="/Accounts/Logout">Logout</a>
                                         </div>

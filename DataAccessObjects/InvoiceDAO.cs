@@ -28,9 +28,7 @@ namespace DataAccessObjects
         public static Invoice GetInvoiceById(int id)
         {
             using var db = new GroupProjectPRN221();
-            return db.Invoices.Include(i => i.User)
-                     .Include(i => i.Auction)
-                     .SingleOrDefault(a => a.Id == id);
+            return db.Invoices.SingleOrDefault(a => a.Id == id);
         }
 
         public static void CreateInvoice(Invoice Invoice)
@@ -81,6 +79,12 @@ namespace DataAccessObjects
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public static Invoice GetInvoiceByUserId(int id)
+        {
+			using var db = new GroupProjectPRN221();
+			return db.Invoices.SingleOrDefault(a => a.UserId == id);
         }
     }
 }

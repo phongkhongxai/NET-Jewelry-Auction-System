@@ -8,27 +8,40 @@ using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
 using Service;
+using System.Security.Claims;
 
 namespace Panacea_GroupProject.Pages.Invoices
 {
     public class ViewInvoiceModel : PageModel
     {
         private readonly IInvoiceService _invoiceService;
+        private readonly IUserService _userService;
 
-        public ViewInvoiceModel(IInvoiceService invoiceService)
+        public ViewInvoiceModel(IInvoiceService invoiceService, IUserService userService)
         {
             _invoiceService = invoiceService;
+            _userService = userService;
         }
-
+        [BindProperty]
+        public User LoggedInUser { get; private set; }
         public Invoice Invoice { get;set; }
-        public User User { get; set; }
 
         public IActionResult OnGet(int id)
         {
-            Invoice = _invoiceService.GetInvoiceById(id);
-            if (Invoice == null)
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
             {
-                return NotFound();
+                return RedirectToPage("/Accounts/Login");
+            }
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+            if (LoggedInUser == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+            if (LoggedInUser != null)
+            {
+                Invoice = _invoiceService.GetInvoiceByUserId(LoggedInUser.Id);
             }
             return Page();
         }

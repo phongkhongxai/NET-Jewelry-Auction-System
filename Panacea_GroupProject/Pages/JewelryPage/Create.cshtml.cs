@@ -10,6 +10,7 @@ using Service;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Hosting;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace Panacea_GroupProject.Pages.JewelryPage
 {
@@ -20,6 +21,9 @@ namespace Panacea_GroupProject.Pages.JewelryPage
         private readonly IUserService _userService;
 		private readonly IMaterialService _materialService;
 		private readonly IWebHostEnvironment _environment;
+
+		[BindProperty]
+		public User LoggedInUser { get; private set; }
 
 		public CreateModel(IJewelryService jewelryService, IAuctionRequestService auctionRequestService, IUserService userService, IMaterialService material, IWebHostEnvironment environment)
 		{
@@ -34,19 +38,19 @@ namespace Panacea_GroupProject.Pages.JewelryPage
 
         public IActionResult OnGet()
         {
-			var userJson = HttpContext.Session.GetString("LoggedInUser");
-			if (string.IsNullOrEmpty(userJson))
+			var claimsIdentity = User.Identity as ClaimsIdentity;
+			var userIdClaim = claimsIdentity?.FindFirst("Id");
+			if (userIdClaim == null)
 			{
 				return RedirectToPage("/Accounts/Login");
 			}
 
-			User = JsonConvert.DeserializeObject<User>(userJson);
-			var user = _userService.GetUserByID(User.Id);
-			if (user == null)
+			LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+			if (LoggedInUser == null)
 			{
-				return NotFound();
+				return RedirectToPage("/Accounts/Login");
 			}
-			User = user;
 			var auctionRequests = _auctionRequestService.GetAllAuctionRequestsWithoutJewelry();
 			ViewData["AuctionRequestId"] = new SelectList(auctionRequests, "Id", "Title");
 
@@ -62,8 +66,6 @@ namespace Panacea_GroupProject.Pages.JewelryPage
 
 
          
-
-        public User User { get; set; }
 
 		[BindProperty]
 		[Required(ErrorMessage = "Name is required.")]

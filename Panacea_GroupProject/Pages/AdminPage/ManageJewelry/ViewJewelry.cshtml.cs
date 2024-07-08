@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
 using Service;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.AdminPage.ManageJewelry
 {
+    [Authorize(Policy = "AdminOnly")]
     public class ViewJewelryModel : PageModel
     {
         private readonly IJewelryService _jewelryService;

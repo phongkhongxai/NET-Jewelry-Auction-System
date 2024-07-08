@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
 using Service;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.UsersPage
 {
@@ -26,13 +27,13 @@ namespace Panacea_GroupProject.Pages.UsersPage
             _userService = userService;
         }
 
-        public IList<User> User { get;set; } = default!;
+        public IList<User> Users { get;set; } = default!;
 
         public void OnGet()
         {
             //User = await _context.Users
             //    .Include(u => u.Role).ToListAsync();
-            User = _userService.GetUsers();
+            Users = _userService.GetUsers();
         }
     }
 }

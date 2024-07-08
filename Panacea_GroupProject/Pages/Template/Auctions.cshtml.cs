@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Panacea_GroupProject.Helpers;
 using Service;
 using System;
+using System.Security.Claims;
 
 namespace Panacea_GroupProject.Pages.Template
 {
@@ -22,17 +23,33 @@ namespace Panacea_GroupProject.Pages.Template
             _userAuctionService = userAuctionService;
         }
 
+        [BindProperty]
         public User LoggedInUser { get; private set; }
         public IList<Auction> UpcomingAuctions { get; set; }
         public Auction CurrentAuctions { get; set; }
         [BindProperty(SupportsGet = true)]
         public string SearchQuery { get; set; }
-        public async Task OnGet()
+        public async Task<IActionResult> OnGet()
         {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (LoggedInUser == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
             await LoadDataAsync();
             //UpcomingAuctions =  _auctionService.GetAllAuctions();
             //CurrentAuctions = UpcomingAuctions.FirstOrDefault(c=> c.Status == "Processing");
             //LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+
+            return Page();
         }
 
         [BindProperty]
@@ -40,7 +57,6 @@ namespace Panacea_GroupProject.Pages.Template
 
         public async Task<IActionResult> OnPost(int id)
         {
-            LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
             UserAuction userAuction = new UserAuction()
             {
                 UserId = LoggedInUser.Id,
@@ -53,8 +69,7 @@ namespace Panacea_GroupProject.Pages.Template
 
         private async Task LoadDataAsync()
         {
-            LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
-            if (!string.IsNullOrWhiteSpace(SearchQuery))
+			if (!string.IsNullOrWhiteSpace(SearchQuery))
             {
                 UpcomingAuctions = _auctionService.Search(SearchQuery);
             }

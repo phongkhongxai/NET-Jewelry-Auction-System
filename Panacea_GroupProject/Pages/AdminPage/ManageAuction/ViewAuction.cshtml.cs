@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
 using Service;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.AdminPage.ManageAuction
 {
+    [Authorize(Policy = "AdminOnly")]
     public class ViewAuctionModel : PageModel
     {
         private readonly IAuctionService _auctionService;

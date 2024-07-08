@@ -30,7 +30,12 @@ namespace Repository
             return InvoiceDAO.GetInvoiceById(id);
         }
 
-        public void UpdateInvoice(Invoice Invoice)
+		public Invoice GetInvoiceByUserId(int id)
+		{
+			return InvoiceDAO.GetInvoiceByUserId(id);
+		}
+
+		public void UpdateInvoice(Invoice Invoice)
         {
             InvoiceDAO.UpdateInvoice(Invoice);
         }

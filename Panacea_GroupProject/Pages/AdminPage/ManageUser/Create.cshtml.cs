@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using BusinessObjects;
 using DataAccessObjects;
 using Service;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Panacea_GroupProject.Pages.AdminPage.ManageUser
 {
+    [Authorize(Policy = "AdminOnly")]
     public class CreateModel : PageModel
     {
         private readonly IUserService _userService;
@@ -26,7 +28,7 @@ namespace Panacea_GroupProject.Pages.AdminPage.ManageUser
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public User UserProfile { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public IActionResult OnPost()
@@ -36,7 +38,7 @@ namespace Panacea_GroupProject.Pages.AdminPage.ManageUser
                 return Page();
             }
 
-            _userService.CreateUser(User);
+            _userService.CreateUser(UserProfile);
 
             return RedirectToPage("./Index");
         }

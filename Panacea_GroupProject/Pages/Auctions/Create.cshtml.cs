@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using BusinessObjects;
 using Service;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace Panacea_GroupProject.Pages.Auctions
 {
@@ -15,15 +16,30 @@ namespace Panacea_GroupProject.Pages.Auctions
 	{
 		private readonly IAuctionService _auctionService;
 		private readonly IJewelryService _jewelryService;
+		private readonly IUserService _userService;
 
-		public CreateModel(IAuctionService auctionService, IJewelryService jewelryService)
+		public CreateModel(IAuctionService auctionService, IJewelryService jewelryService, IUserService userService)
 		{
 			_auctionService = auctionService;
 			_jewelryService = jewelryService;
+			_userService = userService;
 		}
 
+		[BindProperty]
+		public User LoggedInUser { get; private set; }
 		public IActionResult OnGet()
 		{
+			var claimsIdentity = User.Identity as ClaimsIdentity;
+			var userIdClaim = claimsIdentity?.FindFirst("Id");
+			if (userIdClaim == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
+			LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+			if (LoggedInUser == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
 			ViewData["JewelryId"] = new SelectList(_jewelryService.GetAllJewelries(), "Id", "Name");
 			return Page();
 		}
