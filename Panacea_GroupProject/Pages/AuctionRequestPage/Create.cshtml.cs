@@ -39,6 +39,10 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
             {
                 return NotFound();
             }
+            if (!user.RoleId.Equals(4))
+            {
+                return RedirectToPage("/Template/Index");
+			}
             User = user;
 
             return Page();
