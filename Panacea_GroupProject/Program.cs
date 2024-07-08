@@ -1,5 +1,6 @@
 using Panacea_GroupProject;
 using Service;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,13 +19,27 @@ builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 
 builder.Services.AddSignalR();
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options =>
+
+
+builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
+    options.Cookie.Name = "CookieAuth";
+    options.LoginPath = "/Accounts/Login";
+    options.AccessDeniedPath = "/Accounts/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
 });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Admin"));
+    options.AddPolicy("MemberOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Member"));
+    options.AddPolicy("StaffOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Staff"));
+    options.AddPolicy("ManagerOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Manager"));
+});
+
+
 builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,8 +51,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
-app.UseSession();
 app.MapHub<AuctionHub>("/auctionHub");
 
 app.MapRazorPages();

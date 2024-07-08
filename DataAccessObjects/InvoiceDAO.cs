@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,6 +79,12 @@ namespace DataAccessObjects
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public static Invoice GetInvoiceByUserId(int id)
+        {
+			using var db = new GroupProjectPRN221();
+			return db.Invoices.SingleOrDefault(a => a.UserId == id);
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Service
             return _bidRepository.GetAllBids();
         }
 
-        public Bid GetBidById(int bidId)
+		public Bid GetBidById(int bidId)
         {
             return _bidRepository.GetBidById(bidId);
         }

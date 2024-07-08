@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public class InvoiceService:IInvoiceService
+	public class InvoiceService : IInvoiceService
     {
         private readonly IInvoiceRepository _invoiceRepository;
         public InvoiceService()
@@ -35,7 +35,12 @@ namespace Service
             return _invoiceRepository.GetInvoiceById(id);
         }
 
-        public void UpdateInvoice(Invoice invoice)
+		public Invoice GetInvoiceByUserId(int id)
+		{
+			return _invoiceRepository.GetInvoiceByUserId(id);
+		}
+
+		public void UpdateInvoice(Invoice invoice)
         {
             _invoiceRepository.UpdateInvoice(invoice);
         }

@@ -6,8 +6,8 @@
 
 @using BusinessObjects
 @using Panacea_GroupProject.Helpers
+@using System.Security.Claims
 @{
-    var loggedInUser = ViewContext.HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
 }
 
 <head>
@@ -22,7 +22,6 @@
 <meta name="author" content="" />
 
 <title>Lodge</title>
-
 <!-- slider stylesheet -->
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
 
@@ -66,9 +65,10 @@
                                     Jewellery
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="jewelry-link">
-                                    @if (loggedInUser != null && loggedInUser.RoleId.Equals(5))
+                                    @if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(5))
                                     {
                                         <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
+                                        <a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
                                     }
                                 </div>
                             </li>
@@ -79,24 +79,35 @@
                                 <div class="dropdown-menu" aria-labelledby="auction-link">
                                     @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
                                     <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
-                                    @if (loggedInUser != null && loggedInUser.RoleId.Equals(4))
+                                    @if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(4))
                                     {
                                         <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
                                     }
-                                    <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+                                    @if (Model.LoggedInUser.RoleId.Equals(3))
+                                    {
+                                        <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+                                    }
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/Template/Contact">Contact us</a>
                             </li>
-                            @if (loggedInUser != null)
+                            @if (Model.LoggedInUser.Name != null)
                             {
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        Hi, @loggedInUser.Name
+                                        Hi, @Model.LoggedInUser.Name
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+                                        @if (Model.LoggedInUser.RoleId.Equals(3))
+                                        {
+                                            <a class="dropdown-item" href="/Invoices/ViewInvoices">My Invoices</a>
+                                        }
+                                        @if(Model.LoggedInUser.RoleId.Equals(4))
+										{
+											<a class="dropdown-item" href="/Invoices/SeeAllInvoice">See all invoice</a>
+										}
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="/Accounts/Logout">Logout</a>
                                     </div>

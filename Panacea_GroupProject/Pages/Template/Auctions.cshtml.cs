@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Panacea_GroupProject.Helpers;
 using Service;
 using System;
+using System.Security.Claims;
 using System.Linq;
 
 namespace Panacea_GroupProject.Pages.Template
@@ -25,17 +26,33 @@ namespace Panacea_GroupProject.Pages.Template
 
         }
 
+        [BindProperty]
         public User LoggedInUser { get; private set; }
         public IList<Auction> UpcomingAuctions { get; set; }
         public Auction CurrentAuctions { get; set; }
         [BindProperty(SupportsGet = true)]
         public string SearchQuery { get; set; }
-        public async Task OnGet()
+        public async Task<IActionResult> OnGet()
         {
-             await LoadDataAsync();
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (LoggedInUser == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+            await LoadDataAsync();
             //UpcomingAuctions =  _auctionService.GetAllAuctions();
             //CurrentAuctions = UpcomingAuctions.FirstOrDefault(c=> c.Status == "Processing");
             //LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+
+            return Page();
         }
 
         [BindProperty]
@@ -43,7 +60,6 @@ namespace Panacea_GroupProject.Pages.Template
 
         public async Task<IActionResult> OnPost(int auctionId)
         {
-            LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
             UserAuction userAuction = new UserAuction()
             {
                 UserId = LoggedInUser.Id,

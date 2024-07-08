@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Panacea_GroupProject.Helpers;
 using Service;
+using System.Security.Claims;
 
 namespace Panacea_GroupProject.Pages.Auctions
 {
@@ -29,6 +30,23 @@ namespace Panacea_GroupProject.Pages.Auctions
                 Auctions = _userAuctionService.GetUserAuctionByUserId(LoggedInUser.Id).Where(c => c.Auction.Jewelry.Name.Contains(SearchQuery)).ToList();
             }
             else
+        public List<Auction> Auctions { get; set; } = new List<Auction>();
+        public IActionResult OnGet()
+        {
+			var claimsIdentity = User.Identity as ClaimsIdentity;
+			var userIdClaim = claimsIdentity?.FindFirst("Id");
+			if (userIdClaim == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
+
+			LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+			if (LoggedInUser == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
+			if (LoggedInUser != null)
             {
                 Auctions = _userAuctionService.GetUserAuctionByUserId(LoggedInUser.Id);
 

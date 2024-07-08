@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Service;
 
 namespace Panacea_GroupProject.Pages.AdminPage
 {
+    [Authorize(Policy = "AdminOnly")]
     public class AdminDashboardModel : PageModel
     {
         private readonly IAuctionService _auctionService;
