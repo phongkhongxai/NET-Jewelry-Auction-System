@@ -1,14 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Panacea_GroupProject.Pages.Accounts
 {
     public class LogoutModel : PageModel
     {
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-            HttpContext.Session.Remove("LoggedInUser"); 
-            return RedirectToPage("/Index");  
+            await HttpContext.SignOutAsync("CookieAuth");
+            return RedirectToPage("/Accounts/Login");  
         }
     }
 }

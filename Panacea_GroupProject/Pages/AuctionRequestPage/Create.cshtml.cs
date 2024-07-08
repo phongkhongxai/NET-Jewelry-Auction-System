@@ -4,13 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
- 
 using BusinessObjects;
- 
 using Service;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
- 
+using System.Security.Claims;
+
 
 namespace Panacea_GroupProject.Pages.AuctionRequestPage
 {
@@ -19,7 +18,10 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
         private readonly IAuctionRequestService _auctionRequestService;
         private readonly IUserService _userService;
 
-        public CreateModel(IAuctionRequestService auctionRequestService, IUserService userService)
+		[BindProperty]
+		public User LoggedInUser { get; private set; }
+
+		public CreateModel(IAuctionRequestService auctionRequestService, IUserService userService)
         {
            _auctionRequestService = auctionRequestService;
             _userService = userService;
@@ -27,30 +29,27 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
 
         public IActionResult OnGet()
         {
-            var userJson = HttpContext.Session.GetString("LoggedInUser");
-            if (string.IsNullOrEmpty(userJson))
-            {
-                return RedirectToPage("/Accounts/Login");
-            }
-
-            User = JsonConvert.DeserializeObject<User>(userJson);
-            var user = _userService.GetUserByID(User.Id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            if (!user.RoleId.Equals(4))
-            {
-                return RedirectToPage("/Template/Index");
+			var claimsIdentity = User.Identity as ClaimsIdentity;
+			var userIdClaim = claimsIdentity?.FindFirst("Id");
+			if (userIdClaim == null)
+			{
+				return RedirectToPage("/Accounts/Login");
 			}
-            User = user;
 
-            return Page();
-        }
+			LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
 
-         
-          
-        public User User { get; set; }
+			if (LoggedInUser == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
+            if (!LoggedInUser.RoleId.Equals(4) && !LoggedInUser.RoleId.Equals(5))
+            {
+				return RedirectToPage("/Template/Index");
+
+			}
+			return Page();
+		}
+
 
         [BindProperty]
         [Required(ErrorMessage = "Title is required")]
@@ -77,20 +76,21 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
             }
             try
             {
-                var userJson = HttpContext.Session.GetString("LoggedInUser");
-                if (string.IsNullOrEmpty(userJson))
-                {
-                    return RedirectToPage("/Accounts/Login");
-                }
+				var claimsIdentity = User.Identity as ClaimsIdentity;
+				var userIdClaim = claimsIdentity?.FindFirst("Id");
+				if (userIdClaim == null)
+				{
+					return RedirectToPage("/Accounts/Login");
+				}
 
-                User = JsonConvert.DeserializeObject<User>(userJson);
-                var user = _userService.GetUserByID(User.Id);
-                if (user == null)
-                {
-                    return NotFound();
-                } 
+				LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
 
-                AuctionRequest auction = new AuctionRequest { UserId = user.Id, Title = Title, Description = Description,
+				if (LoggedInUser == null)
+				{
+					return RedirectToPage("/Accounts/Login");
+				}
+
+				AuctionRequest auction = new AuctionRequest { UserId = LoggedInUser.Id, Title = Title, Description = Description,
                 Image = Image,
                     Status = "Pending",
                     RequestDate = DateTime.UtcNow,

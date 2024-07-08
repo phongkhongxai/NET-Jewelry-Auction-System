@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BusinessObjects;
 using DataAccessObjects;
+using Microsoft.AspNetCore.Authorization;
 using Service;
 
 namespace Panacea_GroupProject.Pages.UsersPage
@@ -27,7 +28,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
             _userService = userService;
         }
 
-        public User User { get; set; } = default!;
+        public User UserProfile { get; set; } = default!;
 
         public IActionResult OnGet(int? id)
         {
@@ -43,7 +44,7 @@ namespace Panacea_GroupProject.Pages.UsersPage
             }
             else
             {
-                User = user;
+                UserProfile = user;
             }
             return Page();
         }

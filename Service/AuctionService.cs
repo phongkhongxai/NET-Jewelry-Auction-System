@@ -55,5 +55,10 @@ namespace Service
 		{
 			_auctionRepository.UpdateAuctionStatus(auctionId, status);
 		}
+
+		public List<Auction> GetAuctionByStatus(string status)
+		{
+            return _auctionRepository.GetAuctionByStatus(status);
+		}
 	}
 }

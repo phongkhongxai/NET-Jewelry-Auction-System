@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace DataAccessObjects
             try
             {
                 using var db = new GroupProjectPRN221();
-                list = db.Invoices.ToList();
+                list = db.Invoices.Include(u => u.User).Include(a => a.Auction).ToList();
             }
             catch (Exception ex)
             {
@@ -27,7 +28,7 @@ namespace DataAccessObjects
         public static Invoice GetInvoiceById(int id)
         {
             using var db = new GroupProjectPRN221();
-            return db.Invoices.SingleOrDefault(a => a.Id == id);
+            return db.Invoices.Include(u => u.User).Include(a => a.Auction).SingleOrDefault(a => a.Id == id);
         }
 
         public static void CreateInvoice(Invoice Invoice)
@@ -78,6 +79,12 @@ namespace DataAccessObjects
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public static Invoice GetInvoiceByUserId(int id)
+        {
+			using var db = new GroupProjectPRN221();
+			return db.Invoices.SingleOrDefault(a => a.UserId == id);
         }
     }
 }
