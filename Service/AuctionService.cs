@@ -55,5 +55,10 @@ namespace Service
 		{
 			_auctionRepository.UpdateAuctionStatus(auctionId, status);
 		}
+
+		public List<Auction> GetAuctionByJewelryId(int id)
+		{
+			return _auctionRepository.GetAuctionByJewelryId(id);
+		}
 	}
 }

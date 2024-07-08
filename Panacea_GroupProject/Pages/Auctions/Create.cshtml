@@ -63,10 +63,9 @@
 									Jewellery
 								</a>
 								<div class="dropdown-menu" aria-labelledby="jewelry-link">
-									@if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(5))
+									@if (Model.LoggedInUser.RoleId.Equals(5))
 									{
 										<a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
-										<a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
 									}
 								</div>
 							</li>
@@ -77,13 +76,17 @@
 								<div class="dropdown-menu" aria-labelledby="auction-link">
 									@* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
 									<a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
-									@if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(4))
+									@if (Model.LoggedInUser.RoleId.Equals(4))
 									{
 										<a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
 									}
 									@if (Model.LoggedInUser.RoleId.Equals(3))
 									{
 										<a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+									}
+									@if(Model.LoggedInUser.RoleId.Equals(5))
+									{
+										<a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
 									}
 								</div>
 							</li>
@@ -100,7 +103,7 @@
 										<a class="dropdown-item" href="/Template/MyProfile">Profile</a>
 										@if (Model.LoggedInUser.RoleId.Equals(3))
 										{
-											<a class="dropdown-item" href="/Invoices/ViewInvoices">My Invoices</a>
+											<a class="dropdown-item" href="/Invoices/MyInvoice">My Invoices</a>
 										}
 										@if (Model.LoggedInUser.RoleId.Equals(4))
 										{

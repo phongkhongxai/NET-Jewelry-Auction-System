@@ -17,7 +17,7 @@ namespace Panacea_GroupProject.Pages.Invoices
         private readonly IInvoiceService _invoiceService;
         private readonly IUserService _userService;
 
-        [BindProperty]
+
         public User LoggedInUser { get; private set; }
         public SeeAllInvoiceModel(IInvoiceService invoiceService, IUserService userService)
         {
@@ -39,6 +39,10 @@ namespace Panacea_GroupProject.Pages.Invoices
             if (LoggedInUser == null)
             {
                 return RedirectToPage("/Accounts/Login");
+            }
+            if (!LoggedInUser.RoleId.Equals(4) && !LoggedInUser.RoleId.Equals(5))
+            {
+                return RedirectToPage("/Template/Index");
             }
             if (LoggedInUser != null)
             {
