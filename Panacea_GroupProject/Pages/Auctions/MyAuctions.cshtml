@@ -4,7 +4,6 @@
 @using BusinessObjects
 @using Panacea_GroupProject.Helpers
 @{
-    var loggedInUser = ViewContext.HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
 }
 
 
@@ -196,62 +195,65 @@
                                         Jewellery
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="jewelry-link">
-                                        @if (loggedInUser != null && loggedInUser.RoleId.Equals(5))
+                                        @if (Model.LoggedInUser.RoleId.Equals(5))
                                         {
                                             <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                         }
-                                        <a class="dropdown-item" href="/JewelryPage/ViewAll">See all browsed jewelry</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    @* <a class="nav-link dropdown-toggle" href="/Template/Auctions" id="auction-link" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Auction
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="auction-link">
-                                    @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
-                                    <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
-                                    @if (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(4))
-                                    {
-                                        <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
-                                    }
-                                    @if (Model.LoggedInUser.RoleId.Equals(3))
-                                    {
-                                        <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
-                                    }
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/Template/Contact">Contact us</a>
-                            </li>
-                            @if (Model.LoggedInUser.Name != null)
-                            {
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        Hi, @Model.LoggedInUser.Name
+                                    <a class="nav-link dropdown-toggle" href="/Template/Auctions" id="auction-link" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Auction
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="/Template/MyProfile">Profile</a>
-                                        @if (Model.LoggedInUser.RoleId.Equals(3))
-                                        {
-                                            <a class="dropdown-item" href="/Invoices/MyInvoice">My Invoices</a>
-                                        }
+                                    <div class="dropdown-menu" aria-labelledby="auction-link">
+                                        @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
+                                        <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
                                         @if (Model.LoggedInUser.RoleId.Equals(4))
                                         {
-                                            <a class="dropdown-item" href="/Invoices/SeeAllInvoice">See all invoice</a>
+                                            <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
                                         }
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/Accounts/Logout">Logout</a>
+                                        @if (Model.LoggedInUser.RoleId.Equals(3))
+                                        {
+                                            <a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+                                        }
+                                        @if (Model.LoggedInUser.RoleId.Equals(5))
+                                        {
+                                            <a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
+                                        }
                                     </div>
                                 </li>
-                            }
-                            else
-                            {
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/Accounts/Login">Login</a>
+                                    <a class="nav-link" href="/Template/Contact">Contact us</a>
                                 </li>
-                            }
-                        </ul>
-                    </div>
+                                @if (Model.LoggedInUser.Name != null)
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            Hi, @Model.LoggedInUser.Name
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+                                            @if (Model.LoggedInUser.RoleId.Equals(3))
+                                            {
+                                                <a class="dropdown-item" href="/Invoices/MyInvoice">My Invoices</a>
+                                            }
+                                            @if (Model.LoggedInUser.RoleId.Equals(4))
+                                            {
+                                                <a class="dropdown-item" href="/Invoices/SeeAllInvoice">See all invoice</a>
+                                            }
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="/Accounts/Logout">Logout</a>
+                                        </div>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Accounts/Login">Login</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
 
                         @* <div class="quote_btn-container">
                         <form class="form-inline search-form" method="get" action="/search">
@@ -305,7 +307,7 @@
                                 Gia khoi diem: <span>@auction.Auction.Price)</span>
                             </h5>
                             <div class="auction-buttons">
-                                <a href="/Auctions/BidPrice?id=@auction.Id">View Details</a>
+                                <a href="/Auctions/BidPrice?id=@auction.Auction.Id">View Details</a>
                             </div>
                         </div>
                     </div>

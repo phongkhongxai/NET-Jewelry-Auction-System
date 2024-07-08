@@ -58,7 +58,21 @@ namespace Panacea_GroupProject.Pages.Template
         public decimal BidAmount { get; set; }
 
         public async Task<IActionResult> OnPost(int auctionId)
+
         {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (LoggedInUser == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
             UserAuction userAuction = new UserAuction()
             {
                 UserId = LoggedInUser.Id,
@@ -81,7 +95,19 @@ namespace Panacea_GroupProject.Pages.Template
 
         private async Task LoadDataAsync()
         {
-            LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                 RedirectToPage("/Accounts/Login");
+            }
+
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (LoggedInUser == null)
+            {
+                 RedirectToPage("/Accounts/Login");
+            }
             if (!string.IsNullOrWhiteSpace(SearchQuery))
             {
                 UpcomingAuctions = _auctionService.Search(SearchQuery);
