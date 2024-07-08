@@ -32,7 +32,7 @@ namespace Panacea_GroupProject.Pages.Template
         public string SearchQuery { get; set; }
         public async Task OnGet()
         {
-            LoadDataAsync();
+             await LoadDataAsync();
             //UpcomingAuctions =  _auctionService.GetAllAuctions();
             //CurrentAuctions = UpcomingAuctions.FirstOrDefault(c=> c.Status == "Processing");
             //LoggedInUser = HttpContext.Session.GetObjectFromJson<User>("LoggedInUser");
@@ -49,13 +49,13 @@ namespace Panacea_GroupProject.Pages.Template
                 UserId = LoggedInUser.Id,
                 AuctionId = auctionId
             };
-            if (_userAuctionService.GetUserAuctionByAuctionId(auctionId).Any(c=>c.UserId==userAuction.UserId))
+            if (_userAuctionService.GetUserAuctionByAuctionId(auctionId).Any(c => c.UserId == userAuction.UserId))
             {
                 return Redirect($"/Auctions/BidPrice?id={auctionId}");
             }
             else
             {
-            _userAuctionService.CreateAuction(userAuction);
+                _userAuctionService.CreateAuction(userAuction);
                 return Redirect($"/Auctions/BidPrice?id={auctionId}");
 
             }
@@ -74,7 +74,7 @@ namespace Panacea_GroupProject.Pages.Template
             else
             {
                 CurrentAuctions = _auctionService.GetAllAuctions().FirstOrDefault(c => c.Status == "Processing");
-                UpcomingAuctions = _auctionService.GetAllAuctions().Where(c=> c.Id!=CurrentAuctions.Id).ToList();
+                UpcomingAuctions = _auctionService.GetAllAuctions().Where(c => c.Id != CurrentAuctions.Id).ToList();
             }
         }
     }

@@ -57,3 +57,19 @@ D:\FPTU_Ky7\PRN221\2_7\up git\NET-Jewelry-Auction-System\DataAccessObjects\obj\D
 D:\FPTU_Ky7\PRN221\2_7\up git\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
 D:\FPTU_Ky7\PRN221\2_7\up git\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.pdb
 D:\FPTU_Ky7\PRN221\2_7\up git\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\ref\DataAccessObjects.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.deps.json
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.pdb
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\BusinessObjects.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\bin\Debug\net8.0\BusinessObjects.pdb
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.AssemblyReference.cache
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfoInputs.cache
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfo.cs
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.CoreCompileInputs.cache
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.sourcelink.json
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAcce.79975846.Up2Date
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.pdb
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\DataAccessObjects\obj\Debug\net8.0\ref\DataAccessObjects.dll

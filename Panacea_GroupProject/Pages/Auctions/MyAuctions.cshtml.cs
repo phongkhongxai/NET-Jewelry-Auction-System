@@ -12,10 +12,10 @@ namespace Panacea_GroupProject.Pages.Auctions
         private readonly IUserAuctionService _userAuctionService;
         public User LoggedInUser { get; private set; }
 
-        public MyAuctionsModel(IUserAuctionService userAuctionService,IAuctionService auctionService)
+        public MyAuctionsModel(IUserAuctionService userAuctionService, IAuctionService auctionService)
         {
             _auctionService = auctionService;
-            _userAuctionService= userAuctionService;
+            _userAuctionService = userAuctionService;
         }
         public IList<UserAuction> Auctions { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -26,7 +26,7 @@ namespace Panacea_GroupProject.Pages.Auctions
 
             if (!string.IsNullOrWhiteSpace(SearchQuery))
             {
-                Auctions = _userAuctionService.GetUserAuctionByUserId(LoggedInUser.Id).Where(c=> c.Auction.Jewelry.Name.Contains(SearchQuery)).ToList();
+                Auctions = _userAuctionService.GetUserAuctionByUserId(LoggedInUser.Id).Where(c => c.Auction.Jewelry.Name.Contains(SearchQuery)).ToList();
             }
             else
             {

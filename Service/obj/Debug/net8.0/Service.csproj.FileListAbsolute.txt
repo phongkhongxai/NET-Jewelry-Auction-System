@@ -69,3 +69,23 @@ D:\FPTU_Ky7\PRN221\2_7\up git\NET-Jewelry-Auction-System\Service\obj\Debug\net8.
 D:\FPTU_Ky7\PRN221\2_7\up git\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\refint\Service.dll
 D:\FPTU_Ky7\PRN221\2_7\up git\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.pdb
 D:\FPTU_Ky7\PRN221\2_7\up git\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\ref\Service.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Service.deps.json
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Service.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Service.pdb
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\BusinessObjects.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\DataAccessObjects.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Repository.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\BusinessObjects.pdb
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\Repository.pdb
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\bin\Debug\net8.0\DataAccessObjects.pdb
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.csproj.AssemblyReference.cache
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.AssemblyInfoInputs.cache
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.AssemblyInfo.cs
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.csproj.CoreCompileInputs.cache
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.sourcelink.json
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.csproj.Up2Date
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\refint\Service.dll
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\Service.pdb
+D:\FPTU_Ky7\PRN221\2_7\cc\NET-Jewelry-Auction-System\Service\obj\Debug\net8.0\ref\Service.dll
