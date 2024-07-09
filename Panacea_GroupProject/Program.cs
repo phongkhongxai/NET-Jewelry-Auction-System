@@ -54,6 +54,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapHub<AuctionHub>("/auctionHub");
+app.MapGet("/", () => Results.Redirect("/Template/Index"));
 
 app.MapRazorPages();
 

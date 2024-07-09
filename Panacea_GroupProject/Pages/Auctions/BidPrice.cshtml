@@ -52,61 +52,65 @@
 					<div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
 						<ul class="navbar-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="/Template">Home <span class="sr-only">(current)</span></a>
+								<a class="nav-link confirm-exit" href="/Template">Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/Template/About">About</a>
+								<a class="nav-link confirm-exit" href="/Template/About">About</a>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="/Template/Jewellery" id="jewelry-link" role="button" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle confirm-exit" href="/Template/Jewellery" id="jewelry-link" role="button" aria-haspopup="true" aria-expanded="false">
 									Jewellery
 								</a>
 								<div class="dropdown-menu" aria-labelledby="jewelry-link">
 									@if (Model.LoggedInUser.RoleId.Equals(5))
 									{
-										<a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
+										<a class="dropdown-item confirm-exit" href="/JewelryPage/Create">Create Jewelry</a>
+									}
+									@if (Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5))
+									{
+										<a class="dropdown-item confirm" href="/Materials/Index">Manage Material</a>
 									}
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="/Template/Auctions" id="auction-link" role="button" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle confirm-exit" href="/Template/Auctions" id="auction-link" role="button" aria-haspopup="true" aria-expanded="false">
 									Auction
 								</a>
 								<div class="dropdown-menu" aria-labelledby="auction-link">
 									@* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
-									<a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
+									<a class="dropdown-item confirm-exit" href="/AuctionRequestPage/Create">Auctions Request</a>
 									@if (Model.LoggedInUser.RoleId.Equals(4))
 									{
-										<a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
+										<a class="dropdown-item confirm-exit" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
 									}
 									@if (Model.LoggedInUser.RoleId.Equals(3))
 									{
-										<a class="dropdown-item" href="/Auctions/MyAuctions">My Auctions</a>
+										<a class="dropdown-item confirm-exit" href="/Auctions/MyAuctions">My Auctions</a>
 									}
 									@if (Model.LoggedInUser.RoleId.Equals(5))
 									{
-										<a class="dropdown-item" href="/Auctions/Create">Create Auction</a>
+										<a class="dropdown-item confirm-exit" href="/Auctions/Create">Create Auction</a>
 									}
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/Template/Contact">Contact us</a>
+								<a class="nav-link confirm-exit" href="/Template/Contact">Contact us</a>
 							</li>
 							@if (Model.LoggedInUser.Name != null)
 							{
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a class="nav-link dropdown-toggle confirm-exit" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
 										Hi, @Model.LoggedInUser.Name
 									</a>
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href="/Template/MyProfile">Profile</a>
+										<a class="dropdown-item confirm-exit" href="/Template/MyProfile">Profile</a>
 										@if (Model.LoggedInUser.RoleId.Equals(3))
 										{
-											<a class="dropdown-item" href="/Invoices/MyInvoice">My Invoices</a>
+											<a class="dropdown-item" confirm-exit href="/Invoices/MyInvoice">My Invoices</a>
 										}
 										@if (Model.LoggedInUser.RoleId.Equals(4))
 										{
-											<a class="dropdown-item" href="/Invoices/SeeAllInvoice">See all invoice</a>
+											<a class="dropdown-item confirm-exit" href="/Invoices/SeeAllInvoice">See all invoice</a>
 										}
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="/Accounts/Logout">Logout</a>
@@ -645,6 +649,17 @@
 		document.getElementById("bidAmount").value = newBidAmount;
 	}
 
+
+	document.addEventListener('DOMContentLoaded', function () {
+		var links = document.querySelectorAll('.confirm-exit');
+		links.forEach(function (link) {
+			link.addEventListener('click', function (event) {
+				if (!confirm('Bạn có thực sự muốn thoát cuộc đấu giá không?')) {
+					event.preventDefault(); // Ngăn chặn chuyển hướng nếu người dùng nhấn "Hủy"
+				}
+			});
+		});
+	});
 	 
 </script>
 

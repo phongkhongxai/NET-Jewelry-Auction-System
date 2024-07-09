@@ -43,11 +43,9 @@ namespace Panacea_GroupProject.Pages.Invoices
             if (!LoggedInUser.RoleId.Equals(4) && !LoggedInUser.RoleId.Equals(5))
             {
                 return RedirectToPage("/Template/Index");
-            }
-            if (LoggedInUser != null)
-            {
-                Invoice = _invoiceService.GetAllInvoices();
-            }
+            }  
+             Invoice = _invoiceService.GetAllInvoices();
+             
 
             return Page();
         }

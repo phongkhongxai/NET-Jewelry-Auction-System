@@ -104,6 +104,25 @@
                     font-weight: normal;
                 }
 
+        .countup {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+            .countup div {
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+                .countup div span {
+                    display: block;
+                    font-size: 14px;
+                    font-weight: normal;
+                }
+
         .auction-buttons {
             display: flex;
             justify-content: center;
@@ -166,6 +185,9 @@
             border-radius: 0 5px 5px 0;
             transition: background-color 0.3s;
         }
+
+        
+
     </style>
 </head>
 
@@ -203,14 +225,17 @@
                                         {
                                             <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                         }
+                                        @if (Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5))
+                                        {
+                                            <a class="dropdown-item" href="/Materials/Index">Manage Material</a>
+                                        }
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="/Template/Auctions" id="auction-link" role="button" aria-haspopup="true" aria-expanded="false">
                                         Auction
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="auction-link">
-                                        @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
+                                    <div class="dropdown-menu" aria-labelledby="auction-link"> 
                                         <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
                                         @if (Model.LoggedInUser.RoleId.Equals(4))
                                         {
@@ -283,45 +308,63 @@
         </div>
     </section>
 
-    @* <>Current</> *@
-    @if (Model.CurrentAuctions != null)
-    {
-        <section class="auction-page">
+
+    <section class="price_section layout_padding">
             <div class="container">
-                <div class="auction-header">
-                    <h1>Current auction</h1>
-                </div>
-                <div class="auction-content">
-                    <div class="auction-current">
-                        <h2>@Model.CurrentAuctions.Jewelry.Name</h2>
-                        <div class="auction-image">
-                            <img src="~/images/auctions.jpg" alt="Auction Image">
-                        </div>
-                        <div class="auction-details">
-                            <br />
-                            <div class="auction-buttons">
-                                @* <a href="/Auctions/BidPrice?id=@Model.CurrentAuctions.Id">Join</a> *@
-                                <h4 class="auction-content">Gia khoi diem:@Model.CurrentAuctions.Price </h4>
-                                <form method="post" asp-page-handler="Join">
-                                    <input type="hidden" name="auctionId" value="@Model.CurrentAuctions.Id" />
-                                    <button type="submit" class="join-button">Join</button>
-                                </form>
+            <div class="heading_container">
+                <h2>
+                    Upcomming Auction
+                </h2>
+            </div>
+            </div>
+            <div class="price_container">
+                @if (Model.CurrentAuctions != null)
+                {
+                    @foreach (var auction in @Model.CurrentAuctions)
+                    {
+                        <div class="box">
+                            <div class="name">
+                                <h6>
+                                    @auction.Jewelry.Name
+                                </h6>
+                            </div>
+                            <div class="img-box">
+                                <img src="@auction.Jewelry.Image" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <span>@auction.Status</span><br />
+                                <h5>
+                                    Gia khoi diem: <span>@auction.Price</span>
+                                </h5>
+                            <div class="countup" data-startdate="@auction.StartDate">
+                                <div><span class="days">0</span> Days</div>
+                                <div><span class="hours">0</span> Hours</div>
+                                <div><span class="minutes">0</span> Minutes</div>
+                                <div><span class="seconds">0</span> Seconds</div>
+                            </div> 
+                                <div class="auction-buttons">
+                                    <form method="post" asp-page-handler="Join">
+                                        <input type="hidden" name="auctionId" value="@auction.Id" />
+                                        <button type="submit" class="join-button">Join</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    }
+                }
+                else
+                {
+                    <h3>Have no auctions</h3>
+                }
             </div>
+                 
         </section>
-    }
-
-
-    <!-- end auction section -->
-    @* chua start *@
+         
     <section class="price_section layout_padding">
         <div class="container">
             <div class="heading_container">
                 <h2>
-                    Auction
+                    Upcomming Auction
                 </h2>
             </div>
             <div class="price_container">
@@ -336,35 +379,18 @@
                                 </h6>
                             </div>
                             <div class="img-box">
-                                <img src="~/images/p-1.png" alt="">
+                                <img src="@auction.Jewelry.Image" alt="">
                             </div>
-                            <div class="detail-box">
-                                @* <div class="countdown">
-                                    <div>
-                                        <span id="days-up">05</span> Days
-                                    </div>
-                                    <div>
-                                        <span id="hours-up">03</span> Hours
-                                    </div>
-                                    <div>
-                                        <span id="minutes-up">29</span> Minutes
-                                    </div>
-                                    <div>
-                                        <span id="seconds-up">09</span> Seconds
-                                    </div>
-                                </div> *@
+                            <div class="detail-box"> 
                                 <span>@auction.Status</span><br />
                                 <h5>
                                     Gia khoi diem: <span>@auction.Price</span>
                                 </h5>
-                                <div class="auction-buttons">
-                                    @* <button type="submit">Join</button> *@
-                                    @*                                 <input type="hidden" name="auctionId" value="@auction.Id" />
-                            <a href="/Auctions/BidPrice?id=@auction.Id">Join</a> *@
-                                    <form method="post" asp-page-handler="Join">
-                                        <input type="hidden" name="auctionId" value="@auction.Id" />
-                                        <button type="submit" class="join-button">Join</button>
-                                    </form>
+                                <div class="countdown" data-enddate="@auction.StartDate">
+                                    <div><span class="days">0</span> Days</div>
+                                    <div><span class="hours">0</span> Hours</div>
+                                    <div><span class="minutes">0</span> Minutes</div>
+                                    <div><span class="seconds">0</span> Seconds</div>
                                 </div>
                             </div>
                         </div>
@@ -374,6 +400,8 @@
                 {
                     <h3>Have no auctions</h3>
                 }
+                </div>
+                </div>
     </section>
 
 
@@ -483,38 +511,72 @@
     <script type="text/javascript" src="js/custom.js"></script>
 
     <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date(Date.now().getTime();
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateCountdown(element, endDate) {
+                const now = new Date().getTime();
+                const distance = endDate - now;
 
-        // Update the count down every 1 second
-        var x = setInterval(function () {
-            // Get today's date and time
-            var now = new Date().getTime();
+                if (distance < 0) {
+                    element.querySelector('.days').textContent = '0';
+                    element.querySelector('.hours').textContent = '0';
+                    element.querySelector('.minutes').textContent = '0';
+                    element.querySelector('.seconds').textContent = '0';
+                    return;
+                }
 
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result in the elements with id="days", "hours", "minutes", "seconds"
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-            document.getElementById("days-up").innerHTML = days;
-            document.getElementById("hours-up").innerHTML = hours;
-            document.getElementById("minutes-up").innerHTML = minutes;
-            document.getElementById("seconds-up").innerHTML = seconds;
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.querySelector(".countdown").innerHTML = "EXPIRED";
+                element.querySelector('.days').textContent = days;
+                element.querySelector('.hours').textContent = hours;
+                element.querySelector('.minutes').textContent = minutes;
+                element.querySelector('.seconds').textContent = seconds;
             }
-        }, 1000);
+
+            function updateCountUp(element, startDate) {
+                const now = new Date().getTime();
+                const timeDiff = now - startDate;
+
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                element.querySelector('.days').textContent = days;
+                element.querySelector('.hours').textContent = hours;
+                element.querySelector('.minutes').textContent = minutes;
+                element.querySelector('.seconds').textContent = seconds;
+            }
+
+            function initializeCountdowns() {
+                const countdownElements = document.querySelectorAll('.countdown');
+                countdownElements.forEach(function (element) {
+                    const endDate = new Date(element.getAttribute('data-enddate')).getTime();
+                    updateCountdown(element, endDate);
+                    setInterval(function () {
+                        updateCountdown(element, endDate);
+                    }, 1000);
+                });
+            }
+
+            function initializeCountUps() {
+                const countUpElements = document.querySelectorAll('.countup');
+                countUpElements.forEach(function (element) {
+                    const startDate = new Date(element.getAttribute('data-startdate')).getTime();
+                    updateCountUp(element, startDate);
+                    setInterval(function () {
+                        updateCountUp(element, startDate);
+                    }, 1000);
+                });
+            }
+
+            initializeCountdowns();
+            initializeCountUps();
+        });
+
+
     </script>
 
 </body>

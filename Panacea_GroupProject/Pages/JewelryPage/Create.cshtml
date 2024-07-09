@@ -71,6 +71,10 @@
 										{
 											<a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
 										}
+										@if (Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5))
+										{
+											<a class="dropdown-item" href="/Materials/Index">Manage Material</a>
+										}
 									</div>
 								</li>
 
