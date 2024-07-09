@@ -28,7 +28,7 @@ namespace Panacea_GroupProject.Pages.Template
 
         public User LoggedInUser { get; private set; }
         public IList<Auction> UpcomingAuctions { get; set; }
-        public Auction CurrentAuctions { get; set; }
+        public IList<Auction> CurrentAuctions { get; set; }
         [BindProperty(SupportsGet = true)]
         public string SearchQuery { get; set; }
         public async Task<IActionResult> OnGet()
@@ -114,8 +114,8 @@ namespace Panacea_GroupProject.Pages.Template
             }
             else
             {
-                CurrentAuctions = _auctionService.GetAllAuctions().FirstOrDefault(c => c.Status == "Processing");
-                UpcomingAuctions = _auctionService.GetAllAuctions().Where(c => c.Id != CurrentAuctions.Id).ToList();
+                CurrentAuctions = _auctionService.GetAuctionByStatus("Processing");
+                UpcomingAuctions = _auctionService.GetAuctionByStatus("Pending");
             }
         }
     }
