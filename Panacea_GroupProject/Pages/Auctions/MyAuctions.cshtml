@@ -199,6 +199,10 @@
                                         {
                                             <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                         }
+                                        @if (Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5))
+                                        {
+                                            <a class="dropdown-item" href="/Materials/Index">Manage Material</a>
+                                        }
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -304,7 +308,7 @@
                             <span>@auction.Auction.StartDate</span>
                             <span>@auction.Auction.Status</span><br />
                             <h5>
-                                Gia khoi diem: <span>@auction.Auction.Price</span>
+                                Starting price: <span>@auction.Auction.Price</span>
                             </h5>
                             <div class="auction-buttons">
                                 <a href="/Auctions/BidPrice?id=@auction.Auction.Id">View Details</a>

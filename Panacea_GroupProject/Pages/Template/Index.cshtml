@@ -69,6 +69,10 @@
                                     {
                                         <a class="dropdown-item" href="/JewelryPage/Create">Create Jewelry</a>
                                     }
+                                    @if (Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5))
+                                    {
+                                        <a class="dropdown-item" href="/Materials/Index">Manage Material</a>
+                                    }
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -333,7 +337,7 @@
                 <div class="detail-box">
                     <div class="heading_container">
                         <h2>
-                            About Jewellery Shop
+                            About Jewelry Auction
                         </h2>
                     </div>
                     <p>
@@ -369,63 +373,34 @@
             </h2>
         </div>
         <div class="price_container">
-            <div class="box">
-                <div class="name">
-                    <h6>
-                        Diamond Ring
-                    </h6>
+            @foreach (var item in Model.Jewelries)
+            {
+                <div class="box">
+                    <div class="name">
+                        <h6>
+                            @item.Name
+                        </h6>
+                    </div>
+                    <div class="img-box" style="height: 300px">
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            <img style="width: 300px" src="@item.Image" alt="Jewelry Image">
+                        }
+                        else
+                        {
+                            <p>No image available</p>
+                        }
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            $<span>@item.Price</span>
+                        </h5>
+                    </div>
                 </div>
-                <div class="img-box">
-                    <img src="~/images/p-1.png" alt="">
-                </div>
-                <div class="detail-box">
-                    <h5>
-                        $<span>1000.00</span>
-                    </h5>
-                    <a href="">
-                        Buy Now
-                    </a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="name">
-                    <h6>
-                        Diamond Ring
-                    </h6>
-                </div>
-                <div class="img-box">
-                    <img src="~/images/i-2.png" alt="">
-                </div>
-                <div class="detail-box">
-                    <h5>
-                        $<span>1000.00</span>
-                    </h5>
-                    <a href="">
-                        Buy Now
-                    </a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="name">
-                    <h6>
-                        Diamond Ring
-                    </h6>
-                </div>
-                <div class="img-box">
-                    <img src="~/images/i-3.png" alt="">
-                </div>
-                <div class="detail-box">
-                    <h5>
-                        $<span>1000.00</span>
-                    </h5>
-                    <a href="">
-                        Buy Now
-                    </a>
-                </div>
-            </div>
+            }
         </div>
         <div class="d-flex justify-content-center">
-            <a href="" class="price_btn">
+            <a href="/Template/Jewellery" class="price_btn">
                 See More
             </a>
         </div>
@@ -433,39 +408,7 @@
 </section>
 
 <!-- end price section -->
-<!-- ring section -->
 
-<section class="ring_section layout_padding">
-    <div class="design-box">
-        <img src="~/images/design-1.png" alt="">
-    </div>
-    <div class="container">
-        <div class="ring_container layout_padding2">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="detail-box">
-                        <h4>
-                            special
-                        </h4>
-                        <h2>
-                            Wedding Ring
-                        </h2>
-                        <a href="">
-                            Buy Now
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="img-box">
-                        <img src="~/images/ring-img.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- end ring section -->
 <!-- client section -->
 
 <section class="client_section">

@@ -66,6 +66,10 @@
 									{
 										<a class="dropdown-item confirm-exit" href="/JewelryPage/Create">Create Jewelry</a>
 									}
+									@if (Model.LoggedInUser.RoleId.Equals(4) || Model.LoggedInUser.RoleId.Equals(5))
+									{
+										<a class="dropdown-item confirm" href="/Materials/Index">Manage Material</a>
+									}
 								</div>
 							</li>
 							<li class="nav-item dropdown">
