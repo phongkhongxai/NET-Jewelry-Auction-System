@@ -9,6 +9,7 @@ using Service;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using Microsoft.Extensions.Hosting;
 
 
 namespace Panacea_GroupProject.Pages.AuctionRequestPage
@@ -17,13 +18,16 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
     {
         private readonly IAuctionRequestService _auctionRequestService;
         private readonly IUserService _userService;
+        private readonly IWebHostEnvironment _environment;
 
-		public User LoggedInUser { get; private set; }
 
-		public CreateModel(IAuctionRequestService auctionRequestService, IUserService userService)
+        public User LoggedInUser { get; private set; }
+
+		public CreateModel(IAuctionRequestService auctionRequestService, IUserService userService, IWebHostEnvironment environment)
         {
-           _auctionRequestService = auctionRequestService;
+            _auctionRequestService = auctionRequestService;
             _userService = userService;
+            _environment = environment;
         }
 
         public IActionResult OnGet()
@@ -57,11 +61,25 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
         [BindProperty]
-        [Url(ErrorMessage = "Invalid URL format")]
-        public string Image { get; set; }
+        [Display(Name = "Image")]
+        [Required(ErrorMessage = "Image is required.")]
+        public IFormFile ImageFile { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userIdClaim = claimsIdentity?.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
+
+            LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+
+            if (LoggedInUser == null)
+            {
+                return RedirectToPage("/Accounts/Login");
+            }
             if (!ModelState.IsValid)
             {
                 foreach (var modelStateEntry in ModelState.Values)
@@ -75,22 +93,30 @@ namespace Panacea_GroupProject.Pages.AuctionRequestPage
             }
             try
             {
-				var claimsIdentity = User.Identity as ClaimsIdentity;
-				var userIdClaim = claimsIdentity?.FindFirst("Id");
-				if (userIdClaim == null)
-				{
-					return RedirectToPage("/Accounts/Login");
-				}
+				
 
-				LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+                string imageUrl = "default";
+                if (ImageFile != null && ImageFile.Length > 0)
+                {
+                    // Save image to wwwroot/images directory
+                    var uploadsDir = Path.Combine(_environment.WebRootPath, "images");
+                    if (!Directory.Exists(uploadsDir))
+                    {
+                        Directory.CreateDirectory(uploadsDir);
+                    }
 
-				if (LoggedInUser == null)
-				{
-					return RedirectToPage("/Accounts/Login");
-				}
+                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + ImageFile.FileName;
+                    var filePath = Path.Combine(uploadsDir, uniqueFileName);
 
-				AuctionRequest auction = new AuctionRequest { UserId = LoggedInUser.Id, Title = Title, Description = Description,
-                Image = Image,
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ImageFile.CopyToAsync(stream);
+                    }
+                    imageUrl = "/images/" + uniqueFileName;
+                }
+
+                AuctionRequest auction = new AuctionRequest { UserId = LoggedInUser.Id, Title = Title, Description = Description,
+                Image = imageUrl,
                     Status = "Pending",
                     RequestDate = DateTime.UtcNow,
                     IsDelete = false
