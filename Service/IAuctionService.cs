@@ -18,6 +18,9 @@ namespace Service
         public List<Auction> Search(string keyword);
 		public void UpdateAuctionStatus(int auctionId, string status); 
 		public List<Auction> GetAuctionByUserID(int id);
-        public List<Auction> GetAuctionByJewelryId(int id);
-    }
+        public List<Auction> GetAuctionByStatus(string status);
+		public List<Auction> GetAuctionByJewelryId(int id);
+
+	}
+    
 }

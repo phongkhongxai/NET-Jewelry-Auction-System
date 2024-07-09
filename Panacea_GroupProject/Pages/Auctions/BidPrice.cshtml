@@ -177,13 +177,13 @@
 					}
 					else
 					{
-						<span class="badge badge-info">@Model.currentAuction.Status</span>
+						<span class="badge badge-info">@Model.currentAuction?.Status</span>
 					}
 					<p class="jewelry_text">Start Date: @Model.currentAuction?.StartDate</p>
 					<p class="jewelry_text">End Date: @Model.currentAuction?.EndDate</p>
 					<p class="jewelry_text">@Model.currentAuction?.Jewelry?.Description</p>
 
-					@if (Model.currentAuction.Status == "Pausing")
+					@if (Model.currentAuction?.Status == "Pausing")
 					{
 						<div class="alert alert-info">The auction is pausing.</div>
 					}
@@ -192,7 +192,7 @@
 					<div class="auction-actions">
 						@if ((Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(4)) || (Model.LoggedInUser.Name != null && Model.LoggedInUser.RoleId.Equals(5)))
 						{
-							@if (Model.currentAuction.Status == "Processing")
+							@if (Model.currentAuction?.Status == "Processing")
 							{
 								<form method="post" asp-page-handler="PauseAuction" class="d-inline">
 									<input type="hidden" name="AuctionId" value="@Model.currentAuction?.Id" />
@@ -206,7 +206,7 @@
 									</form>
 								}
 							}
-							else if (Model.currentAuction.Status == "Pausing")
+							else if (Model.currentAuction?.Status == "Pausing")
 							{
 								<form method="post" asp-page-handler="ResumeAuction" class="d-inline">
 									<input type="hidden" name="AuctionId" value="@Model.currentAuction?.Id" />
@@ -305,7 +305,7 @@
 					<ul id="messagesList" class="list-unstyled" style="padding: 0;"></ul>
 				</div>
 				<form id="sendMessageForm" class="form-inline" style="background-color: #fff; border-radius: 8px; padding: 10px;">
-					<input type="hidden" id="userInput" value="@Model.LoggedInUser?.Name" />
+					<input type="hidden" id="userInput" value="@(Model.LoggedInUser != null ? $"{Model.LoggedInUser.Name} ({Model.LoggedInUser.Role.Name})" : "")" />
 					<input type="text" id="messageInput" class="form-control mr-2" placeholder="Type your message..." style="flex-grow: 1; border-radius: 20px; padding: 10px;">
 					<button type="submit" class="btn btn-primary" style="border-radius: 20px; padding: 10px 20px;">Send</button>
 				</form>

@@ -16,8 +16,7 @@ namespace DataAccessObjects
             try
             {
                 using var db = new GroupProjectPRN221();
-                list = db.Invoices.Include(c => c.User).
-                    Include(c => c.Auction).ToList();
+                list = db.Invoices.Include(u => u.User).Include(a => a.Auction).ToList();
             }
             catch (Exception ex)
             {
@@ -29,8 +28,7 @@ namespace DataAccessObjects
         public static Invoice GetInvoiceById(int id)
         {
             using var db = new GroupProjectPRN221();
-            return db.Invoices.Include(c => c.User).
-                Include(c => c.Auction).ThenInclude(c => c.Jewelry).SingleOrDefault(a => a.Id == id);
+            return db.Invoices.Include(u => u.User).Include(a => a.Auction).ThenInclude(a=> a.Jewelry).SingleOrDefault(a => a.Id == id);
         }
 
         public static void CreateInvoice(Invoice Invoice)

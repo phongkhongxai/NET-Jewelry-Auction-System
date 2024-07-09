@@ -52,6 +52,10 @@ namespace Panacea_GroupProject.Pages.Auctions
 				return NotFound();
 			}
 			LoggedInUser = user;
+			if(!user.RoleId.Equals(3) && !user.RoleId.Equals(4) && !user.RoleId.Equals(5))
+			{
+				return RedirectToPage("/Template/Index");
+			}
 			if (currentAuction.Status == "End")
 			{
 				TempData["Message"] = "The auction has ended.";
@@ -71,10 +75,7 @@ namespace Panacea_GroupProject.Pages.Auctions
             {
 				return;
             }
-
             LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
-
-
 		}
 		 
 
@@ -91,6 +92,10 @@ namespace Panacea_GroupProject.Pages.Auctions
 				return NotFound();
 			}
 			LoggedInUser = user;
+			if (!user.RoleId.Equals(3) && !user.RoleId.Equals(4) && !user.RoleId.Equals(5))
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
 			if (currentAuction.Status == "End")
 			{
 				TempData["Message"] = "The auction has ended.";
@@ -112,6 +117,10 @@ namespace Panacea_GroupProject.Pages.Auctions
 				return NotFound();
 			}
 			LoggedInUser = user;
+			if (!user.RoleId.Equals(3) && !user.RoleId.Equals(4) && !user.RoleId.Equals(5))
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
 			if (currentAuction.Status == "End")
 			{
 				TempData["Message"] = "The auction has ended.";
@@ -126,6 +135,17 @@ namespace Panacea_GroupProject.Pages.Auctions
 				TempData["FailMessage"] = "Bid amount must be at least " + minBidAmount.ToString() +" .";  
 				return RedirectToPage("/Auctions/BidPrice", new { id = auctionId }); 
 			}
+			if (Bids != null && Bids.Any())
+			{
+				var highestBid = Bids.OrderByDescending(b => b.Amount).FirstOrDefault();
+
+				if (highestBid != null && highestBid.UserId == LoggedInUser.Id)
+				{
+					TempData["FailMessage"] = "You are already the highest bidder. Please wait for others to bid.";
+					return RedirectToPage("/Auctions/BidPrice", new { id = auctionId });
+				}
+			}
+
 
 			// Add the new bid
 			Bid newBid = new Bid
@@ -141,9 +161,12 @@ namespace Panacea_GroupProject.Pages.Auctions
 
 			// Notify clients using SignalR
 			await _hubContext.Clients.Group(newBid.AuctionId.ToString()).SendAsync("ReceiveNewBid", newBid.AuctionId);
+			await _hubContext.Clients.Group(auctionId.ToString()).SendAsync("ReceiveMessageChat", LoggedInUser.Name, "has place highest bid at "+newBid.Amount);
 
-            // Return updated Partial View with the latest bids
-            await LoadDataAsync(auctionId);
+
+
+			// Return updated Partial View with the latest bids
+			await LoadDataAsync(auctionId);
 			TempData["SuccessMessage"] = "Bid placed successfully.";
 			return RedirectToPage("/Auctions/BidPrice", new { id = auctionId });
 		}
@@ -162,6 +185,7 @@ namespace Panacea_GroupProject.Pages.Auctions
 				return NotFound();
 			}
 			LoggedInUser = user;
+
 			if (currentAuction.Status == "End")
 			{
 				TempData["Message"] = "The auction has ended.";

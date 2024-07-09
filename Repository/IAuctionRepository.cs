@@ -17,6 +17,7 @@ namespace Repository
 		public List<Bid> GetBidForAuction(int auctionId);
 		public void UpdateAuctionStatus(int auctionId, string status);
 		public List<Auction> GetAuctionByUserID(int id);
+		public List<Auction> GetAuctionByStatus(string status);
 		public List<Auction> GetAuctionByJewelryId(int id);
 	}
 }

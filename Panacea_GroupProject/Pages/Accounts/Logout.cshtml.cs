@@ -9,7 +9,7 @@ namespace Panacea_GroupProject.Pages.Accounts
         public async Task<IActionResult> OnGetAsync()
         {
             await HttpContext.SignOutAsync("CookieAuth");
-            return RedirectToPage("/Index");  
+            return RedirectToPage("/Accounts/Login");  
         }
     }
 }
