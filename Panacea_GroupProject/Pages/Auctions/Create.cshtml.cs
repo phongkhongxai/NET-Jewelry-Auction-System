@@ -124,8 +124,8 @@ namespace Panacea_GroupProject.Pages.Auctions
 
 			// Create the Auction
 			_auctionService.CreateAuction(auction);
-
-			TempData["SuccessMessage"] = "Auction created successfully.";
+            ViewData["JewelryId"] = new SelectList(_jewelryService.GetAllJewelries(), "Id", "Name"); 
+            TempData["SuccessMessage"] = "Auction created successfully.";
 			return Page();
 		}
 	}
