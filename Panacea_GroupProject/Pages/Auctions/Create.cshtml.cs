@@ -91,7 +91,7 @@ namespace Panacea_GroupProject.Pages.Auctions
 			}
 
 			var auctions = _auctionService.GetAuctionByJewelryId(JewelryId);
-			if (auctions.Any(a => a.Status == "Processing" || a.Status == "Pending"))
+			if (auctions.Any(a => a.Status == "Processing" || a.Status == "Pending" || a.Status == "End"))
 			{
 				ModelState.AddModelError(string.Empty, "Cannot create auction for jewelry that already has a 'Processing' or 'Pending' auction.");
 				ViewData["JewelryId"] = new SelectList(_jewelryService.GetAllJewelries(), "Id", "Name");

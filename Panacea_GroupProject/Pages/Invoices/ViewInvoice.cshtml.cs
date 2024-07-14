@@ -9,6 +9,7 @@ using BusinessObjects;
 using DataAccessObjects;
 using Service;
 using System.Security.Claims;
+using Microsoft.AspNetCore.SignalR;
 
 namespace Panacea_GroupProject.Pages.Invoices
 {
@@ -16,11 +17,15 @@ namespace Panacea_GroupProject.Pages.Invoices
 	{
 		private readonly IInvoiceService _invoiceService;
 		private readonly IUserService _userService;
+		private readonly IAuctionService _auctionService;
+		private readonly IJewelryService _jewelryService;
 
-		public ViewInvoiceModel(IInvoiceService invoiceService, IUserService userService)
+		public ViewInvoiceModel(IInvoiceService invoiceService, IUserService userService, IAuctionService auctionService, IJewelryService jewelryService)
 		{
 			_invoiceService = invoiceService;
 			_userService = userService;
+			_auctionService = auctionService;
+			_jewelryService = jewelryService;
 		}
 
 		public User LoggedInUser { get; private set; }
@@ -57,8 +62,7 @@ namespace Panacea_GroupProject.Pages.Invoices
 			{
                 return RedirectToPage("/Template/Index");
             }
-
-			//return Page();
+			 
 		}
 
 		public IActionResult OnPost(int id)
@@ -78,13 +82,72 @@ namespace Panacea_GroupProject.Pages.Invoices
 			if(!LoggedInUser.RoleId.Equals(4) && !LoggedInUser.RoleId.Equals(5))
 			{ 
 				return RedirectToPage("/Template/Index");
-			}
-
-			Invoice = _invoiceService.GetInvoiceById(id);
-			Invoice.Status = "Paid";
-			_invoiceService.UpdateInvoice(Invoice);
+			} 
 
 			return Page();
+		}
+
+		public async Task<IActionResult> OnPostComplete(int invoiceId)
+		{
+			var claimsIdentity = User.Identity as ClaimsIdentity;
+			var userIdClaim = claimsIdentity?.FindFirst("Id");
+			if (userIdClaim == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
+			LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+			if (LoggedInUser == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
+
+			if (!LoggedInUser.RoleId.Equals(4) && !LoggedInUser.RoleId.Equals(5))
+			{
+				return RedirectToPage("/Template/Index");
+			}
+
+			Invoice = _invoiceService.GetInvoiceById(invoiceId);
+			Invoice.Status = "Paid";
+			_invoiceService.UpdateInvoice(Invoice);
+            Jewelry jewelry = _jewelryService.GetJewelryById(Invoice.Auction.JewelryId);
+            if (jewelry != null)
+            {
+                _jewelryService.DeleteJewelry(jewelry);
+            }
+
+            return Page();
+
+		}
+
+		public async Task<IActionResult> OnPostReject(int invoiceId)
+		{
+			var claimsIdentity = User.Identity as ClaimsIdentity;
+			var userIdClaim = claimsIdentity?.FindFirst("Id");
+			if (userIdClaim == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
+			LoggedInUser = _userService.GetUserByID(int.Parse(userIdClaim.Value));
+			if (LoggedInUser == null)
+			{
+				return RedirectToPage("/Accounts/Login");
+			}
+
+			if (!LoggedInUser.RoleId.Equals(4) && !LoggedInUser.RoleId.Equals(5))
+			{
+				return RedirectToPage("/Template/Index");
+			} 
+
+			Invoice = _invoiceService.GetInvoiceById(invoiceId);
+			Invoice.Status = "Reject";
+			_invoiceService.UpdateInvoice(Invoice);
+			Auction auction = _auctionService.GetAuctionById(Invoice.AuctionId);
+			if (auction != null)
+			{ 
+				_auctionService.UpdateAuctionStatus(auction.Id, "Fail");
+			}
+			return Page();
+
 		}
 	}
 }

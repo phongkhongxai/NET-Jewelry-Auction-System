@@ -75,8 +75,11 @@
 									Auction
 								</a>
 								<div class="dropdown-menu" aria-labelledby="auction-link">
-									@* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
-									<a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
+									@if (Model.LoggedInUser.RoleId.Equals(3))
+									{
+										<a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
+
+									}
 									@if (Model.LoggedInUser.RoleId.Equals(4))
 									{
 										<a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
@@ -309,10 +312,14 @@
 					<td>
 						@if (Model.Invoice.Status.Equals("Pending"))
 						{
-							<form method="post">
-								<input type="hidden" name="invoiceId" value="@Model.Invoice.Id" />
-								<button type="submit" class="btn btn-primary">Update</button>
-							</form>
+								<form method="post" asp-page-handler="Complete" class="d-inline">
+									<input type="hidden" name="invoiceId" value="@Model.Invoice.Id" />
+									<button type="submit" class="btn btn-primary">Complete</button>
+								</form>
+								<form method="post" asp-page-handler="Reject" class="d-inline">
+									<input type="hidden" name="invoiceId" value="@Model.Invoice.Id" />
+									<button type="submit" class="btn btn-primary">Reject</button>
+								</form> 
 						}
 					</td>
 					}

@@ -33,6 +33,8 @@
 	<!-- responsive style -->
 	<link href="~/css/responsive.css" rel="stylesheet" />
 </head>
+
+<body class="sub_page"> 
 <div class="hero_area">
 	<!-- header section starts -->
 	<header class="header_section">
@@ -49,7 +51,7 @@
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+					<div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
 						<ul class="navbar-nav ">
 							<li class="nav-item active">
 								<a class="nav-link confirm-exit" href="/Template">Home</a>
@@ -77,8 +79,10 @@
 									Auction
 								</a>
 								<div class="dropdown-menu" aria-labelledby="auction-link">
-									@* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
-									<a class="dropdown-item confirm-exit" href="/AuctionRequestPage/Create">Auctions Request</a>
+									@if (Model.LoggedInUser.RoleId.Equals(3))
+									{
+											<a class="dropdown-item confirm-exit" href="/AuctionRequestPage/Create">Auctions Request</a>
+										}
 									@if (Model.LoggedInUser.RoleId.Equals(4))
 									{
 										<a class="dropdown-item confirm-exit" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>
@@ -117,7 +121,7 @@
 											<a class="dropdown-item confirm-exit" href="/Invoices/SeeAllInvoice">See all invoice</a>
 										}
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="/Accounts/Logout">Logout</a>
+										<a class="dropdown-item confirm-exit" href="/Accounts/Logout">Logout</a>
 									</div>
 								</li>
 							}
@@ -128,19 +132,7 @@
 								</li>
 							}
 						</ul>
-					</div>
-
-					<div class="quote_btn-container ">
-						<a href="">
-							<img src="~/images/cart.png" alt="">
-							<div class="cart_number">
-								0
-							</div>
-						</a>
-						<form class="form-inline">
-							<button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-						</form>
-					</div>
+					</div> 
 				</div>
 			</nav>
 		</div>
@@ -208,10 +200,10 @@
 								</form>
 								@if (Model.LoggedInUser.RoleId.Equals(5))
 								{
-									<form method="post" asp-page-handler="EndAuction" class="d-inline">
+								 <form method="post" asp-page-handler="EndAuction" class="d-inline">
 										<input type="hidden" name="AuctionId" value="@Model.currentAuction?.Id" />
 										<button type="submit" class="btn btn-danger mb-2">End</button>
-									</form>
+								 </form>
 								}
 							}
 							else if (Model.currentAuction?.Status == "Pausing")
@@ -672,3 +664,4 @@
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
 }
+</body>

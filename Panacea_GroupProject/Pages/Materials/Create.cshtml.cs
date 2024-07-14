@@ -69,7 +69,7 @@ namespace Panacea_GroupProject.Pages.Materials
                 return Page();
             }
             _materialService.CreateMaterial(Material);
-            return RedirectToPage("/Materials/Index");
+            return RedirectToPage("/Materials/ViewMaterials");
         }
     }
 }

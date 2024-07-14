@@ -273,6 +273,7 @@
                             <th>Invoice Number</th>
                             <th>Invoice Date</th>
                             <th>Customer Name</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -283,6 +284,8 @@
                                 <td>@invoice.Id</td>
                                 <td>@invoice.InvoiceDate.ToShortDateString()</td>
                                 <td>@invoice.User.Name</td>
+                                <td>@invoice.Status</td>
+
                                 <td>
                                     <a class="btn btn-primary" href="/Invoices/ViewInvoice?id=@invoice.Id">View Details</a>
                                 </td>

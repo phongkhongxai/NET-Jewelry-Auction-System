@@ -16,7 +16,9 @@ namespace DataAccessObjects
             try
             {
                 using var db = new GroupProjectPRN221();
-                list = db.Jewelries.Include(j => j.AuctionRequest).ToList();
+                list = db.Jewelries.Include(j => j.AuctionRequest)
+                    .Where(j => j.IsDelete == false)
+                    .ToList();
             }
             catch (Exception ex)
             {
