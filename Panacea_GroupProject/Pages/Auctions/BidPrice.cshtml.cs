@@ -214,8 +214,8 @@ namespace Panacea_GroupProject.Pages.Auctions
 			{
 				TempData["Message"] = "The auction has ended.";
 				return RedirectToPage("/Template/Auctions");
-			}
-			_auctionService.UpdateAuctionStatus(currentAuction.Id, "End");
+			} 
+			_auctionService.UpdateAuctionStatus(currentAuction.Id, "End"); 
 
 			var bidWithMaxAmount = Bids.OrderByDescending(b => b.Amount).FirstOrDefault();
 			if (bidWithMaxAmount != null)

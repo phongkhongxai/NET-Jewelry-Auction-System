@@ -110,6 +110,7 @@ namespace Panacea_GroupProject.Pages.Template
             }
             if (!string.IsNullOrWhiteSpace(SearchQuery))
             {
+                CurrentAuctions = _auctionService.GetAuctionByStatus("Processing");
                 UpcomingAuctions = _auctionService.Search(SearchQuery);
             }
             else

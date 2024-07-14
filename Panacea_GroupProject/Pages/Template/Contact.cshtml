@@ -54,10 +54,10 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                        <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="/Template">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="/Template">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/Template/About">About</a>
@@ -78,8 +78,11 @@
                                         Auction
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="auction-link">
-                                        @* <a class="dropdown-item" href="/upcoming-auctions">Upcoming Auctions</a> *@
-                                        <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
+                                        @if (Model.LoggedInUser.RoleId.Equals(3))
+                                        {
+                                            <a class="dropdown-item" href="/AuctionRequestPage/Create">Auctions Request</a>
+
+                                        }
                                         @if (Model.LoggedInUser.RoleId.Equals(4))
                                         {
                                             <a class="dropdown-item" href="/AuctionRequestPage/RequestApproval">Staff Request Approval</a>

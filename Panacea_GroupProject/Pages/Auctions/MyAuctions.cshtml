@@ -182,10 +182,10 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                        <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="/Template">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="/Template">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/Template/About">About</a>
@@ -257,14 +257,7 @@
                                     </li>
                                 }
                             </ul>
-                        </div>
-
-                        @* <div class="quote_btn-container">
-                        <form class="form-inline search-form" method="get" action="/search">
-                        <input class="form-control mr-sm-2 d-none" type="search" placeholder="Search" aria-label="Search" name="query">
-                        </form>
-                        <button class="btn my-2 my-sm-0 nav_search-btn" type="button"></button>
-                        </div> *@
+                        </div> 
                     </div>
                 </nav>
             </div>
@@ -302,7 +295,7 @@
                             </h6>
                         </div>
                         <div class="img-box">
-                            <img src="~/images/p-1.png" alt="">
+                            <img src="@auction.Auction.Jewelry.Image" alt="">
                         </div>
                         <div class="detail-box">
                             <span>@auction.Auction.StartDate</span>
@@ -310,6 +303,7 @@
                             <h5>
                                 Starting price: <span>@auction.Auction.Price</span>
                             </h5>
+
                             <div class="auction-buttons">
                                 <a href="/Auctions/BidPrice?id=@auction.Auction.Id">View Details</a>
                             </div>
